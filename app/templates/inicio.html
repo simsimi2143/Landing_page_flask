@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}Inicio - Municipalidad{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4 text-center">Bienvenido a la Municipalidad</h1>
+        
+        <!-- Carrusel de Bootstrap con estilo personalizado -->
+        <div id="mainCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename='images/slide1.jpg') }}" class="d-block w-100" alt="Slide 1">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                        <h5>Noticia Importante 1</h5>
+                        <p>Descripción de la noticia importante que se quiere destacar.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/slide2.jpg') }}" class="d-block w-100" alt="Slide 2">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                        <h5>Noticia Importante 2</h5>
+                        <p>Descripción de la segunda noticia importante.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/slide3.jpg') }}" class="d-block w-100" alt="Slide 3">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                        <h5>Noticia Importante 3</h5>
+                        <p>Descripción de la tercera noticia importante.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        
+        <!-- Tarjetas de Bootstrap con estilo personalizado -->
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">NOTICIAS</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Mantente informado sobre las últimas novedades de nuestra municipalidad.</p>
+                        <a href="{{ url_for('noticias') }}" class="btn btn-primary">Ver todas las noticias</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">CONCURSOS</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Información sobre los concursos y licitaciones vigentes.</p>
+                        <a href="{{ url_for('concursos') }}" class="btn btn-primary">Ver concursos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">ORGANIZACIONES COMUNITARIAS</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Conoce las organizaciones comunitarias de tu zona.</p>
+                        <a href="{{ url_for('org_comunitarias') }}" class="btn btn-primary">Ver organizaciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Alerta de Bootstrap con estilo personalizado -->
+        <div class="alert alert-info d-flex align-items-center" role="alert" style="background-color: #1a5c1a; border-color: #ff7f00;">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            <div>
+                ¡Bienvenido al sitio oficial de la Municipalidad! Aquí encontrarás toda la información sobre nuestra comunidad.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

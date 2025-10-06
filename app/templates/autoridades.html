@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}Autoridades - Mi Sitio Web{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Nuestras Autoridades</h1>
+        
+        <!-- Tarjetas para autoridades -->
+        <div class="row">
+            {% for autoridad in autoridades %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="{{ url_for('static', filename='images/' + autoridad.imagen) }}" class="card-img-top" alt="{{ autoridad.nombre }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ autoridad.nombre }}</h5>
+                        <p class="card-text"><strong>Cargo:</strong> {{ autoridad.cargo }}</p>
+                        <p class="card-text">Breve biografía de la autoridad, destacando su trayectoria y logros.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{ loop.index }}">
+                            Ver más información
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal para cada autoridad -->
+            <div class="modal fade" id="modal{{ loop.index }}" tabindex="-1" aria-labelledby="modalLabel{{ loop.index }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-dark text-white">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel{{ loop.index }}">{{ autoridad.nombre }}</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Cargo:</strong> {{ autoridad.cargo }}</p>
+                            <p>Información detallada sobre la autoridad, su formación, experiencia y responsabilidades actuales.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Paginación con Bootstrap -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Siguiente</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}

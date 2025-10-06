@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Sitio Web{% endblock %}</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tus estilos personalizados -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <!-- Barra superior con logo, redes sociales y enlaces externos -->
+    <div class="container-fluid top-bar py-2">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <div class="logo d-flex align-items-center">
+                    <a href="{{ url_for('inicio') }}" class="text-white text-decoration-none">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Municipalidad" height="40">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="social-links d-flex justify-content-center gap-3">
+                    <a href="https://www.facebook.com/munifreire" class="social-icon">
+                        <i class="bi bi-facebook text-white"></i>
+                    </a>
+                    <a href="https://www.instagram.com/munifreire/" class="social-icon">
+                        <i class="bi bi-instagram text-white"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCa0AbQJmyXF9sqY1YpdgbeQ" class="social-icon">
+                        <i class="bi bi-youtube text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 text-end">
+                <div class="external-links d-flex justify-content-end gap-2 flex-wrap">
+                    <a href="https://www.leylobby.gob.cl/instituciones/MU091" class="btn btn-sm btn-orange">
+                        <img src="{{ url_for('static', filename='images/lobby.png') }}" alt="Icono Lobby" class="me-1" height="16">
+                        Plataforma Ley de Lobby
+                    </a>
+                    <a href="https://www.portaltransparencia.cl/PortalPdT/web/guest/directorio-de-organismos-regulados?p_p_id=pdtorganismos_WAR_pdtorganismosportlet&orgcode=6c12f0f8d1b026051d19828a3d5a7068" class="btn btn-sm btn-orange">
+                        <img src="{{ url_for('static', filename='images/transparencia.png') }}" alt="Icono Transparencia" class="me-1" height="16">
+                        Solicitar información Ley de Transparencia
+                    </a>
+                    <a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU091" class="btn btn-sm btn-orange">
+                        <img src="{{ url_for('static', filename='images/transparencia-activa.png') }}" alt="Icono Transparencia Activa" class="me-1" height="16">
+                        Transparencia Activa Ley de Transparencia
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <!-- Banner con imagen de fondo -->
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center py-3">
+                        <h1 class="municipality-title">MUNICIPALIDAD FREIRE</h1>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+        <!-- Menú de navegación -->
+            <nav class="navbar navbar-expand-lg navbar-dark main-nav">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'inicio' %}active{% endif %}" href="{{ url_for('inicio') }}">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'autoridades' %}active{% endif %}" href="{{ url_for('autoridades') }}">AUTORIDADES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'direcciones' %}active{% endif %}" href="{{ url_for('direcciones') }}">DIRECCIONES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'comuna' %}active{% endif %}" href="{{ url_for('comuna') }}">COMUNA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'org_comunitarias' %}active{% endif %}" href="{{ url_for('org_comunitarias') }}">ORG. COMUNITARIAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'concursos' %}active{% endif %}" href="{{ url_for('concursos') }}">CONCURSOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'noticias' %}active{% endif %}" href="{{ url_for('noticias') }}">NOTICIAS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <main class="container-fluid py-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; {{ now.year }} Mi Sitio Web. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Tus scripts personalizados -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
