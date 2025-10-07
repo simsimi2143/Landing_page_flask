@@ -13,30 +13,82 @@
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
             </div>
+            <!-- añadimos la primera noticia, las imagenes estan en mala resolucion -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="{{ url_for('static', filename='images/noticias/noticia6.jpg') }}" class="d-block w-100" alt="Slide 1">
                     <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
-                        <h5>Noticia Importante 1</h5>
-                        <p>Descripción de la noticia importante que se quiere destacar.</p>
+                        <h2>Liceo Bicentenario Juan Schleyer obtiene primer lugar en las Olimpiadas de Salud 2025 por segundo año consecutivo </h2>
+                        <p>El Liceo Bicentenario Juan Schleyer de Freire se coronó, por segundo año consecutivo, como ganador del primer lugar en las categorías de 3° y 4° medio en las Olimpíadas de Salud 2025, organizadas por Red Futuro Técnico e IPChile.  
+                            Este importante logro refleja el compromiso, esfuerzo y talento de sus estudiantes y docentes, quienes una vez más dejan en alto el nombre de nuestra comuna y del establecimiento. 
+                            Las Olimpíadas de Salud de IPChile son un evento académico que busca fortalecer las competencias técnicas y el trabajo en equipo de estudiantes de colegios técnicos del área de la salud, promoviendo la excelencia y la vinculación entre la educación media y la formación profesional. 
+                            El director del establecimiento, Rodrigo Andrade, destacó el valor de este reconocimiento señalando que “este resultado es fruto del trabajo constante y del compromiso que muestran nuestros estudiantes y docentes. Detrás de cada logro hay horas de preparación, dedicación y acompañamiento por parte de los equipos técnicos y profesionales del liceo. Nos llena de orgullo ver cómo nuestros jóvenes alcanzan metas tan significativas que reflejan la calidad de la formación que reciben en nuestra comunidad educativa.” 
+                            Con este nuevo triunfo, el Liceo Bicentenario Juan Schleyer consolida su posición como un referente regional en la formación técnico-profesional, reafirmando su compromiso con la excelencia académica y el desarrollo integral de sus estudiantes.</p>
+                    </div>
+                </div>
+                <!-- añadimos la noticia, las imagenes estan en mala resolucion -->
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/noticias/noticia5.jpg') }}" class="d-block w-100" alt="Slide 2">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                        <h2>Orfeón Nacional de Carabineros ofreció gran presentación musical en Freire</h2>
+                        <p>Con el gimnasio municipal completamente lleno, el pasado viernes se presentó en Freire el Orfeón Nacional de Carabineros de Chile, en un espectáculo que reunió a cientos de vecinos y vecinas de la comuna, quienes disfrutaron de una jornada cargada de música, cultura y emoción.
+                            La actividad contó con la presencia del alcalde y concejales de la comuna, quienes acompañaron a la comunidad en este evento que tuvo como objetivo acercar instancias artístico–culturales de primer nivel a la ciudadanía, fortaleciendo los espacios de encuentro y participación local.
+                            Durante la presentación, el público aplaudió cada una de las interpretaciones de la agrupación musical, que combinó repertorio popular y clásico, generando un ambiente familiar y lleno de entusiasmo.
+                            El alcalde José Colihuil Bilimelis, destacó la importancia de contar con este tipo de iniciativas en la comuna, subrayando que “es un verdadero privilegio que el Orfeón Nacional de Carabineros se haya presentado en Freire. Su talento y trayectoria nos permiten disfrutar de un espectáculo de gran nivel, y al mismo tiempo fortalecer la cercanía entre Carabineros y nuestra comunidad. Este tipo de actividades son parte de nuestro compromiso de abrir espacios culturales para todas y todos.”
+                            Por su parte, el Suboficial Mayor, Claudio Vidal, director del Orfeón, señaló que “estamos muy contentos y agradecidos del entusiasmo de la gente que repletó el recinto, lo que sin duda es un aliciente para este trabajo que desarrollamos con tanto cariño. Hoy ha sido una jornada muy relevante, en la que participamos primero en el seminario de juntas de vigilancia rural al mediodía, cerrando esta tarde con esta presentación, y esperamos poder regresar muy pronto a Freire, que nos ha recibido con tanto cariño”.
+                            Los asistentes valoraron la instancia, resaltando el talento y profesionalismo de los músicos, así como la importancia de que la comuna cuente con actividades culturales de calidad, accesibles para las familias y que promuevan la vida comunitaria.</p>
+                    </div>
+                </div>
+                <!-- añadimos la noticia, las imagenes estan en mala resolucion -->
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/noticias/noticia4.jpg') }}" class="d-block w-100" alt="Slide 3">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                        <h2>Freire fue sede del XIV Seminario de Juntas de Vigilancia Rural</h2>
+                        <p>Con la participación de dirigentes de la zona costera y lacustre, autoridades comunales, parlamentarios, el seremi de Seguridad Pública y Carabineros de Chile, este viernes se desarrolló en Freire el XIV Seminario de Juntas de Vigilancia Rural, un encuentro que buscó fortalecer el trabajo comunitario, la organización territorial y la seguridad en los sectores rurales.
+                            La jornada se inició con un Lellipún de bienvenida, para luego dar paso a las intervenciones de dirigentes y autoridades. Entre ellos, el Presidente Intercomunal de las JJ.VV.RR., Exequiel Vergara Catrián, el Teniente Coronel y Subprefecto de Villarrica Alejando Albán Gutiérrez, y el alcalde de Freire, José Colihuil Bilimelis, quien reafirmó el respaldo de su administración a estas organizaciones como un pilar para la seguridad comunitaria.
+                            El seminario incluyó instancias formativas, como la charla sobre Derechos Humanos dictada por el psicólogo Jasson Berly Zafiropulos, de la IX Zona de Carabineros de La Araucanía, y una exposición del Mayor Mauricio Rodríguez Carrier sobre estadística delictiva regional. También se desarrolló una presentación artística a cargo del Grupo Folclórico del Liceo Juan Schleyer y el Ballet Municipal, cerrando la jornada con la destacada participación del Orfeón Nacional de Carabineros de Chile.
+                            <br>
+                            <h5>Reconocimiento Transversal</h5>
+                            Uno de los momentos más emotivos fue la entrega de reconocimientos a mujeres dirigentes de las Juntas de Vigilancia Rural, provenientes de distintas comunas de la región, valorando su liderazgo, compromiso y vocación de servicio. Asimismo, se distinguió a Carabineros y profesionales que han apoyado permanentemente este trabajo.
+                            El alcalde de Freire, José Colihuil Bilimelis, señaló que “nuestro compromiso con las Juntas de Vigilancia Rural es firme, porque entendemos que son las comunidades las que construyen seguridad, organización y colaboración, sobre todo a partir de la familia. Hoy reconocemos a quienes lideran estos espacios y reafirmamos nuestro respaldo como municipio.”
+                            Por su parte, el Subprefecto de los Servicios de la Prefectura de Villarrica, Teniente Coronel Alejandro Albán Gutiérrez, destacó que “este encuentro es una clara muestra de que la seguridad no se construye de manera aislada, sino en conjunto entre Carabineros, los municipios y, sobre todo, las comunidades organizadas. Estas juntas de vigilancia surgieron en un inicio para combatir principalmente el abigeato, pero con el tiempo se han consolidado como un elemento fundamental para combatir la delincuencia en todas sus dimensiones, en una labor coordinada con nuestra institución.”
+                            En tanto, el presidente intercomunal de las JJ.VV.RR., Exequiel Vergara Catrián, valoró el seminario como una oportunidad de encuentro y fortalecimiento del rol de las juntas, subrayando que “hoy reafirmamos nuestro compromiso con el trabajo comunitario. Seguiremos avanzando para que nuestros sectores rurales vivan más seguros, organizados y unidos.”</p>
+                    </div>
+                </div>
+                <!-- añadimos la noticia, las imagenes estan en mala resolucion -->
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename='images/noticias/noticia3.jpeg') }}" class="d-block w-100" alt="Slide 4">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                        <h2>Escuela Lliuco realizó Trafkintu para fortalecer la cultura e identidad mapuche</h2>
+                        <p>Este jueves, la Escuela Lliuco fue el escenario de una significativa jornada cultural con la realización del Trafkintu, un encuentro de intercambio y aprendizaje que convocó a las comunidades educativas de las escuelas Quetroco, Armando Quintulén, Juan Seguel, La Esperanza de Radal y la propia comunidad de Lliuco.
+                            La ceremonia, que se vivió con gran participación y entusiasmo, tuvo como propósito fortalecer los lazos entre comunidades y poner en valor la cultura mapuche, compartiendo saberes, afectos y tradiciones que honran la identidad ancestral del territorio.
+                            Este Trafkintu se enmarca en el trabajo permanente que desarrolla la Unidad Intercultural de la Municipalidad de Freire, que busca generar espacios de encuentro, rescate cultural y transmisión de conocimientos a las nuevas generaciones, fortaleciendo la promoción de la diversidad cultural, destacando el rol de la educación como puente para la integración y el fortalecimiento de la identidad mapuche en la comuna.
+                        </p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='images/slide2.jpg') }}" class="d-block w-100" alt="Slide 2">
+                    <img src="{{ url_for('static', filename='images/noticias/noticia2.jpeg') }}" class="d-block w-100" alt="Slide 5">
                     <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
-                        <h5>Noticia Importante 2</h5>
-                        <p>Descripción de la segunda noticia importante.</p>
+                        <h2>Operativo de podología gratuito benefició a cerca de 50 adultos mayores en Freire</h2>
+                        <p>Ayer miércoles, en el gimnasio municipal de Freire, se desarrolló un amplio operativo de podología gratuito dirigido especialmente a los adultos mayores de la comuna, en el marco de las actividades del Mes de las Personas Mayores.
+                            La jornada, que se extendió desde las diez de la mañana hasta la una de la tarde, fue coordinada por el Programa Adulto Mayor de la Municipalidad de Freire, en conjunto con el Instituto AIEP, lo que permitió que 21 estudiantes de la especialidad atendieran a más de 50 vecinos y vecinas de distintos sectores de la comuna.
+                            La coordinadora del Programa Municipal del Adulto Mayor Claudia Villagrán, señaló que “esta fue la primera actividad en el marco del Mes del Adulto Mayor, que contará con un nutrido calendario de acciones durante todo octubre. Es una instancia muy significativa, porque permite entregar un servicio gratuito y de calidad a nuestros adultos mayores, gracias al apoyo del alcalde y el honorable concejo municipal.”
+                            Los asistentes valoraron enormemente esta oportunidad, destacando tanto la calidad de la atención recibida como el gesto de la municipalidad de acercar este tipo de servicios a la comunidad.
+                            Este operativo marca el inicio de una serie de celebraciones y actividades que buscan reconocer, cuidar y acompañar a las personas mayores de Freire, fortaleciendo su bienestar y participación activa en la vida comunal.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='images/slide3.jpg') }}" class="d-block w-100" alt="Slide 3">
+                    <img src="{{ url_for('static', filename='images/noticias/noticia1.jpg') }}" class="d-block w-100" alt="Slide 6">
                     <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
-                        <h5>Noticia Importante 3</h5>
-                        <p>Descripción de la tercera noticia importante.</p>
+                        <h2>Freire realizó Clínica del Deporte Inclusivo en el gimnasio municipal </h2>
+                        <p>Este martes, en el gimnasio municipal de Freire, se desarrolló una Clínica del Deporte Inclusivo, instancia organizada por la Casa de Inclusión en conjunto con monitores de deporte inclusivo, que convocó a profesionales de distintos ámbitos y comunas. 
+                            La jornada contempló una primera parte teórica, en la que se abordaron los reglamentos del deporte Newcom, dictado por Armando Huinca, y de Bochas, presentado por Abdías Huinca. Asimismo, el Coordinador Diego Naguil expuso sobre las lesiones más frecuentes y su manejo, mientras que el terapeuta ocupacional Luciano Aguilera entregó herramientas de inclusión para personas en situación de discapacidad, junto con orientaciones sobre un lenguaje respetuoso y adecuado. 
+                            Posteriormente, se realizó una fase práctica, en la que los asistentes pudieron conocer y participar directamente de estos deportes inclusivos, con el objetivo de fomentar su implementación en los diferentes espacios de trabajo y actividades comunitarias. 
+                            La actividad contó con la participación de profesionales del Departamento de Educación, del Centro de Desarrollo Integral Paul Harris, de escuelas municipales, además de invitados de la comuna de Teodoro Schmidt, quienes valoraron la instancia como un importante aporte para fortalecer la inclusión a través del deporte. </p>
                     </div>
                 </div>
             </div>
