@@ -1,170 +1,477 @@
-/* Estilos personalizados para replicar el diseño de la municipalidad */
+/* static/css/estilos.css */
+
+:root {
+    --primary-color: #005a9c;
+    --secondary-color: #ff7f00;
+    --light-bg: #f4f4f4;
+    --dark-bg: #333;
+    --white: #ffffff;
+}
+
 body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--light-bg);
 }
 
-/* Barra superior */
+/* --- ESTRUCTURA PRINCIPAL CON GRID TEMPLATE AREAS --- */
+.site-wrapper {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.main-header { grid-area: header; }
+.main-content { grid-area: main; padding: 20px; }
+.main-footer { grid-area: footer; }
+
+/* --- ESTILOS DE LA CABECERA (FLEXBOX) --- */
+.main-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 .top-bar {
-    background-color: #000;
-    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.social-icon {
+.logo-section {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.social-icon:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Botones naranjas para enlaces externos */
-.btn-orange {
-    background-color: #ff7f00;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-}
-
-.btn-orange:hover {
-    background-color: #e67300;
-    color: #fff;
-    border-color: #fff;
-}
-
-/* Banner con imagen de fondo */
-.banner {
-    background-color: #1a5c1a; /* Color verde oscuro similar al de la imagen */
-    background-image: url('../images/banner-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    border-bottom: 3px solid #ff7f00;
-}
-
-.municipality-title {
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    letter-spacing: 2px;
-}
-
-/* Navegación principal */
-.main-nav {
-    background-color: #1a5c1a; /* Color verde oscuro similar al de la imagen */
-    border-bottom: 3px solid #ff7f00;
-    padding: 0;
-}
-
-.main-nav .nav-link {
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
+.social-links a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
     margin: 0 5px;
-    border-radius: 0;
-    padding: 10px 15px;
-    transition: all 0.3s ease;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-.main-nav .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+.social-links a:hover {
+    color: var(--secondary-color);
 }
 
-.main-nav .nav-link.active {
-    background-color: #ff7f00;
-    color: #fff;
+.external-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-/* Contenido principal */
-main {
-    min-height: 70vh;
-    background-color: #111;
+.btn-orange {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+.btn-orange:hover { 
+    background-color: #e67300; 
+    transform: translateY(-2px);
 }
 
-/* Tarjetas para contenido */
-.card {
-    background-color: #222;
-    border: 1px solid #333;
-    color: #fff;
-    margin-bottom: 20px;
+/* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
+.main-header .navbar {
+    background-color: var(--dark-bg) !important;
+    padding: 0.5rem 0;
+}
+.main-header .navbar-nav .nav-link {
+    color: var(--white) !important;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+.main-header .navbar-nav .nav-link:hover {
+    color: var(--secondary-color) !important;
 }
 
-.card-header {
-    background-color: #1a5c1a;
-    border-bottom: 1px solid #ff7f00;
+/* --- GRID DEL CONTENIDO PRINCIPAL (CARRUSEL, MAPA, CLIMA) --- */
+.content-grid {
+    display: grid;
+    grid-template-areas:
+        "carousel weather"
+        "map weather";
+    grid-template-columns: 1fr 350px;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: calc(100vh - 250px);
+    min-height: 900px;
+}
+
+.grid-item {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.carousel-container { 
+    grid-area: carousel; 
+}
+
+.map-container { 
+    grid-area: map; 
+    position: relative;
+    min-height: 300px;
+}
+
+.weather-container { 
+    grid-area: weather; 
+    padding: 15px; 
+    display: flex; 
+    flex-direction: column; 
+    width: 100%;
+}
+
+/* --- ESTILOS ESPECÍFICOS DE LOS COMPONENTES --- */
+#map {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.weather-container h5 { 
+    color: var(--primary-color); 
+    text-align: center; 
+    margin-bottom: 15px; 
+    font-size: 1.2rem;
+}
+#weather {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+.day-card {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+}
+.day-card:hover {
+    transform: translateY(-2px);
+}
+.day-card.today {
+    background: linear-gradient(135deg, #ff7f00, #ff5500);
+    box-shadow: 0 4px 8px rgba(255, 127, 0, 0.3);
+}
+.day-card .temp-max { font-size: 1.2rem; font-weight: bold; }
+.day-card .temp-min { opacity: 0.8; }
+
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.day-name {
     font-weight: bold;
 }
 
-.btn-primary {
-    background-color: #1a5c1a;
-    border-color: #ff7f00;
+.day-date {
+    opacity: 0.9;
+    font-size: 0.75rem;
 }
 
-.btn-primary:hover {
-    background-color: #0f3d0f;
-    border-color: #ff7f00;
+.weather-icon img {
+    width: 50px;
+    height: 50px;
+    margin: 5px 0;
 }
 
-/* Formularios */
-.form-control {
-    background-color: #222;
-    border: 1px solid #444;
-    color: #fff;
+/* --- ESTILOS MEJORADOS PARA EL EXPANSOR DE NOTICIAS --- */
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    text-align: left;
+    max-height: 40%;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.form-control:focus {
-    background-color: #333;
-    border-color: #ff7f00;
-    color: #fff;
-    box-shadow: 0 0 0 0.25rem rgba(255, 127, 0, 0.25);
+/* Cuando el contenido está expandido */
+.carousel-caption.expanded {
+    max-height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    bottom: 0;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 10;
 }
 
-/* Tablas */
-.table {
-    color: #fff;
+.news-summary {
+    display: block;
 }
 
-.table-dark {
-    --bs-table-bg: #222;
-    --bs-table-striped-bg: #2a2a2a;
-    --bs-table-hover-bg: #333;
-    --bs-table-border-color: #444;
-    --bs-table-color: #fff;
-    --bs-table-striped-color: #fff;
-    --bs-table-active-color: #fff;
-    --bs-table-hover-color: #fff;
+.news-full-content {
+    display: none;
 }
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
+.carousel-caption.expanded .news-summary {
+    display: none;
+}
+
+.carousel-caption.expanded .news-full-content {
+    display: block;
+}
+
+/* Botones mejorados */
+.see-more-btn, .see-less-btn {
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+    margin-top: 10px;
+    z-index: 1000;
+    position: relative;
+}
+
+.see-more-btn:hover, .see-less-btn:hover {
+    background-color: #e67300;
+    transform: translateY(-1px);
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* ============================
+   MEDIA QUERIES - RESPONSIVE
+   ============================ */
+
+/* Para tablets */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr 300px;
+        min-height: 800px;
+    }
+    
+    .map-container {
+        min-height: 350px;
+    }
+    
+    .top-bar {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .logo-section {
+        justify-content: center;
+    }
+    
     .external-links {
-        justify-content: center !important;
-        margin-top: 10px;
+        justify-content: center;
+    }
+}
+
+/* Para móviles grandes */
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-areas:
+            "carousel"
+            "weather"
+            "map";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 400px;
+        height: auto;
+        min-height: auto;
+        gap: 15px;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .map-container {
+        height: 400px;
+        min-height: 400px;
+    }
+    
+    #map {
+        position: relative;
+        height: 100%;
+    }
+    
+    .top-bar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .logo-section {
+        justify-content: center;
+    }
+    
+    .external-links {
+        justify-content: center;
+    }
+    
+    .navbar-nav {
+        text-align: center;
+    }
+    
+    .weather-container {
+        max-width: 100%;
+    }
+    
+    #weather {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .day-card {
+        min-width: 120px;
+        flex-shrink: 0;
+    }
+    
+    .carousel-caption {
+        position: relative;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        max-height: none;
+    }
+    
+    .carousel-caption.expanded {
+        position: relative;
+        height: auto;
+    }
+}
+
+/* Para móviles pequeños */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+    }
+    
+    .content-grid {
+        gap: 10px;
+    }
+    
+    .map-container {
+        height: 350px;
+        min-height: 350px;
+    }
+    
+    .top-bar {
+        padding: 10px;
+    }
+    
+    .logo-section img {
+        height: 30px;
+    }
+    
+    .external-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
     }
     
     .btn-orange {
-        font-size: 0.65rem;
-        padding: 3px 6px;
-    }
-    
-    .main-nav .nav-link {
+        width: 100%;
+        max-width: 200px;
         margin: 2px 0;
-        border-left: 3px solid transparent;
     }
     
-    .main-nav .nav-link.active {
-        border-left: 3px solid #ff7f00;
+    .weather-container {
+        padding: 10px;
+    }
+    
+    .weather-container h5 {
+        font-size: 1.1rem;
+    }
+    
+    .day-card {
+        min-width: 110px;
+        padding: 8px;
+        font-size: 0.75rem;
+    }
+    
+    .day-card .temp-max {
+        font-size: 1rem;
+    }
+    
+    .weather-icon img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-caption h5 {
+        font-size: 1rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+    
+    .see-more-btn, .see-less-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Para pantallas muy pequeñas (ej: Galaxy Fold) */
+@media (max-width: 320px) {
+    .main-content {
+        padding: 5px;
+    }
+    
+    .content-grid {
+        gap: 8px;
+    }
+    
+    .map-container {
+        height: 300px;
+        min-height: 300px;
+    }
+    
+    .logo-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .day-card {
+        min-width: 100px;
+        padding: 6px;
+    }
+    
+    .weather-icon img {
+        width: 35px;
+        height: 35px;
     }
 }
