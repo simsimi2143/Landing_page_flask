@@ -82,15 +82,17 @@
                             </li>
 
                             <!-- Dropdown AUTORIDADES corregido -->
+                            <!-- En el dropdown de AUTORIDADES, reemplazar: -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutoridades"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     AUTORIDADES
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownAutoridades">
-                                    <li><a class="dropdown-item" href="#">Alcalde</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('alcalde') }}">Alcalde</a></li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Consejo Municipal</a>
+                                        <a class="dropdown-item" href="{{ url_for('consejo_municipal') }}">Concejo
+                                            Municipal</a>
                                     </li>
                                 </ul>
                             </li>

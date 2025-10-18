@@ -475,3 +475,46 @@ body {
         height: 35px;
     }
 }
+
+/* Agregar al final de estilos.css */
+
+/* Estilos para las páginas de autoridades */
+.concejal-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.concejal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.vision-card, .mision-card {
+    transition: transform 0.3s ease;
+}
+
+.vision-card:hover, .mision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Estilos para badges de comisiones */
+.badge {
+    font-size: 0.7em;
+    margin-bottom: 2px;
+}
+
+/* Modal personalizado */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    border-bottom: none;
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}

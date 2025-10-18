@@ -1,0 +1,126 @@
+<!-- templates/alcalde.html -->
+
+{% extends "layout.html" %}
+
+{% block title %}Alcalde - Municipalidad de Freire{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Alcalde Municipal</h1>
+    
+    <div class="row">
+        <!-- Div 1: Imagen del Alcalde -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ url_for('static', filename='images/alcalde.png') }}" 
+                     class="card-img-top" 
+                     alt="Alcalde de Freire"
+                     style="height: 300px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Nombre del Alcalde</h5>
+                    <p class="card-text">
+                        Breve descripción del alcalde, su trayectoria y compromiso 
+                        con la comunidad de Freire. Experiencia en gestión pública 
+                        y visión para el desarrollo comunal.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Div 2: Visión -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 vision-card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Visión Municipal</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Nuestra Visión:</strong><br>
+                        Ser una municipalidad líder en gestión pública, reconocida 
+                        por su transparencia, eficiencia y compromiso con el desarrollo 
+                        sustentable de Freire, promoviendo una comunidad unida, 
+                        próspera y con igualdad de oportunidades para todos sus habitantes.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li>✓ Desarrollo sustentable</li>
+                        <li>✓ Transparencia y participación</li>
+                        <li>✓ Calidad de vida para todos</li>
+                        <li>✓ Innovación en gestión pública</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Div 3: Misión -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 mision-card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title mb-0">Misión Municipal</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Nuestra Misión:</strong><br>
+                        Gestionar los recursos municipales con eficiencia y transparencia, 
+                        fomentando el desarrollo integral de Freire a través de servicios 
+                        públicos de calidad, participación ciudadana activa y promoción 
+                        del bienestar social, económico y cultural de nuestra comunidad.
+                    </p>
+                    <ul class="list-unstyled">
+                        <li>✓ Servicios públicos eficientes</li>
+                        <li>✓ Participación ciudadana</li>
+                        <li>✓ Desarrollo económico local</li>
+                        <li>✓ Protección del medio ambiente</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title mb-0">Compromisos y Logros</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Principales Compromisos:</h6>
+                            <ul>
+                                <li>Mejoramiento de la infraestructura vial</li>
+                                <li>Fortalecimiento de la educación municipal</li>
+                                <li>Promoción del turismo local</li>
+                                <li>Modernización de servicios municipales</li>
+                                <li>Protección del medio ambiente</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Logros Destacados:</h6>
+                            <ul>
+                                <li>Reducción del desempleo local</li>
+                                <li>Mejora en indicadores de salud</li>
+                                <li>Incremento en cobertura educativa</li>
+                                <li>Modernización del sistema de recolección de basura</li>
+                                <li>Certificación en transparencia municipal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.vision-card, .mision-card {
+    transition: transform 0.3s ease;
+}
+.vision-card:hover, .mision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+</style>
+{% endblock %}

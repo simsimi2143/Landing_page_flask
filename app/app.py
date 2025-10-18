@@ -11,15 +11,65 @@ def inject_now():
 def inicio():
     return render_template('inicio.html')
 
-@app.route('/autoridades')
-def autoridades():
-    # Ejemplo de cómo pasar datos a la plantilla
-    autoridades_list = [
-        {"nombre": "Juan Pérez", "cargo": "Presidente", "imagen": "autoridad1.jpg"},
-        {"nombre": "María García", "cargo": "Vicepresidenta", "imagen": "autoridad2.jpg"},
-        {"nombre": "Carlos López", "cargo": "Secretario", "imagen": "autoridad3.jpg"}
+@app.route('/alcalde')
+def alcalde():
+    return render_template('alcalde.html')
+
+@app.route('/consejo_municipal')
+def consejo_municipal():
+    # Datos de ejemplo para los concejales
+    concejales = [
+        {
+            "nombre": "Luis Figueroa Loncón", 
+            "cargo": "Concejal", 
+            "imagen": "consejal1.png",
+            "partido": "Partido A",
+            "comisiones": ["Educación", "Salud"],
+            "biografia": "Concejal con 8 años de experiencia en el cargo..."
+        },
+        {
+            "nombre": "Marcelo Riveros Briones", 
+            "cargo": "Concejal", 
+            "imagen": "consejal2.png",
+            "partido": "Partido B",
+            "comisiones": ["Obras Públicas", "Medio Ambiente"],
+            "biografia": "Profesional con amplia trayectoria en gestión pública..."
+        },
+        {
+            "nombre": "Luis García Friz", 
+            "cargo": "Concejal", 
+            "imagen": "consejal3.png",
+            "partido": "Partido C",
+            "comisiones": ["Seguridad", "Deportes"],
+            "biografia": "Ex deportista comprometido con el desarrollo comunal..."
+        },
+        {
+            "nombre": "Marcos Colicoi Berna", 
+            "cargo": "Concejal", 
+            "imagen": "consejal4.png",
+            "partido": "Partido A",
+            "comisiones": ["Cultura", "Turismo"],
+            "biografia": "Promotora cultural con 10 años de servicio..."
+        },
+        {
+            "nombre": "José Inostroza Corral", 
+            "cargo": "Concejal", 
+            "imagen": "consejal5.png",
+            "partido": "Partido B",
+            "comisiones": ["Presupuesto", "Transporte"],
+            "biografia": "Economista especializado en finanzas públicas..."
+        },
+        {
+            "nombre": "Victor Rosales Navarrete", 
+            "cargo": "Concejal", 
+            "imagen": "consejal6.png",
+            "partido": "Partido C",
+            "comisiones": ["Derechos Humanos", "Mujer y Género"],
+            "biografia": "Abogada defensora de derechos humanos..."
+        }
     ]
-    return render_template('autoridades.html', autoridades=autoridades_list)
+    return render_template('consejo_municipal.html', concejales=concejales)
+
 
 @app.route('/direcciones')
 def direcciones():

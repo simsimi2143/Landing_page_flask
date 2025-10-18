@@ -1,0 +1,172 @@
+<!-- templates/consejo_municipal.html -->
+
+{% extends "layout.html" %}
+
+{% block title %}Concejo Municipal - Municipalidad de Freire{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Concejo Municipal</h1>
+    
+    <!-- Título y descripción -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Concejales de Freire</h4>
+                    <p class="card-text">
+                        El Concejo Municipal está compuesto por concejales electos democráticamente 
+                        que representan los intereses de la comunidad y trabajan en conjunto 
+                        con el alcalde para el desarrollo de nuestra comuna.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Imagen completa del consejo municipal -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body text-center p-0">
+                    <img src="{{ url_for('static', filename='images/consejo_municipal.png') }}" 
+                         class="img-fluid rounded" 
+                         alt="Concejo Municipal de Freire 2024-2028"
+                         style="max-height: 600px; width: 100%; object-fit: contain;">
+                    <div class="p-3 bg-light">
+                        <h5 class="mb-2">Concejo Municipal de Freire 2024-2028</h5>
+                        <div class="d-flex justify-content-center align-items-center flex-wrap gap-3 mt-2">
+                            <small class="text-muted">
+                                <i class="bi bi-globe me-1"></i>www.munifreire.cl
+                            </small>
+                            <small class="text-muted">
+                                <i class="bi bi-facebook me-1"></i>munifreire
+                            </small>
+                            <small class="text-muted">
+                                <i class="bi bi-instagram me-1"></i>@munifreire
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid de concejales -->
+    <div class="row">
+        {% for concejal in concejales %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card concejal-card h-100" data-bs-toggle="modal" data-bs-target="#modalConcejal{{ loop.index }}">
+                <img src="{{ url_for('static', filename='images/' + concejal.imagen) }}" 
+                     class="card-img-top" 
+                     alt="{{ concejal.nombre }}"
+                     style="height: 250px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ concejal.nombre }}</h5>
+                    <p class="card-text">
+                        <strong>{{ concejal.cargo }}</strong><br>
+                        <small class="text-muted">{{ concejal.partido }}</small>
+                    </p>
+                    <div class="comisiones">
+                        <strong>Comisiones:</strong>
+                        <br>
+                        {% for comision in concejal.comisiones %}
+                        <span class="badge bg-primary me-1">{{ comision }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <small class="text-muted">Click para más información</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para cada concejal -->
+        <div class="modal fade" id="modalConcejal{{ loop.index }}" tabindex="-1" aria-labelledby="modalConcejal{{ loop.index }}Label" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalConcejal{{ loop.index }}Label">{{ concejal.nombre }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ url_for('static', filename='images/' + concejal.imagen) }}" 
+                                     class="img-fluid rounded" 
+                                     alt="{{ concejal.nombre }}">
+                            </div>
+                            <div class="col-md-8">
+                                <h6>{{ concejal.cargo }} - {{ concejal.partido }}</h6>
+                                <p><strong>Comisiones:</strong></p>
+                                <ul>
+                                    {% for comision in concejal.comisiones %}
+                                    <li>{{ comision }}</li>
+                                    {% endfor %}
+                                </ul>
+                                <p><strong>Biografía:</strong></p>
+                                <p>{{ concejal.biografia }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Información del Concejo -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Funciones del Concejo Municipal</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Atribuciones Principales:</h6>
+                            <ul>
+                                <li>Fiscalizar la gestión del alcalde</li>
+                                <li>Aprobar el plan comunal de desarrollo</li>
+                                <li>Dictar ordenanzas municipales</li>
+                                <li>Aprobar el presupuesto municipal</li>
+                                <li>Pronunciarse sobre concesiones municipales</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Compromisos con la Comunidad:</h6>
+                            <ul>
+                                <li>Representar los intereses de los vecinos</li>
+                                <li>Promover la participación ciudadana</li>
+                                <li>Velar por la transparencia municipal</li>
+                                <li>Fiscalizar el uso de recursos públicos</li>
+                                <li>Proponer iniciativas para el desarrollo local</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.concejal-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.concejal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.badge {
+    font-size: 0.7em;
+}
+</style>
+{% endblock %}
