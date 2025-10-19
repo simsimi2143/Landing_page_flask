@@ -1,0 +1,396 @@
+{% extends "layout.html" %}
+
+{% block title %}Juzgado de Policía Local - Municipalidad de Freire{% endblock %}
+
+{% block extra_css %}
+<style>
+    .juzgado-header {
+        background-color: #f8f9fa;
+        padding: 2rem 0;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .juzgado-content {
+        padding: 3rem 0;
+    }
+
+    .competencia-card {
+        border-left: 4px solid #0837f2;
+        background-color: #fcfff8;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 0 0.375rem 0.375rem 0;
+    }
+
+    .table-infracciones {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+    }
+
+    .table-infracciones th {
+        background-color: #0d6efd;
+        color: white;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    .table-infracciones td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .table-infracciones tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    .staff-section {
+        background-color: #f8f9fa;
+        padding: 2rem 0;
+        margin-top: 3rem;
+    }
+
+    .staff-card {
+        text-align: center;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 0.375rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+    .contact-info {
+        background-color: #e9ecef;
+        padding: 1.5rem;
+        border-radius: 0.375rem;
+        margin-top: 2rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="juzgado-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4 mb-3">JUZGADO DE POLICÍA LOCAL DE FREIRE</h1>
+                <p class="lead">Administrando justicia en nuestra comuna con eficiencia y transparencia</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="juzgado-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Sobre el Juzgado de Policía Local</h2>
+                <p>Los Juzgados de Policía Local son Tribunales especiales que tienen por objeto administrar justicia
+                    dentro del territorio de su jurisdicción en forma expedita. Si bien no forman parte del Poder
+                    Judicial, están bajo la supervigilancia directiva, correccional y económica de la Corte de
+                    Apelaciones respectiva, teniendo solamente una dependencia administrativa de la Municipalidad.</p>
+
+                <p>Sus atribuciones y organización están normadas por la <strong>Ley N° 15.231</strong>, sobre
+                    Organización y Atribuciones de los Juzgados de Policía Local, mientras que el procedimiento
+                    aplicable se encuentra regulado en la <strong>Ley 18.287</strong>, que establece procedimiento ante
+                    los Juzgados de Policía Local, sin perjuicio de otras normas en leyes especiales.</p>
+
+                <p>El Juzgado de Policía Local de Freire se encuentra conformado por su Juez, el Secretario Abogado y
+                    Personal Subalterno.</p>
+
+                <hr class="my-5">
+
+                <h3 class="mb-4">Competencias del Juzgado</h3>
+
+                <div class="competencia-card">
+                    <h4>INFRACCIONES A LA LEY DE TRÁNSITO (LEY 18.290)</h4>
+                    <p>La Ley de Tránsito contempla cuatro categorías de infracciones o contravenciones a sus
+                        disposiciones, atendiendo la gravedad de estas:</p>
+
+                    <table class="table-infracciones">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Infracción</th>
+                                <th>Descripción</th>
+                                <th>Artículos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Gravísimas</strong></td>
+                                <td>Infracciones de mayor gravedad que ponen en riesgo la seguridad vial</td>
+                                <td>Art. 199 y 203, Ley 18.290</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Graves</strong></td>
+                                <td>Infracciones que afectan significativamente la seguridad del tránsito</td>
+                                <td>Art. 200 y 203, Ley 18.290</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Menos Graves</strong></td>
+                                <td>Infracciones que incumplen normas de tránsito importantes</td>
+                                <td>Art. 201 y 203, Ley 18.290</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Leves</strong></td>
+                                <td>Infracciones de menor gravedad al reglamento de tránsito</td>
+                                <td>Art. 202, Ley 18.290</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="competencia-card">
+                    <h4>OTRAS COMPETENCIAS</h4>
+                    <ul>
+                        <li>Conocimiento y fallo de las infracciones a las ordenanzas municipales</li>
+                        <li>Conocimiento y fallo de las infracciones a la Ley de Alcoholes</li>
+                        <li>Infracciones a la Ley de Rentas Municipales</li>
+                        <li>Infracciones a normas de higiene y salubridad pública</li>
+                        <li>Otras materias que le encomiendan las leyes especiales</li>
+                    </ul>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <div class="competencia-card">
+                    <h4>Infracciones a la Ley de Alcoholes(Ley 19.925)</h4>
+                    <ul>
+                        <li>La Ley de Alcoholes prohíbe todo consumo de bebidas alcohólicas en calles, caminos, plazas,
+                            paseos y demás lugares de uso público; como asimismo transitar en la vía pública o en
+                            lugares de libre acceso al público en manifiesto estado de ebriedad.</li>
+                        <li>Quienes sean sorprendidos en estas infracciones y denunciados, se exponen a una multa de
+                            hasta 1 Unidad Tributaria Mensual.</li>
+                    </ul>
+                    <h4>Descuento Legal (Artículo 25, Ley 19.925):</h4>
+                    <ul>
+                        <li>Se pondrá término a la causa, si la persona acepta la infracción y la imposición de la
+                            multa, por el solo hecho de que pague el 50% del monto máximo de ésta, dentro de quinto día
+                            de citado al tribunal.</li>
+                        <li>Para estos efectos la persona denunciada debe concurrir al Tribunal a solicitar la
+                            respectiva orden de ingreso, manifestando que se acogerá a este beneficio. Por lo anterior
+                            NO debe presentar descargos, ni solicitar audiencia con el Sr. Juez.</li>
+                    </ul>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="competencia-card mt-4">
+                    <h4>Sanciones por Infracciones de Tránsito</h4>
+                    <p class="mb-3">Quienes sean sorprendidos en estas infracciones y denunciados, se exponen a las
+                        siguientes sanciones:</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col" class="text-center">LEVE</th>
+                                    <th scope="col" class="text-center">MENOS GRAVE</th>
+                                    <th scope="col" class="text-center">GRAVE</th>
+                                    <th scope="col" class="text-center">GRAVÍSIMA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>MULTAS DE:</strong></td>
+                                    <td class="text-center">0.2 / 0.5 UTM</td>
+                                    <td class="text-center">0.5 / 1.0 UTM</td>
+                                    <td class="text-center">1.0 / 1.5 UTM</td>
+                                    <td class="text-center">1.5 / 3.0 UTM</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SUSPENSIÓN DE LICENCIA DE CONDUCIR</strong></td>
+                                    <td class="text-center">--</td>
+                                    <td class="text-center">--</td>
+                                    <td class="text-center">--</td>
+                                    <td class="text-center">5 - 45 días</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <p class="mb-1"><strong>Ver valor de UTM actual:</strong></p>
+                        <div class="d-flex gap-3">
+                            <a href="https://www.sii.cl/valores_y_fechas/utm/utm2024.htm"
+                                class="btn btn-sm btn-outline-primary" target="_blank">
+                                Consultar UTM actual (SII)
+                            </a>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="contact-info">
+                    <h4 class="mb-3">Información de Contacto</h4>
+                    <p><strong>Dirección:</strong><br>
+                        Calle Principal #123, Freire</p>
+
+                    <p><strong>Horario de Atención:</strong><br>
+                        Lunes a Viernes: 9:00 - 14:00 hrs</p>
+
+                    <p><strong>Teléfono:</strong><br>
+                        +56 45 2 123 456</p>
+
+                    <p><strong>Email:</strong><br>
+                        juzgadopolicia@munifreire.cl</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                
+
+                <div class="mt-4">
+                    <h5>Documentos de Interés</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://www.bcn.cl/leychile/navegar?idNorma=29708"
+                                class="text-decoration-none" target="_blank" rel="noopener noreferrer">↳ Ley 18.290 -
+                                Ley de Tránsito</a>
+                        </li>
+                        <li class="mb-2"><a href="https://www.bcn.cl/leychile/navegar?idNorma=28104"
+                                class="text-decoration-none" target="_blank" rel="noopener noreferrer">↳ Ley 15.231 -
+                                OrganizaciónJuzgados</a></li>
+                        <li class="mb-2"><a href="https://www.bcn.cl/leychile/navegar?idNorma=29705"
+                                class="text-decoration-none" target="_blank" rel="noopener noreferrer">↳ Ley 18.287 -
+                                Procedimiento</a></li>
+                        <li class="mb-2"><a
+                                href="https://www.chileatiende.gob.cl/fichas/3439-certificado-de-multas-de-transito-no-pagadas"
+                                class="text-decoration-none" target="_blank" rel="noopener noreferrer">↳ Conoce si
+                                tienes multas de transito</a></li>
+                    </ul>
+                </div>
+
+                <div class="mt-4">
+                    <h5>Formularios de Escritos</h5>
+
+                    <div class="alert alert-warning mt-3">
+                        <strong>IMPORTANTE:</strong><br>
+                        TODO ESCRITO DEBE SER PRESENTADO DIRECTAMENTE EN EL TRIBUNAL Y DEBE SER FIRMADO POR LA PERSONA
+                        INTERESADA
+                    </div>
+
+                    <div class="formulario-section mt-4">
+                        <h6 class="text-primary">FORMULARIOS DE DESCARGOS</h6>
+                        <p class="mb-3">
+                            En este documento corresponde explicar los motivos que llevaron a la persona denunciada a
+                            cometer la infracción y en qué circunstancias ocurrió, y puede ser utilizado solo tratándose
+                            de simples infracciones. Se sugiere que en caso de contar con algún documento que, de
+                            sustento a sus dichos, se acompañe junto a la presentación.
+                        </p>
+                        <p class="mb-3">
+                            Si se trata de su primera presentación en el Tribunal, se sugiere además solicitar
+                            notificación electrónica, pudiendo para ello marcar sólo una opción.
+                        </p>
+                        <a href="{{ url_for('static', filename='docs/DESCARGOS.pdf') }}"
+                            class="btn btn-primary btn-sm" target="_blank">
+                            <i class="bi bi-download me-1"></i> DESCARGAR FORMULARIO DE DESCARGOS
+                        </a>
+                    </div>
+
+                    <div class="formulario-section mt-5">
+                        <h6 class="text-primary">FORMULARIOS DE DECLARACIÓN INDAGATORIA</h6>
+                        <p class="mb-3">
+                            En este documento corresponde entregar todos los antecedentes con lo que se cuente respecto
+                            de una denuncia efectuada, como, por ejemplo, la circunstancias en que ocurrió el hecho
+                            denunciado, y puede ser utilizado en aquellos casos en que se ha citado a una persona a
+                            rendir este tipo de declaración. Se sugiere que en caso de contar con algún documento que,
+                            de sustento a sus dichos, se acompañe junto a la presentación.
+                        </p>
+                        <p class="mb-3">
+                            Si se trata de su primera presentación en el Tribunal, se sugiere además solicitar
+                            notificación electrónica, pudiendo para ello marcar sólo una opción.
+                        </p>
+                        <a href="{{ url_for('static', filename='docs/INDAGATORIA.pdf') }}"
+                            class="btn btn-primary btn-sm" target="_blank">
+                            <i class="bi bi-download me-1"></i> DESCARGAR FORMULARIO DE DECLARACIÓN INDAGATORIA
+                        </a>
+                    </div>
+                    
+                    <div class="formulario-section mt-5">
+                        <h6 class="text-primary">FORMULARIOS DE LISTA DE TESTIGOS</h6>
+                        <p class="mb-3">
+                            Este formulario puede ser utilizado cuando las partes en un juicio requieren probar sus dichos por medio de testigos, y es necesario que acompañe al Tribunal los antecedentes que allí se señalan respecto de las personas que declararán en la audiencia de comparendo. Se debe considerar que dependiendo de la materia hay plazos para presentar esta lista de testigos.
+                        </p>
+                        
+                        <a href="{{ url_for('static', filename='docs/TESTIGOS.pdf') }}"
+                            class="btn btn-primary btn-sm" target="_blank">
+                            <i class="bi bi-download me-1"></i> DESCARGAR FORMULARIO DE LISTA DE TESTIGOS
+                        </a>
+                    </div>
+                    
+                    <div class="formulario-section mt-5">
+                        <h6 class="text-primary">FORMULARIOS DE REPOSICIÓN O RECONSIDERACIÓN</h6>
+                        <p class="mb-3">
+                            Este formulario puede ser utilizado, después que el juez ha dictado sentencia, y la persona infractora no esté conforme con lo dictaminado o no cuenta con capacidad económica para pagar la multa que se le ha impuesto, ya que en éste se solicita que el juez reconsidere su resolución y/o rebaje el monto de la sanción. Se sugiere que en caso de contar con algún documento que, de sustento a sus dichos, se acompañe junto a la presentación.
+                        </p>
+                        <a href="{{ url_for('static', filename='docs/REPOSICIÓN.pdf') }}"
+                            class="btn btn-primary btn-sm" target="_blank">
+                            <i class="bi bi-download me-1"></i> DESCARGAR FORMULARIO DE REPOSICIÓN O RECONSIDERACIÓN
+                        </a>
+                    </div>
+                    
+                    <div class="formulario-section mt-5">
+                        <h6 class="text-primary">FORMULARIOS DE SOLICITUD DE EXHORTO</h6>
+                        <p class="mb-3">
+                            Este formulario puede ser utilizado cuando las partes en un juicio requieren probar sus dichos por medio de testigos, y es necesario que acompañe al Tribunal los antecedentes que allí se señalan respecto de las personas que declararán en la audiencia de comparendo. Se debe considerar que dependiendo de la materia hay plazos para presentar esta lista de testigos.
+                        </p>
+                        <p class="mb-3">
+                            Este formulario puede ser utilizado únicamente tratándose de personas denunciadas con residencia en la comuna de Pitrufquén por infracciones o contravenciones cometidas por conductores de vehículos, en lugares o caminos alejados a la Comuna de Pitrufquén, y que no se trate de aquellas que den origen a accidentes de los cuales resulten lesiones o daños materiales a terceros. Por medio de este formulario la persona interesada puede formular sus descargos por escrito y solicitar que, por medio de exhorto, se recabe la resolución del caso y, si corresponde, el envío de su licencia retenida. En este último caso podrán también solicitar se les otorgué un permiso provisorio para conducir por 30 días.
+                        </p>
+                        <a href=""
+                            class="btn btn-primary btn-sm" target="_blank">
+                            <i class="bi bi-download me-1"></i> DESCARGAR FORMULARIO DE SOLICITUD DE EXHORTO
+                        </a>
+                        <BR></BR>
+                        <a href=""
+                            class="btn btn-primary btn-sm" target="_blank">
+                            <i class="bi bi-download me-1"></i> DESCARGAR FORMULARIO DE SOLICITUD DE EXHORTO Y PERMISO PROVISORIO PARA CONDUCIR
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="staff-section">
+    <div class="container">
+        <h2 class="text-center mb-5">Nuestro Equipo</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="staff-card">
+                    <h5>Juez</h5>
+                    <p class="mb-1">Nombre del Juez</p>
+                    <small class="text-muted">Título Profesional</small>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="staff-card">
+                    <h5>Secretario Abogado</h5>
+                    <p class="mb-1">Nombre del Secretario</p>
+                    <small class="text-muted">Título Profesional</small>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="staff-card">
+                    <h5>Personal Administrativo</h5>
+                    <p class="mb-1">Nombre del Funcionario</p>
+                    <small class="text-muted">Cargo</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Aquí puedes agregar cualquier funcionalidad JavaScript específica para esta página
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('Página del Juzgado de Policía Local cargada');
+    });
+</script>
+{% endblock %}

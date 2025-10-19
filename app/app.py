@@ -11,6 +11,9 @@ def inject_now():
 def inicio():
     return render_template('inicio.html')
 
+
+#@app.route('/ruta del url)
+#def nombre funcion llamada en href del layout
 @app.route('/alcalde')
 def alcalde():
     return render_template('alcalde.html')
@@ -79,6 +82,11 @@ def rentas_patentes():
 @app.route('/transito')
 def transito():
     return render_template('transito.html')
+
+@app.route('/juzgado_policia_local')
+def policia():
+    return render_template('policia.html')
+
 
 @app.route('/organigrama')
 def organigrama():

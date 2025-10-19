@@ -1,11 +1,12 @@
 /* static/css/estilos.css */
-
+/* definir colores unicos con mayor jerarquia */
 :root {
     --primary-color: #005a9c;
     --secondary-color: #ff7f00;
     --light-bg: #f4f4f4;
     --dark-bg: #333;
     --white: #ffffff;
+    --green: #0b8a2d;
 }
 
 body {
@@ -85,7 +86,7 @@ body {
 
 /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
 .main-header .navbar {
-    background-color: var(--dark-bg) !important;
+    background-color: var(--green) !important;
     padding: 0.5rem 0;
 }
 .main-header .navbar-nav .nav-link {

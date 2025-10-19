@@ -1,0 +1,301 @@
+{% extends "layout.html" %}
+
+{% block title %}Organizaciones Comunitarias - Municipalidad de Freire{% endblock %}
+
+{% block extra_css %}
+<style>
+    .org-header {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+    }
+    
+    .org-content {
+        padding: 2rem 0;
+    }
+    
+    .info-card {
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-left: 4px solid #1e3c72;
+    }
+    
+    .excel-container {
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .iframe-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        background-color: #f8f9fa;
+    }
+    
+    .iframe-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    
+    .contact-section {
+        background-color: #f8f9fa;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .feature-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .feature-list li:before {
+        content: "✓";
+        color: #28a745;
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+    
+    .stats-card {
+        text-align: center;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        margin-bottom: 1rem;
+    }
+    
+    .stats-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #1e3c72;
+        display: block;
+    }
+    
+    .stats-label {
+        color: #6c757d;
+        font-size: 0.875rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="org-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 mb-3">Organizaciones Comunitarias</h1>
+                <p class="lead">Conoce y participa en las organizaciones que construyen comunidad en Freire</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="org-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Información sobre Organizaciones Comunitarias -->
+                <div class="info-card">
+                    <h2 class="mb-3">Participación Ciudadana en Freire</h2>
+                    <p>Las Organizaciones Comunitarias son el corazón del desarrollo social en nuestra comuna. A través de estas agrupaciones, los vecinos y vecinas de Freire trabajan unidos para mejorar su calidad de vida y fortalecer los lazos comunitarios.</p>
+                    
+                    <p>La Municipalidad de Freire reconoce y apoya el invaluable trabajo que realizan estas organizaciones, proporcionando espacios de participación, capacitación y recursos para el desarrollo de sus actividades.</p>
+                    
+                    <h5 class="mt-4">Beneficios de participar:</h5>
+                    <ul class="feature-list">
+                        <li>Acceso a fondos concursables municipales</li>
+                        <li>Capacitaciones y talleres especializados</li>
+                        <li>Espacios físicos para reuniones y actividades</li>
+                        <li>Asesoría técnica y legal</li>
+                        <li>Participación en mesas de trabajo comunales</li>
+                    </ul>
+                </div>
+
+                <!-- Directorio de Organizaciones -->
+                <div class="excel-container">
+                    <h3 class="mb-3">Directorio de Organizaciones Comunitarias</h3>
+                    <p class="mb-3">A continuación podrás consultar el listado actualizado de todas las organizaciones comunitarias registradas en la comuna de Freire:</p>
+                    
+                    <div class="iframe-wrapper">
+                        <iframe width="402" height="346" frameborder="0" scrolling="no" 
+                                src="https://1drv.ms/x/c/03a07875f02ecb7f/IQSaJoSkgtD5RYrymqEoj7XNAc6GWIERmiEPTliOG32F2KE?em=2&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True">
+                        </iframe>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <p class="small text-muted mb-2">Si tienes problemas para visualizar el directorio, puedes:</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a href="https://1drv.ms/x/c/03a07875f02ecb7f/IQSaJoSkgtD5RYrymqEoj7XNAc6GWIERmiEPTliOG32F2KE?em=2&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True" 
+                               class="btn btn-outline-primary btn-sm" target="_blank">
+                                <i class="bi bi-box-arrow-up-right me-1"></i> Abrir en ventana nueva
+                            </a>
+                            <a href="#" class="btn btn-outline-success btn-sm">
+                                <i class="bi bi-download me-1"></i> Descargar archivo Excel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <!-- Estadísticas -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="stats-card">
+                            <span class="stats-number" id="orgCount">85</span>
+                            <span class="stats-label">Organizaciones Registradas</span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="stats-card">
+                            <span class="stats-number">12</span>
+                            <span class="stats-label">Tipos Diferentes</span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="stats-card">
+                            <span class="stats-number">24</span>
+                            <span class="stats-label">Sectores Representados</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tipos de Organizaciones -->
+                <div class="info-card">
+                    <h5>Tipos de Organizaciones</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">✓ Juntas de Vecinos</li>
+                        <li class="mb-2">✓ Clubes Deportivos</li>
+                        <li class="mb-2">✓ Centros de Padres</li>
+                        <li class="mb-2">✓ Agrupaciones Culturales</li>
+                        <li class="mb-2">✓ Comités de Vivienda</li>
+                        <li class="mb-2">✓ Organizaciones Ambientales</li>
+                        <li class="mb-2">✓ Agrupaciones de Adulto Mayor</li>
+                        <li class="mb-2">✓ Otros grupos comunitarios</li>
+                    </ul>
+                </div>
+                
+                <!-- Contacto -->
+                <div class="contact-section">
+                    <h5>¿Quieres registrar tu organización?</h5>
+                    <p class="small">Contacta al Departamento de Desarrollo Comunitario:</p>
+                    
+                    <div class="mb-2">
+                        <i class="bi bi-geo-alt me-2"></i>
+                        <span>Municipalidad de Freire, Oficina 204</span>
+                    </div>
+                    <div class="mb-2">
+                        <i class="bi bi-telephone me-2"></i>
+                        <span>+56 45 2 123 456</span>
+                    </div>
+                    <div class="mb-2">
+                        <i class="bi bi-envelope me-2"></i>
+                        <span>comunidad@munifreire.cl</span>
+                    </div>
+                    <div class="mb-2">
+                        <i class="bi bi-clock me-2"></i>
+                        <span>Lunes a Viernes: 9:00 - 14:00 hrs</span>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary btn-sm mt-2">
+                        <i class="bi bi-download me-1"></i> Descargar Formulario de Registro
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Proceso de Registro -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="info-card">
+                    <h3 class="mb-4">Proceso de Registro de Organizaciones</h3>
+                    <div class="row">
+                        <div class="col-md-3 text-center mb-3">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="h4 mb-0">1</span>
+                            </div>
+                            <h5 class="mt-2">Solicitud</h5>
+                            <p class="small">Presentar formulario de registro en Departamento de Desarrollo Comunitario</p>
+                        </div>
+                        <div class="col-md-3 text-center mb-3">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="h4 mb-0">2</span>
+                            </div>
+                            <h5 class="mt-2">Revisión</h5>
+                            <p class="small">Evaluación de documentación y estatutos de la organización</p>
+                        </div>
+                        <div class="col-md-3 text-center mb-3">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="h4 mb-0">3</span>
+                            </div>
+                            <h5 class="mt-2">Aprobación</h5>
+                            <p class="small">Resolución municipal que reconoce a la organización</p>
+                        </div>
+                        <div class="col-md-3 text-center mb-3">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                <span class="h4 mb-0">4</span>
+                            </div>
+                            <h5 class="mt-2">Integración</h5>
+                            <p class="small">Participación en redes y acceso a beneficios municipales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simular contador animado para organizaciones registradas
+        const orgCountElement = document.getElementById('orgCount');
+        let currentCount = 0;
+        const targetCount = 85;
+        const duration = 2000; // 2 segundos
+        const increment = targetCount / (duration / 16); // 60fps
+        
+        function updateCount() {
+            currentCount += increment;
+            if (currentCount < targetCount) {
+                orgCountElement.textContent = Math.floor(currentCount);
+                setTimeout(updateCount, 16);
+            } else {
+                orgCountElement.textContent = targetCount;
+            }
+        }
+        
+        // Iniciar animación cuando el elemento es visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateCount();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        
+        observer.observe(orgCountElement);
+    });
+</script>
+{% endblock %}
