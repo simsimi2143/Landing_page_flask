@@ -1,0 +1,28 @@
+<!-- templates/organigrama.html (versión minimalista) -->
+
+{% extends "layout.html" %}
+
+{% block title %}Organigrama - Municipalidad de Freire{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Título principal -->
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h1 class="mb-3">Organigrama Municipal de Freire</h1>
+        </div>
+    </div>
+
+    <!-- Imagen del organigrama -->
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center">
+                <img src="{{ url_for('static', filename='images/organigrama.png') }}" 
+                     class="img-fluid rounded shadow" 
+                     alt="Organigrama Municipalidad de Freire"
+                     style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

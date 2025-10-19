@@ -1,0 +1,85 @@
+<!-- templates/himno.html (versión mejorada y estilizada) -->
+
+{% extends "layout.html" %}
+
+{% block title %}Himno - Municipalidad de Freire{% endblock %}
+
+{% block content %}
+<style>
+    /* Estilos específicos para la página del himno */
+    .himno-container {
+        font-family: 'Georgia', serif; /* Una tipografía más elegante */
+        font-size: 1.2em;
+        line-height: 1.8; /* Mayor espaciado entre líneas para mejorar la lectura */
+        color: #333;
+        text-align: center;
+        max-width: 800px; /* Limita el ancho para que las líneas no sean muy largas */
+        margin: 0 auto; /* Centra el contenedor */
+        padding: 20px;
+    }
+
+    .himno-container p {
+        margin-bottom: 2.5em; /* Aumenta el espacio entre estrofas */
+    }
+
+    .himno-intro {
+        font-style: italic; /* Pone la introducción en cursiva para diferenciarla */
+        font-weight: bold;
+        color: #0056b3; /* Un color sutil para la intro */
+    }
+
+    .himno-stanza-number {
+        display: block;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+        color: #d9534f; /* Un color destacado para los números de estrofa */
+    }
+</style>
+
+<div class="container mt-4">
+    <!-- Título principal -->
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h1 class="mb-3">Himno de la Municipalidad de Freire</h1>
+        </div>
+    </div>
+
+    <!-- Contenido del Himno -->
+    <div class="row">
+        <div class="col-12">
+            <div class="himno-container">
+                
+                <!-- Introducción -->
+                <p class="himno-intro">
+                    Freire, la hermosa un soldado te dio tu bautismo.<br>
+                    Freire, la hermosa donde reinan la rosa y el trigo.<br>
+                    Mástil de sueños, iza agraria espiga de luz y se<br>
+                    eleva a los cielos de Chile tu canción cardinal cruz del sur.
+                </p>
+
+                <!-- Estrofa I -->
+                <p>
+                    <span class="himno-stanza-number">I</span>
+                    Voz germana de estirpe y esfuerzo se fundió con tu<br>
+                    tierra y tu gente, y nació la canción del progreso,<br>
+                    que hizo grande tu nombre de Freire. Y en el alba<br>
+                    futura de Chile, eres himno, bandera y blasón….<br>
+                    ¡Adelante ciudad centenaria! que tus hijos son noble legión.
+                </p>
+
+                <!-- Estrofa II -->
+                <p>
+                    <span class="himno-stanza-number">II</span>
+                    El odeón de tu plaza inclinado guarda voces,<br>
+                    romances y tiempos de rosales, palmeras y flores<br>
+                    con que escribe tu historia el recuerdo. Hay un sol<br>
+                    industrial en oriente en sus rayos está el porvenir<br>
+                    transformando tu rostro de trigo en ciudad de alborada feliz.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

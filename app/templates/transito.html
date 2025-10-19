@@ -1,0 +1,483 @@
+<!-- templates/rentas_patentes.html -->
+
+{% extends "layout.html" %}
+
+{% block title %}Rentas y Patentes - Municipalidad de Freire{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">UNIDAD DE TRÁNSITO</h1>
+
+
+
+    <!-- Sección 2: Compte de commande du numéro (numéro 3) -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">🔍 Encargado Unidad de Transito: Eduardo Almendra Avendaño</h2>
+                    <span class="badge bg-light text-success">Datos relevantes</span>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Burger Menu Items -->
+                    <div class="list-group list-group-flush">
+                        <!-- Dimensión 1 -->
+                        <div class="list-group-item">
+                            <button
+                                class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseDimension1">
+                                <span>Quienes somos</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseDimension1">
+                                <div class="p-3 border-top">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="{{ url_for('static', filename='images/transito.jpg') }}"
+                                                alt="Icono Transparencia" class="me-1" height="300" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Caracteristicas:</h6>
+                                            <ul>
+                                                <li>La unidad de tránsito, es la encargada de tramitar licencias de
+                                                    conducir, Permisos de circulación, inscripción de carros de
+                                                    arrastre, instalación y mantención de las señaléticas de tránsito y
+                                                    pasos peatonales.</li>
+                                                <li>Cancelaciones de: Derecho de sepultación, Ventas de terrenos de
+                                                    cementerio y derecho de construcción.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dimensión 2 -->
+                        <div class="list-group-item">
+                            <button
+                                class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseDimension2">
+                                <span>Procedimiento para obtener licencia de conducir</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseDimension2">
+                                <div class="p-3 border-top">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h6>Requisitos para obtener licencia de conducir por primera vez:</h6>
+                                            <ul class="list-unstyled">
+                                                <li>✓ Cédula de identidad.</li>
+                                                <li>✓ Acreditar a lo menos enseñanza básica (certificado reconocido por
+                                                    el Ministerio de Educación o certificado de alumno regular).</li>
+                                                <li>✓ Tener 18 años de edad.</li>
+                                                <li>✓ Domicilio en la comuna.</li>
+                                                <li>✓ Examen: <br> Sicométrico, Sensométrico, Teórico y Práctico
+                                                    (vehículo requerido para la clase).</li>
+                                                <li>✓ 2 fotos tamaño carnet con Nombre completo, Rut y Fondo Blanco.
+                                                </li>
+                                            </ul>
+                                            <h6>Casos especiales Postulantes de 17 años (Solo para la clase “B”):</h6>
+                                            <ul class="list-unstyled">
+                                                <li>✓ Domicilio en la Comuna.</li>
+                                                <li>✓ Ídem anterior y, además: Autorización notarial de los padres
+                                                    (Padre y Madre) o representante legal.</li>
+                                                <li>✓ Certificado de aprobación de escuela de conductores, reconocida
+                                                    por el Ministerio de Transporte.</li>
+                                                <li>✓ 2 fotos tamaño carnet con Nombre completo, Rut y Fondo Blanco.
+                                                </li>
+                                            </ul>
+                                            <h6>Postulantes extranjeros</h6>
+                                            <ul class="list-unstyled">
+                                                <li>✓ Domicilio en la Comuna.</li>
+                                                <li>✓ Cédula de Identidad Nacional para extranjeros vigente.</li>
+                                                <li>✓ Acreditar a lo menos enseñanza básica a través de un Certificado
+                                                    de Estudios o Título Universitario validado en Chile (Ministerio de
+                                                    Educación o Universidad de Chile).</li>
+                                                <li>✓ Exámenes: Sicométrico, Sensométrico, Teórico y Práctico.</li>
+                                                <li>✓ 2 fotos tamaño carnet con Nombre completo, Rut y Fondo Blanco.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6>PROCEDIMIENTO PARA OBTENCIÓN DE LICENCIA DE CONDUCIR:</h6>
+                                            <h9>No profesional</h9>
+                                            <br>
+                                            <br>
+                                            <ul>
+                                                <li>Para conducir vehículos motorizados de tres o cuatro ruedas para el
+                                                    transporte particular de personas, con capacidad de hasta nueve
+                                                    asientos, o de carga cuyo peso bruto vehicular sea de hasta 3.500
+                                                    kilogramos, tales como automóviles, camionetas, furgones y
+                                                    furgonetas. Estos vehículos solo podrán arrastrar un remolque cuyo
+                                                    peso no sea superior a la tara de la unidad motriz y siempre que el
+                                                    peso total no exceda de 3.500 kilos.</li>
+                                                <li>Para conducir vehículos motorizados de dos o tres ruedas, con motor
+                                                    fijo o agregado, como motocicletas, motonetas, bicimotos y otros
+                                                    similares.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6>PROCEDIMIENTO PARA OBTENCIÓN DE LICENCIA DE CONDUCIR:</h6>
+                                            <h9>Profesional para Transporte de personas:</h9>
+                                            <br>
+                                            <br>
+                                            <h9>Habilita para conducir vehículos de transporte de pasajeros, vehículos
+                                                de carga, ambulancias y carro bombas, pudiendo ser de las siguientes
+                                                Clases:</h9>
+                                            <br>
+                                            <br>
+                                            <ul>
+                                                <li>Para conducir taxis Para conducir indistintamente taxis, ambulancias
+                                                    o vehículos motorizados de transporte público y privado de personas
+                                                    con capacidadde diez o diecisiete asientos, excluido el conductor.
+                                                </li>
+                                                <li>Para conducir indistintamente taxis, vehículos de transporte
+                                                    remunerado de escolares, ambulancias o vehículos motorizados de
+                                                    transporte público y privado de personas sin limitación de capacidad
+                                                    de asientos.</li>
+                                            </ul>
+                                            <h9>Profesional para Transporte de carga:</h9>
+                                            <br>
+                                            <br>
+                                            <ul>
+                                                <li>Para conducir vehículos simples destinados al transporte de carga
+                                                    cuyo Peso Bruto Vehicular sea superior a 3.500 kilogramos o carro
+                                                    bombas.</li>
+                                                <li>Para conducir carro bombas o todo tipo de vehículos motorizados,
+                                                    simples o articulados, destinados al transporte de carga cuyo Peso
+                                                    Bruto Vehicular sea superior a 3.500 kilogramos.</li>
+                                            </ul>
+                                            <h6>Licencias Profesionales con Simulador</h6>
+                                            <ul>
+                                                <li>Al realizar curso con simulador pueden automáticamente optar a
+                                                    licencias A3 y, o A5.</li>
+                                            </ul>
+                                            <h6>Requisitos</h6>
+                                            <ul>
+                                                <li>Tener como mínimo 20 años de edad</li>
+                                                <li>Acreditar estar en posesión de la clase B durante 2 años</li>
+                                                <li>Ser egresado de enseñanza básica a lo menos</li>
+                                                <li>Aprobar los cursos teóricos y practico que impartan las escuelas de
+                                                    conductores profesionales debidamente reconocidos por el Ministerio
+                                                    de Transportes.</li>
+                                                <li>Acreditar, en caso de la clase A-3, haber estado en posesión,
+                                                    durante a lo menos dos años, de la Licencia Profesional de las
+                                                    clases A-1, A-2, A-4 o A-5. Tratándose de la clase A-5, los
+                                                    postulantes deberán acreditar haber estado en posesión, durante a lo
+                                                    menos dos años, de la Licencia Profesional clase A-2, A-3 o A-4.
+                                                </li>
+                                                <li> Cédula de identidad</li>
+                                                <li>Aprobar exámenes psicométricos, sensométrico, teórico y práctico
+                                                    (Vehículo correspondiente a la clase).</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <!-- Dimensión 0 -->
+                        <div class="list-group-item">
+                            <button
+                                class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseDimension0">
+                                <span>Procedimiento para Renovar licencia de conducir</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseDimension0">
+                                <div class="p-3 border-top">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Renovantes Profesionales Para aquellas licencias de conducir
+                                                profesionales obtenidas anteriormente a marzo de 1997 lo siguiente::
+                                            </h6>
+                                            <ul>
+                                                <li>Cédula de identidad.</li>
+                                                <li>Licencia anterior profesional.</li>
+                                                <li>Domicilio en la comuna.</li>
+                                                <li>Examen psicométrico, sensométrico y teórico.</li>
+                                                <li>2 fotos tamaño carnet con Nombre completo, Rut y Fondo Blanco. </li>
+                                            </ul>
+                                            <h6>Renovantes Profesionales Para conducir vehículos de la locomoción
+                                                colectiva y taxis.:</h6>
+                                            <ul>
+                                                <li>Cédula de identidad.</li>
+                                                <li>Licencia anterior profesional.</li>
+                                                <li>Domicilio en la comuna.</li>
+                                                <li>Examen psicométrico, sensométrico y teórico.</li>
+                                                <li>2 fotos tamaño carnet con Nombre completo, Rut y Fondo Blanco. </li>
+                                            </ul>
+                                            <h6>Renovantes Profesionales Para conducir vehículos de transporte de
+                                                carga.:</h6>
+                                            <ul>
+                                                <li>Cédula de identidad.</li>
+                                                <li>Licencia anterior profesional.</li>
+                                                <li>Domicilio en la comuna.</li>
+                                                <li>Examen psicométrico, sensométrico y teórico.</li>
+                                                <li>2 fotos tamaño carnet con Nombre completo, Rut y Fondo Blanco. </li>
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Procedimiento para Renovar licencia de conducir:</h6>
+                                            <h9>No profesional</h9>
+                                            <br>
+                                            <br>
+                                            <ul>
+                                                <li>Cédula de identidad.</li>
+                                                <li>Licencia anterior profesional.</li>
+                                                <li>Domicilio en la comuna.</li>
+                                                <li>Examen psicométrico, sensométrico y teórico.</li>
+                                                <li>2 fotos tamaño carnet con Nombre completo, Rut y Fondo Blanco. </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- Dimensión 3 -->
+                        <div class="list-group-item">
+                            <button
+                                class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseDimension3">
+                                <span>Permiso de circulación</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseDimension3">
+                                <div class="p-3 border-top">
+                                    <p>Sistema integrado de comando y control para la gestión de rentas y patentes.</p>
+                                    <div class="table-responsive">
+                                        <!-- CAMBIO 1: Se elimina 'table-sm' para usar el padding por defecto de Bootstrap, que es mayor. -->
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>A- Vehículos NUEVOS</th>
+                                                    <th>B- RENOVACIONES</th>
+                                                    <th>C-RENOVACIÓN CARROS de Arrastre</th>
+                                                    <th>D-PRIMERA INSCRIPCION CARROS de ARRASTRE</th>
+                                                    <th>E-FECHA DE RENOVACIÓN DE PERMISO DE CIRCULACIÓN</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <!-- CAMBIO 2: Se añade padding a la lista para separarla del borde de la celda. -->
+                                                        <ul class="p-3">
+                                                            <!-- CAMBIO 3: Se añade margen inferior a cada elemento de la lista para separarlos. -->
+                                                            <li class="mb-2">Factura electrónica.</li>
+                                                            <li class="mb-2">Inscripción Registro Civil.</li>
+                                                            <li class="mb-2">Seguro obligatorio SOAP.</li>
+                                                            <li class="mb-2">Certificado de homologación.</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="p-3">
+                                                            <li class="mb-2">Permiso de Circulación anterior.</li>
+                                                            <li class="mb-2">Seguro obligatorio SOAP.</li>
+                                                            <li class="mb-2">Revisión Técnica y Análisis de Gases, o el
+                                                                certificado de homologación correspondiente.</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="p-3">
+                                                            <li class="mb-2">Permiso de Circulación anterior.</li>
+                                                            <li class="mb-2">Certificado de empadronamiento.</li>
+                                                            <li class="mb-2">Seguro obligatorio SOAP.</li>
+                                                            <li class="mb-2">Revisión Técnica.</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="p-3">
+                                                            <li class="mb-2">Factura o Declaración Jurada Notarial con
+                                                                los siguientes Antecedentes:</li>
+                                                            <li class="mb-2">Nombre o Razón Social del Propietario.</li>
+                                                            <li class="mb-2">RUT del Propietario.</li>
+                                                            <li class="mb-2">Domicilio del Propietario.</li>
+                                                            <li class="mb-2">Marca (si no tiene, debe indicar que es
+                                                                Hechizo).</li>
+                                                            <li class="mb-2">Modelo (si no tiene, debe indicar que es
+                                                                Hechizo o Sin Modelo).</li>
+                                                            <li class="mb-2">Nº de Eje.</li>
+                                                            <li class="mb-2">Nº de Ruedas.</li>
+                                                            <li class="mb-2">Color.</li>
+                                                            <li class="mb-2">Capacidad de Carga.</li>
+                                                            <li class="mb-2">Año de Fabricación.</li>
+                                                            <li class="mb-2">Cualquier otra característica que lo
+                                                                identifique.</li>
+                                                        </ul>
+                                                    </td>
+                                                    <td>
+                                                        <ul class="p-3">
+                                                            <li class="mb-2">Vehículos particulares: automóviles,
+                                                                camionetas, furgones, jeeps y similares, período 1 al 31
+                                                                de marzo. Pago 2ª cuota, hasta el 31 de agosto.</li>
+                                                            <li class="mb-2">Vehículos de trasporte de Pasajeros: buses,
+                                                                taxi buses, taxis y taxis colectivos, en el mes de mayo.
+                                                            </li>
+                                                            <li class="mb-2">Vehículos de Carga y Agrícolas: acoplados,
+                                                                remolques, maquinaria industrial y agrícola, durante el
+                                                                mes de septiembre.</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- Dimensión 2 -->
+                        <div class="list-group-item">
+                            <button
+                                class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseDimension00">
+                                <span>Mapa de reoccido de la licencia de concucir</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseDimension00">
+                                <div class="p-3 border-top">
+                                    <div class="row">
+                                        <div>
+                                            <img src="{{ url_for('static', filename='images/examen.jpg') }}"
+                                                alt="Icono Transparencia" class="me-1" height="700" />
+                                        </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Información de contacto y horarios -->
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Información de Contacto</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Dirección:</strong><br>
+                        Oficina de Unidad de transito<br>
+                        Municipalidad de Freire</p>
+
+                    <p><strong>Teléfono:</strong><br>
+                        +56 45 2 123 456</p>
+
+                    <p><strong>Email:</strong><br>
+                        transito@munifreire.cl</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">Horarios de Atención</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Lunes a Jueves:</strong><br>
+                        8:30 - 14:00 hrs<br>
+                        15:00 - 17:30 hrs</p>
+
+                    <p><strong>Viernes:</strong><br>
+                        8:30 - 14:00 hrs<br>
+                        15:00 - 16:30 hrs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .list-group-item {
+        border: none;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .list-group-item:last-child {
+        border-bottom: none;
+    }
+
+    .btn-link {
+        color: #495057;
+        font-weight: 500;
+        padding: 1rem 1.25rem;
+    }
+
+    .btn-link:hover {
+        color: #0056b3;
+        background-color: #f8f9fa;
+    }
+
+    .btn-link:focus {
+        box-shadow: none;
+    }
+
+    .btn-link[aria-expanded="true"] .bi-chevron-down {
+        transform: rotate(180deg);
+    }
+
+    .bi-chevron-down {
+        transition: transform 0.3s ease;
+    }
+
+    .collapse.show {
+        background-color: #f8f9fa;
+    }
+
+    .card-header {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Script para mejorar la interactividad de los acordeones
+    document.addEventListener('DOMContentLoaded', function () {
+        // Cerrar otros acordeones cuando se abre uno
+        const accordionButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
+
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const target = this.getAttribute('data-bs-target');
+
+                // Cerrar otros acordeones en el mismo grupo
+                const parent = this.closest('.list-group');
+                if (parent) {
+                    const otherButtons = parent.querySelectorAll('[data-bs-toggle="collapse"]');
+                    otherButtons.forEach(otherButton => {
+                        if (otherButton !== this) {
+                            const otherTarget = otherButton.getAttribute('data-bs-target');
+                            const otherCollapse = bootstrap.Collapse.getInstance(otherTarget);
+                            if (otherCollapse) {
+                                otherCollapse.hide();
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

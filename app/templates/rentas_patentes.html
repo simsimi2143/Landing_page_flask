@@ -1,0 +1,707 @@
+<!-- templates/rentas_patentes.html -->
+
+{% extends "layout.html" %}
+
+{% block title %}Rentas y Patentes - Municipalidad de Freire{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Rentas y Patentes</h1>
+
+    <!-- Sección 1: Patentes Comerciales -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">1. Patentes Comerciales</h2>
+                    <span class="badge bg-light text-primary"></span>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Burger Menu Items -->
+                    <div class="list-group list-group-flush">
+                        <!-- Item 1 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                <span>Patente Comercial Persona Natural</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseOne">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <div class="mt-2">
+                                        <ul class="list-unstyled">
+                                            <li>✓ FOTOCOPIA DE CEDULA DE IDENTIDAD.</li>
+                                            <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                            <li>✓ ESCRITURA O CONTRATO ARRIENDO (LEGALIZADO).</li>
+                                            <li>✓ CERTIFICADO DE RECEPCION DEFINITIVA (DPTO. DE OBRAS).</li>
+                                            <li>✓ DECLARACION JURADA SIMPLE DE CAPITAL INICIAL.<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                            <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                            <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                            <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGO OFICINA DE RENTAS).</li>
+                                            <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                        </ul>
+                                        <ul>
+                                            <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                            <li>Expendio de alimentos para animales: Autorización del Servicio Agrícola y Ganadero (SAG).</li>
+                                            <li>Colegios: Resolución Sanitaria del Seremi de Salud de la región y autorización del Ministerio de Educación Pública.</li>
+                                            <li>Jardines infantiles: Autorización de la Junta Nacional de Jardines Infantiles y del Seremi de Salud correspondiente a la región.</li>
+                                            <li>Venta de gas licuado y afines: Certificado de la Superintendencia de Electricidad y Combustible.</li>
+                                            <li>Casas de reposo, clínicas, farmacias y afines: Autorización del Seremi de Salud de la región.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                <span>Patente Comercial Persona Juridica</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseTwo">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ DOCUMENTOS DE CONSTITUCION DE LA SOCIEDAD.</li>
+                                        <li>✓ FOTOCOPIA DE LAS CEDULAS DE IDENTIDAD DE LOS SOCIOS.</li>
+                                        <li>✓ DECLARACION DE CAPITAL INICIAL.<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                        <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                        <li>✓ CONTRATO DE ARRENDAMIENTO.</li>
+                                        <li>✓ CERTIFICADO DE RECEPCION DE OBRAS (OFICINA DE OBRAS MUNICIPALES).</li>
+                                        <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGA OFICINA DE RENTAS).</li>
+                                        <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN DEPENDIENDO DEL TIPO DE ACTIVIDAD QUE DESARROLLARÁ: (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                        <li>Expendio de alimentos para animales: Autorización del Servicio Agrícola y Ganadero (SAG).</li>
+                                        <li>Colegios: Resolución Sanitaria del Seremi de Salud de la región y autorización del Ministerio de Educación Pública.</li>
+                                        <li>Jardines infantiles: Autorización de la Junta Nacional de Jardines Infantiles y del Seremi de Salud correspondiente a la región.</li>
+                                        <li>Venta de gas licuado y afines: Certificado de la Superintendencia de Electricidad y Combustible.</li>
+                                        <li>Casas de reposo, clínicas, farmacias y afines: Autorización del Seremi de Salud de la región.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                <span>Patente Comercial Microempresa</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseThree">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ FOTOCOPIA DE CEDULA DE IDENTIDAD.</li>
+                                        <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                        <li>✓ ESCRITURA O CONTRATO ARRIENDO (LEGALIZADO). (DEBE DECIR HABITACION Y COMERCIAL)</li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE CAPITA INICIAL<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                        <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGO OFICINA DE RENTAS).</li>
+                                        <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN DEPENDIENDO DEL TIPO DE ACTIVIDAD QUE DESARROLLARÁ: (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                        <li>Expendio de alimentos para animales: Autorización del Servicio Agrícola y Ganadero (SAG).</li>
+                                        <li>Colegios: Resolución Sanitaria del Seremi de Salud de la región y autorización del Ministerio de Educación Pública.</li>
+                                        <li>Jardines infantiles: Autorización de la Junta Nacional de Jardines Infantiles y del Seremi de Salud correspondiente a la región.</li>
+                                        <li>Venta de gas licuado y afines: Certificado de la Superintendencia de Electricidad y Combustible.</li>
+                                        <li>Casas de reposo, clínicas, farmacias y afines: Autorización del Seremi de Salud de la región.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                <span>Formulario para declarar numero de trabajadores que laboran en casa matriz y suscursales</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseFour">
+                                <div class="p-3 border-top">
+                                    <a href="{{ url_for('static', filename='documents/TRABAJADORES.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección 2: Patentes Profesionales -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">2. Patentes Profesionales</h2>
+                    <span class="badge bg-light text-success"></span>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Burger Menu Items -->
+                    <div class="list-group list-group-flush">
+                        <!-- Item 1 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                <span>Patente Profesional Persona Natural</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseFive">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <div class="mt-2">
+                                        <ul class="list-unstyled">
+                                            <li>✓ FOTOCOPIA DE CEDULA DE IDENTIDAD.</li>
+                                            <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                            <li>✓ ESCRITURA O CONTRATO ARRIENDO (LEGALIZADO).</li>
+                                            <li>✓ CERTIFICADO DE RECEPCION DEFINITIVA (DPTO. DE OBRAS).</li>
+                                            <li>✓ DECLARACION JURADA SIMPLE DE CAPITAL INICIAL.<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                            <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                            <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                            <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGO OFICINA DE RENTAS).</li>
+                                            <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                        </ul>
+                                        <ul>
+                                            <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                            <li>Expendio de alimentos para animales: Autorización del Servicio Agrícola y Ganadero (SAG).</li>
+                                            <li>Colegios: Resolución Sanitaria del Seremi de Salud de la región y autorización del Ministerio de Educación Pública.</li>
+                                            <li>Jardines infantiles: Autorización de la Junta Nacional de Jardines Infantiles y del Seremi de Salud correspondiente a la región.</li>
+                                            <li>Venta de gas licuado y afines: Certificado de la Superintendencia de Electricidad y Combustible.</li>
+                                            <li>Casas de reposo, clínicas, farmacias y afines: Autorización del Seremi de Salud de la región.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                                <span>Patente Profesional Persona Juridica</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseSix">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ DOCUMENTOS DE CONSTITUCION DE LA SOCIEDAD.</li>
+                                        <li>✓ FOTOCOPIA DE LAS CEDULAS DE IDENTIDAD DE LOS SOCIOS.</li>
+                                        <li>✓ DECLARACION DE CAPITAL INICIAL.<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                        <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                        <li>✓ CONTRATO DE ARRENDAMIENTO.</li>
+                                        <li>✓ CERTIFICADO DE RECEPCION DE OBRAS (OFICINA DE OBRAS MUNICIPALES).</li>
+                                        <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGA OFICINA DE RENTAS).</li>
+                                        <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN DEPENDIENDO DEL TIPO DE ACTIVIDAD QUE DESARROLLARÁ: (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                        <li>Expendio de alimentos para animales: Autorización del Servicio Agrícola y Ganadero (SAG).</li>
+                                        <li>Colegios: Resolución Sanitaria del Seremi de Salud de la región y autorización del Ministerio de Educación Pública.</li>
+                                        <li>Jardines infantiles: Autorización de la Junta Nacional de Jardines Infantiles y del Seremi de Salud correspondiente a la región.</li>
+                                        <li>Venta de gas licuado y afines: Certificado de la Superintendencia de Electricidad y Combustible.</li>
+                                        <li>Casas de reposo, clínicas, farmacias y afines: Autorización del Seremi de Salud de la región.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven">
+                                <span>Patente Profesional Microempresa</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseSeven">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ FOTOCOPIA DE CEDULA DE IDENTIDAD.</li>
+                                        <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                        <li>✓ ESCRITURA O CONTRATO ARRIENDO (LEGALIZADO). (DEBE DECIR HABITACION Y COMERCIAL)</li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE CAPITA INICIAL<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                        <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGO OFICINA DE RENTAS).</li>
+                                        <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN DEPENDIENDO DEL TIPO DE ACTIVIDAD QUE DESARROLLARÁ: (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                        <li>Expendio de alimentos para animales: Autorización del Servicio Agrícola y Ganadero (SAG).</li>
+                                        <li>Colegios: Resolución Sanitaria del Seremi de Salud de la región y autorización del Ministerio de Educación Pública.</li>
+                                        <li>Jardines infantiles: Autorización de la Junta Nacional de Jardines Infantiles y del Seremi de Salud correspondiente a la región.</li>
+                                        <li>Venta de gas licuado y afines: Certificado de la Superintendencia de Electricidad y Combustible.</li>
+                                        <li>Casas de reposo, clínicas, farmacias y afines: Autorización del Seremi de Salud de la región.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight">
+                                <span>Formulario para declarar numero de trabajadores que laboran en casa matriz y suscursales</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseEight">
+                                <div class="p-3 border-top">
+                                    <a href="{{ url_for('static', filename='documents/TRABAJADORES.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección 3: Patentes Industriales -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">3. Patentes Industriales</h2>
+                    <span class="badge bg-light text-danger"></span>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Burger Menu Items -->
+                    <div class="list-group list-group-flush">
+                        <!-- Item 1 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine">
+                                <span>Patente Industrial Persona Natural</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseNine">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <div class="mt-2">
+                                        <ul class="list-unstyled">
+                                            <li>✓ FOTOCOPIA DE CEDULA DE IDENTIDAD.</li>
+                                            <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                            <li>✓ ESCRITURA O CONTRATO ARRIENDO (LEGALIZADO).</li>
+                                            <li>✓ CERTIFICADO DE RECEPCION DEFINITIVA (DPTO. DE OBRAS).</li>
+                                            <li>✓ DECLARACION JURADA SIMPLE DE CAPITAL INICIAL.<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                            <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                            <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                            <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGO OFICINA DE RENTAS).</li>
+                                            <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                        </ul>
+                                        <ul>
+                                            <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                            <li>Expendio de alimentos para animales: Autorización del Servicio Agrícola y Ganadero (SAG).</li>
+                                            <li>Colegios: Resolución Sanitaria del Seremi de Salud de la región y autorización del Ministerio de Educación Pública.</li>
+                                            <li>Jardines infantiles: Autorización de la Junta Nacional de Jardines Infantiles y del Seremi de Salud correspondiente a la región.</li>
+                                            <li>Venta de gas licuado y afines: Certificado de la Superintendencia de Electricidad y Combustible.</li>
+                                            <li>Casas de reposo, clínicas, farmacias y afines: Autorización del Seremi de Salud de la región.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen">
+                                <span>Patente Industrial Persona Juridica</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseTen">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ DOCUMENTOS DE CONSTITUCION DE LA SOCIEDAD.</li>
+                                        <li>✓ FOTOCOPIA DE LAS CEDULAS DE IDENTIDAD DE LOS SOCIOS.</li>
+                                        <li>✓ DECLARACION DE CAPITAL INICIAL.<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                        <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                        <li>✓ CONTRATO DE ARRENDAMIENTO.</li>
+                                        <li>✓ CERTIFICADO DE RECEPCION DE OBRAS (OFICINA DE OBRAS MUNICIPALES).</li>
+                                        <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGA OFICINA DE RENTAS).</li>
+                                        <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN DEPENDIENDO DEL TIPO DE ACTIVIDAD QUE DESARROLLARÁ: (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                        <li>Expendio de alimentos para animales: Autorización del Servicio Agrícola y Ganadero (SAG).</li>
+                                        <li>Colegios: Resolución Sanitaria del Seremi de Salud de la región y autorización del Ministerio de Educación Pública.</li>
+                                        <li>Jardines infantiles: Autorización de la Junta Nacional de Jardines Infantiles y del Seremi de Salud correspondiente a la región.</li>
+                                        <li>Venta de gas licuado y afines: Certificado de la Superintendencia de Electricidad y Combustible.</li>
+                                        <li>Casas de reposo, clínicas, farmacias y afines: Autorización del Seremi de Salud de la región.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven">
+                                <span>Patente Industrial Microempresa</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseEleven">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ FOTOCOPIA DE CEDULA DE IDENTIDAD.</li>
+                                        <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                        <li>✓ ESCRITURA O CONTRATO ARRIENDO (LEGALIZADO). (DEBE DECIR HABITACION Y COMERCIAL)</li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE CAPITA INICIAL<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                        <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGO OFICINA DE RENTAS).</li>
+                                        <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN DEPENDIENDO DEL TIPO DE ACTIVIDAD QUE DESARROLLARÁ: (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                        <li>Expendio de alimentos para animales: Autorización del Servicio Agrícola y Ganadero (SAG).</li>
+                                        <li>Colegios: Resolución Sanitaria del Seremi de Salud de la región y autorización del Ministerio de Educación Pública.</li>
+                                        <li>Jardines infantiles: Autorización de la Junta Nacional de Jardines Infantiles y del Seremi de Salud correspondiente a la región.</li>
+                                        <li>Venta de gas licuado y afines: Certificado de la Superintendencia de Electricidad y Combustible.</li>
+                                        <li>Casas de reposo, clínicas, farmacias y afines: Autorización del Seremi de Salud de la región.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve">
+                                <span>Formulario para declarar numero de trabajadores que laboran en casa matriz y suscursales</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseTwelve">
+                                <div class="p-3 border-top">
+                                    <a href="{{ url_for('static', filename='documents/TRABAJADORES.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección 4: Patentes Alcoholes -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">4. Patentes Alcoholes</h2>
+                    <span class="badge bg-light text-info"></span>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Burger Menu Items -->
+                    <div class="list-group list-group-flush">
+                        <!-- Item 1 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen">
+                                <span>Patente Alcoholes Persona Natural</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseThirteen">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <div class="mt-2">
+                                        <ul class="list-unstyled">
+                                            <li>✓ FOTOCOPIA DE CEDULA DE IDENTIDAD.</li>
+                                            <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                            <li>✓ ESCRITURA O CONTRATO ARRIENDO (LEGALIZADO).</li>
+                                            <li>✓ CERTIFICADO DE RECEPCION DEFINITIVA (DPTO. DE OBRAS).</li>
+                                            <li>✓ DECLARACION JURADA SIMPLE DE CAPITAL INICIAL.<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                            <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                            <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                            <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGO OFICINA DE RENTAS).</li>
+                                            <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                        </ul>
+                                        <ul>
+                                            <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen">
+                                <span>Patente Alcoholes Persona Juridica</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseFourteen">
+                                <div class="p-3 border-top">
+                                    <p>Información sobre permisos de continuidad y procedimientos de solicitud. Requisitos y documentación necesaria.</p>
+                                    <ul class="list-unstyled">
+                                        <li>✓ DOCUMENTOS DE CONSTITUCION DE LA SOCIEDAD.</li>
+                                        <li>✓ FOTOCOPIA DE LAS CEDULAS DE IDENTIDAD DE LOS SOCIOS.</li>
+                                        <li>✓ DECLARACION DE CAPITAL INICIAL.<a href="{{ url_for('static', filename='documents/CAPITAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ DECLARACION JURADA SIMPLE DE COBRO DERECHO DE ASEO.<a href="{{ url_for('static', filename='documents/ASEO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a></li>
+                                        <li>✓ CERTIFICADO DE AVALUO FISCAL DE LA PROPIEDAD .<a href="https://zeus.sii.cl/avalu_cgi/br/brc110.sh" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Encuentralo Aqui</a></li>
+                                        <li>✓ COPIA DE INICIACION DE ACTIVIDADES, APAREZCA EL RUBRO (SII).</li>
+                                        <li>✓ CONTRATO DE ARRENDAMIENTO.</li>
+                                        <li>✓ CERTIFICADO DE RECEPCION DE OBRAS (OFICINA DE OBRAS MUNICIPALES).</li>
+                                        <li>✓ FORMULARIO DE SOLICITUD DE PATENTES (ENTREGA OFICINA DE RENTAS).</li>
+                                        <li>✓ CERTIFICADO DE ENROLAMIENTO DE OFICINA DE ACCION SANITARIA PITRUFQUEN DEPENDIENDO DEL TIPO DE ACTIVIDAD QUE DESARROLLARÁ: (PALAZUELOS 840 PITRUFQUEN ATIENDEN HASTA LAS 13:00).</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Expendio de alimentos perecibles: Resolución sanitaria emitida por la Secretaría Regional Ministerial (Seremi) de Salud de la región.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen">
+                                <span>Formulario para declarar numero de trabajadores que laboran en casa matriz y suscursales</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseFifteen">
+                                <div class="p-3 border-top">
+                                    <a href="{{ url_for('static', filename='documents/TRABAJADORES.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección 5: Manuales, Guías y Solicitudes -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">📖 5. Manuales, Guías y Solicitudes</h2>
+                    <span class="badge bg-light text-secondary">Lista de documentos a descargar</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        <!-- Item 1 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseManual">
+                                <span>MANUAL DE PROCEDIMIENTOS</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseManual">
+                                <div class="p-3 border-top">
+                                    <a href="{{ url_for('static', filename='documents/PROCEDIMIENTO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseRenovacion">
+                                <span>Comunicado de renovación de patentes 2° semestre 2024</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseRenovacion">
+                                <div class="p-3 border-top">
+                                    <a href="{{ url_for('static', filename='documents/CUENTAS.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseAmbulante">
+                                <span>Guía para solicitud de comercio ambulante</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseAmbulante">
+                                <div class="p-3 border-top">
+                                    <a href="{{ url_for('static', filename='documents/COMERCIO.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapsePropaganda">
+                                <span>Solicitud de propaganda caminera</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapsePropaganda">
+                                <div class="p-3 border-top">
+                                    <a href="{{ url_for('static', filename='documents/PROPAGANDA.docx') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="list-group-item">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex justify-content-between align-items-center"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseTemporal">
+                                <span>Guía para solicitud de permisos temporales y especiales para fiestas</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                            <div class="collapse" id="collapseTemporal">
+                                <div class="p-3 border-top">
+                                    <a href="{{ url_for('static', filename='documents/TEMPORAL.PDF') }}" class="btn btn-sm btn-primary" target="_blank" rel="noopener noreferrer">Descargar Formulario</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Información de contacto y horarios -->
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Información de Contacto</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Dirección:</strong><br>
+                    Oficina de Rentas y Patentes<br>
+                    Municipalidad de Freire</p>
+                    
+                    <p><strong>Teléfono:</strong><br>
+                    +56 45 2 123 456</p>
+                    
+                    <p><strong>Email:</strong><br>
+                    rentas@munifreire.cl</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">Horarios de Atención</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Lunes a Jueves:</strong><br>
+                    8:30 - 14:00 hrs<br>
+                    15:00 - 17:30 hrs</p>
+                    
+                    <p><strong>Viernes:</strong><br>
+                    8:30 - 14:00 hrs<br>
+                    15:00 - 16:30 hrs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.btn-link {
+    color: #495057;
+    font-weight: 500;
+    padding: 1rem 1.25rem;
+}
+
+.btn-link:hover {
+    color: #0056b3;
+    background-color: #f8f9fa;
+}
+
+.btn-link:focus {
+    box-shadow: none;
+}
+
+.btn-link[aria-expanded="true"] .bi-chevron-down {
+    transform: rotate(180deg);
+}
+
+.bi-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.collapse.show {
+    background-color: #f8f9fa;
+}
+
+.card-header {
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+/* Mejoras de espaciado y alineación */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.card {
+    margin-bottom: 1rem;
+}
+
+/* Asegurar que todas las cards tengan la misma altura en la sección de contacto */
+.h-100 {
+    height: 100% !important;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Script para mejorar la interactividad de los acordeones
+document.addEventListener('DOMContentLoaded', function() {
+    // Cerrar otros acordeones cuando se abre uno
+    const accordionButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
+    
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const target = this.getAttribute('data-bs-target');
+            
+            // Cerrar otros acordeones en el mismo grupo
+            const parent = this.closest('.list-group');
+            if (parent) {
+                const otherButtons = parent.querySelectorAll('[data-bs-toggle="collapse"]');
+                otherButtons.forEach(otherButton => {
+                    if (otherButton !== this) {
+                        const otherTarget = otherButton.getAttribute('data-bs-target');
+                        const otherCollapse = bootstrap.Collapse.getInstance(otherTarget);
+                        if (otherCollapse) {
+                            otherCollapse.hide();
+                        }
+                    }
+                });
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

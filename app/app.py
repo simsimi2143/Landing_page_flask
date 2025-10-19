@@ -71,13 +71,27 @@ def consejo_municipal():
     return render_template('consejo_municipal.html', concejales=concejales)
 
 
-@app.route('/direcciones')
-def direcciones():
-    return render_template('direcciones.html')
+@app.route('/rentas_patentes')
+def rentas_patentes():
+    return render_template('rentas_patentes.html')
 
-@app.route('/comuna')
-def comuna():
-    return render_template('comuna.html')
+
+@app.route('/transito')
+def transito():
+    return render_template('transito.html')
+
+@app.route('/organigrama')
+def organigrama():
+    return render_template('organigrama.html')
+
+
+@app.route('/historia')
+def historia():
+    return render_template('historia.html')
+
+@app.route('/himno')
+def himno():
+    return render_template('himno.html')
 
 @app.route('/org_comunitarias')
 def org_comunitarias():
@@ -89,10 +103,74 @@ def concursos():
 
 @app.route('/noticias')
 def noticias():
-    # Ejemplo de paginación con Bootstrap
-    page = request.args.get('page', 1, type=int)
     # Aquí normalmente irías a la base de datos a buscar las noticias
-    return render_template('noticias.html', page=page)
+    return render_template('noticias.html')
+
+@app.route('/telefonos')
+def telefonos():
+    # Datos para las cards de teléfonos principales
+    telefonos_principales = [
+        {
+            "titulo": "MESA CENTRAL (OTRO)",
+            "numero": "+45 288 9001",
+            "icono": "bi-telephone-fill",
+            "color": "primary"
+        },
+        {
+            "titulo": "CESFAM FREIRE",
+            "numero": "45 288 9276",
+            "icono": "bi-hospital",
+            "color": "success"
+        },
+        {
+            "titulo": "SAPU - EMERGENCIAS LAS: CESFAM FREIRE",
+            "numero": "45 288 9257",
+            "icono": "bi-ambulance",
+            "color": "danger"
+        },
+        {
+            "titulo": "CESFAM QUINTO",
+            "numero": "45 288 9327",
+            "icono": "bi-house-heart",
+            "color": "info"
+        },
+        {
+            "titulo": "SAPY FREIRE - Avda. Balmaceda",
+            "numero": "45 288 9328",
+            "icono": "bi-clipboard2-pulse",
+            "color": "warning"
+        },
+        {
+            "titulo": "SAPU - CESFAM EL BOSQUE",
+            "numero": "45 288 9342",
+            "icono": "bi-ambulance",
+            "color": "danger"
+        },
+        {
+            "titulo": "SAPU - CESFAM QUINTO",
+            "numero": "45 288 9321",
+            "icono": "bi-ambulance",
+            "color": "danger"
+        }
+    ]
+
+    # Datos para la tabla del directorio telefónico
+    directorio_telefonico = [
+        {"numero": "452889066", "dependencia": "ENCARGADA BIBLIOTECA FREIRE", "ubicacion": "FREIRE", "departamento": "BIBLIOTECA"},
+        {"numero": "452889067", "dependencia": "ENCARGADA BIBLIOTECA", "ubicacion": "FREIRE", "departamento": "BIBLIOTECA"},
+        {"numero": "452889075", "dependencia": "ENCARGADA BIBLIOTECA QUINTO", "ubicacion": "QUINTO", "departamento": "BIBLIOTECA"},
+        {"numero": "452889016", "dependencia": "PROFESORA, DIRECTORA DE GESTIÓN, PEDAGOGÍA Y CURRÍCULO", "ubicacion": "FREIRE", "departamento": "EDUCACIÓN"},
+        {"numero": "452889059", "dependencia": "ENCARGADA BODEGA MUNICIPAL, ORG. TERRITORIAL", "ubicacion": "FREIRE", "departamento": "MUNICIPAL"},
+        {"numero": "452889061", "dependencia": "ADMINISTRATIVO BÁSICO, MUNICIPAL, MANTENCIÓN ARENA", "ubicacion": "FREIRE", "departamento": "MUNICIPAL"},
+        {"numero": "452889096", "dependencia": "PROGRAMA EMBARAZADA, ERICO NUEVA", "ubicacion": "FREIRE", "departamento": "SALUD"},
+        {"numero": "452889340", "dependencia": "ODONTOLOGÍA, NUEVA IMPLEMENTACIÓN", "ubicacion": "FREIRE", "departamento": "SALUD"},
+        {"numero": "452889341", "dependencia": "FARMACIA TRATTA MUNICIPAL", "ubicacion": "FREIRE", "departamento": "SALUD"},
+        {"numero": "452889342", "dependencia": "SAPU, TURNO VERGARA - FERNANDO SOTO", "ubicacion": "FREIRE", "departamento": "SALUD"}
+    ]
+
+    return render_template('telefonos.html', 
+                         telefonos_principales=telefonos_principales,
+                         directorio_telefonico=directorio_telefonico)
 
 if __name__ == '__main__':
     app.run(debug=True)

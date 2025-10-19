@@ -1,0 +1,213 @@
+<!-- templates/historia.html (versión mejorada y estilizada) -->
+
+{% extends "layout.html" %}
+
+{% block title %}Historia - Municipalidad de Freire{% endblock %}
+
+{% block content %}
+<style>
+    /* Estilos específicos para la página de historia */
+    .historia-container {
+        font-family: 'Georgia', serif;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Estilo para la sección del resumen */
+    .historia-summary ol {
+        list-style: none;
+        /* Quita la numeración por defecto */
+        counter-reset: step-counter;
+        /* Inicia un contador personalizado */
+        padding-left: 0;
+    }
+
+    .historia-summary li {
+        counter-increment: step-counter;
+        /* Incrementa el contador */
+        margin-bottom: 2em;
+        position: relative;
+        padding-left: 60px;
+        /* Espacio para el círculo del número */
+        line-height: 1.7;
+    }
+
+    .historia-summary li::before {
+        content: counter(step-counter);
+        /* Muestra el número del contador */
+        position: absolute;
+        left: 0;
+        top: -5px;
+        background-color: #0056b3;
+        /* Color del círculo */
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        /* Hace que sea un círculo */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    /* Estilo para la línea de tiempo */
+    .timeline-section dt {
+        font-weight: bold;
+        font-size: 1.3em;
+        color: #d9534f;
+        /* Color para el año */
+        margin-top: 1.5em;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+    }
+
+    .timeline-section dd {
+        margin-left: 20px;
+        margin-bottom: 1em;
+        line-height: 1.6;
+    }
+
+    .section-title {
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        margin-bottom: 25px;
+    }
+</style>
+
+<div class="container mt-4">
+    <!-- Título principal -->
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h1>Historia de la Municipalidad de Freire</h1>
+        </div>
+    </div>
+
+    <div class="historia-container">
+        <!-- Sección del Video -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3 class="text-center section-title">Video Histórico</h3>
+                <div class="ratio ratio-16x9">
+                    <!-- IMPORTANTE: URL corregida para incrustar el video -->
+                    <iframe src="https://www.youtube.com/embed/K2xIfAd1z9A?si=K_EoDHj24hZnKv3c"
+                        title="Video histórico de Freire" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección del Resumen Histórico -->
+        <div class="row mb-5">
+            <div class="col-12 historia-summary">
+                <h3 class="text-center section-title">Resumen Histórico</h3>
+                <p>
+                    La historia de Freire es un relato de esfuerzo, colonización y progreso, marcado por hitos
+                    fundamentales que dieron forma a nuestra identidad comunal.
+                </p>
+                <ol>
+                    <li>
+                        <strong>Orígenes de la Colonización:</strong>
+                        Durante el Gobierno del General Don Manuel Bulnes, se encomendó a Bernardo Philippi y a Don
+                        Vicente Pérez Rosales la misión de traer inmigrantes alemanes para colonizar el sur de Chile,
+                        sentando las bases para el desarrollo futuro de la región.
+                    </li>
+                    <li>
+                        <strong>La Misión del Ejército:</strong>
+                        Tras la Guerra del Pacífico, el Gobierno de Don Domingo Santa María envió tropas al mando del
+                        Coronel Don Gregorio Urrutia para colonizar e integrar las tierras al sur del Bío Bío a la
+                        Soberanía Nacional. En noviembre de 1882, el Ejército de La Frontera se concentró en Temuco con
+                        el objetivo de consolidar el territorio.
+                    </li>
+                    <li>
+                        <strong>Fundación del Fuerte y la Población:</strong>
+                        El 7 de Diciembre de 1882, la expedición militar fundó el “Fuerte de Freire” en Rucañanco.
+                        Posteriormente, el ciudadano alemán Juan Schleyer, junto a otros colonos, trazó el plano del
+                        pueblo. El 21 de Noviembre de 1885 se aprobó definitivamente el plano, y el 17 de Marzo de 1919,
+                        Freire fue oficialmente declarada Comuna, celebrando su primera sesión municipal.
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Sección de Fechas Importantes -->
+        <div class="row">
+            <div class="col-12 timeline-section">
+                <h3 class="text-center section-title">Fechas Importantes</h3>
+                <dl>
+                    <dt>1882</dt>
+                    <dd>07 de Diciembre, Fundación de la Comuna de Freire (Aniversario).</dd>
+
+                    <dt>1900</dt>
+                    <dd>Entra en actividad el ferrocarril.</dd>
+
+                    <dt>1907</dt>
+                    <dd>Fue creada la primera escuela y su Director fue don Onofre Colina.</dd>
+
+                    <dt>1914</dt>
+                    <dd>El Primer automóvil llegó a Freire, comprado por don Juan de la Fuente.</dd>
+
+                    <dt>1917</dt>
+                    <dd>Se abre una oficina de la Compañía de Teléfonos (cerrada en 1973). Freire tuvo tres diarios: "El
+                        Mañana", "El Diógenes" y "El Comercio".</dd>
+
+                    <dt>1918</dt>
+                    <dd>
+                        Se abre la oficina de telégrafo Comercial (cerrada en 1940).<br>
+                        (20/01) Se inaugura la primera Iglesia Parroquial "San Sebastián".<br>
+                        (20/08) Por Decreto Supremo se crea la Comuna de Freire.<br>
+                        Se crea el Registro Civil; el primer Oficial fue don Clemente Matus.<br>
+                        (03/10) Se constituye la Junta Municipal.
+                    </dd>
+
+                    <dt>1919</dt>
+                    <dd>Primera Sesión Municipal. Samuel Barría Muñoz es el primer Secretario Municipal y Alcalde. Juan
+                        Schleyer H. es el primer Alcalde formal (1919-1921).</dd>
+
+                    <dt>1920</dt>
+                    <dd>Se instala la Caja de Ahorro (hoy Banco del Estado), con Guillermo Melo Moreno como primer
+                        Agente.</dd>
+
+                    <dt>1925</dt>
+                    <dd>Fallece don Juan Schleyer Brandt.</dd>
+
+                    <dt>1929</dt>
+                    <dd>Primer gran incendio en una parte importante de Freire.</dd>
+
+                    <dt>1931</dt>
+                    <dd>El primer médico en residir en Freire fue don Ernesto García Vergara.</dd>
+
+                    <dt>1936</dt>
+                    <dd>(16/07) Se crea la Primera Compañía de Bomberos, por Carlos Pisan, Manuel González G. y Ramón
+                        Sotomayor Aroca.</dd>
+
+                    <dt>1933-1955</dt>
+                    <dd>Se producen el segundo y tercer gran incendio, respectivamente.</dd>
+
+                    <dt>1944</dt>
+                    <dd>(07/04) Inauguración del grupo escolar.</dd>
+
+                    <dt>1951</dt>
+                    <dd>(10/10) Se crea la Asociación del Fútbol de Freire. (02/05) Se funda una filial del Rotary Club.
+                    </dd>
+
+                    <dt>1965</dt>
+                    <dd>Se nombra al primer Juez de Policía Local, el abogado Ernesto Langdon.</dd>
+
+                    <dt>1966</dt>
+                    <dd>(10/03) Se crea la Segunda Compañía de Bomberos.</dd>
+
+                    <dt>1972</dt>
+                    <dd>(16/12) Se inaugura el nuevo cuartel de Bomberos de Freire.</dd>
+
+                    <dt>1997</dt>
+                    <dd>Construcción del Puente Toltén (Ruta 5 Sur).</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

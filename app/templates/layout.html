@@ -104,14 +104,14 @@
                                     DEPARTAMENTOS
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownDirecciones">
-                                    <li><a class="dropdown-item" href="#">Tránsito</a></li>
+                                    <li><a class="dropdown-item" href="{{url_for('transito') }}">Tránsito</a></li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Rentas y Patentes</a>
+                                        <a class="dropdown-item" href="{{ url_for('rentas_patentes') }}">Rentas y Patentes</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="#">Juzgado Policia Local</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="#">Organigrama</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('organigrama') }}">Organigrama</a></li>
                                 </ul>
                             </li>
 
@@ -122,8 +122,8 @@
                                     COMUNA
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownComuna">
-                                    <li><a class="dropdown-item" href="#">Historia</a></li>
-                                    <li><a class="dropdown-item" href="#">Himno</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('historia') }}">Historia</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('himno') }}">Himno</a></li>
                                 </ul>
                             </li>
 
@@ -134,7 +134,7 @@
                                 <a class="nav-link" href="{{ url_for('concursos') }}">CONCURSOS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('noticias') }}">NOTICIAS</a>
+                                <a class="nav-link" href="{{ url_for('noticias') }}">PAGOS E INFORMACIÓN</a>
                             </li>
                         </ul>
                     </div>

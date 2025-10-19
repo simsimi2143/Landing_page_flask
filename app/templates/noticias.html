@@ -1,0 +1,222 @@
+<!-- templates/noticias.html -->
+
+{% extends "layout.html" %}
+
+{% block title %}Noticias - Municipalidad de Freire{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Título principal -->
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h1 class="display-5 mb-3">Servicios y PAGOS</h1>
+            <p class="lead text-muted">Acceda a nuestros servicios en línea y manténgase informado</p>
+        </div>
+    </div>
+
+    <!-- Grid de Cards -->
+    <div class="row justify-content-center">
+        <!-- Card 1: TELEFONOS -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card service-card h-100 shadow-hover">
+                <div class="card-body text-center p-4">
+                    <div class="icon-container mb-3">
+                        <i class="bi bi-telephone-fill text-primary"></i>
+                    </div>
+                    <h5 class="card-title">TELEFONOS</h5>
+                    <p class="card-text text-muted">Contacte con nuestros departamentos</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="{{ url_for('telefonos') }}" class="btn btn-primary w-100" target="_blank" rel="noopener noreferrer">
+                        Acceder
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Card 3: LUMINARIAS EN MAL ESTADO -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card service-card h-100 shadow-hover">
+                <div class="card-body text-center p-4">
+                    <div class="icon-container mb-3">
+                        <i class="bi bi-lightbulb text-info"></i>
+                    </div>
+                    <h5 class="card-title">LUMINARIAS EN MAL ESTADO</h5>
+                    <p class="card-text text-muted">Reporte alumbrado público defectuoso</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=CqgZo5PedUOaHn5FtPrhThtC8fdSH3RCjjNeKfx5_E5UQzdKNTc5V1FCV0xKUTdINFhCVDJXVDFEMi4u&route=shorturl" class="btn btn-info w-100" target="_blank" rel="noopener noreferrer">
+                        Reportar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: ORDENANZAS -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card service-card h-100 shadow-hover">
+                <div class="card-body text-center p-4">
+                    <div class="icon-container mb-3">
+                        <i class="bi bi-journal-text text-success"></i>
+                    </div>
+                    <h5 class="card-title">ORDENANZAS</h5>
+                    <p class="card-text text-muted">Consulte nuestras ordenanzas municipales</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="#" class="btn btn-success w-100" target="_blank" rel="noopener noreferrer">
+                        Consultar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5: PLADECO -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card service-card h-100 shadow-hover">
+                <div class="card-body text-center p-4">
+                    <div class="icon-container mb-3">
+                        <i class="bi bi-clipboard-data text-purple"></i>
+                    </div>
+                    <h5 class="card-title">PLADECO</h5>
+                    <p class="card-text text-muted">Plan de Desarrollo Comunal</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="{{ url_for('static', filename='documents/PLADECO.PDF') }}" class="btn btn-purple w-100" target="_blank" rel="noopener noreferrer">
+                        Ver Más
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6: PAGA AQUÍ PERMISO DE CIRCULACIÓN 2025 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card service-card h-100 shadow-hover">
+                <div class="card-body text-center p-4">
+                    <div class="icon-container mb-3">
+                        <i class="bi bi-credit-card text-danger"></i>
+                    </div>
+                    <h5 class="card-title">PAGA AQUÍ PERMISO DE CIRCULACIÓN 2025</h5>
+                    <p class="card-text text-muted">Renueve su permiso de circulación en línea</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="https://portalpagos.smc.cl/FREIRE/PV/Login" class="btn btn-danger w-100" target="_blank" rel="noopener noreferrer">
+                        Pagar
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7: PAGA AQUÍ PATENTES COMERCIALES 2025 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card service-card h-100 shadow-hover">
+                <div class="card-body text-center p-4">
+                    <div class="icon-container mb-3">
+                        <i class="bi bi-cash-coin text-indigo"></i>
+                    </div>
+                    <h5 class="card-title">PAGA AQUÍ PATENTES COMERCIALES 2025</h5>
+                    <p class="card-text text-muted">Pague sus patentes comerciales en línea</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a href="https://pago.smc.cl/pagoPCv2/Login.aspx?ReturnUrl=%2fpagoPCv2%2fSistema%2fPrincipal.aspx" class="btn btn-indigo w-100" target="_blank" rel="noopener noreferrer">
+                        Pagar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Estilos personalizados para las cards de servicios */
+.service-card {
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.shadow-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.icon-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container i {
+    font-size: 2.5rem;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    min-height: 40px;
+}
+
+/* Colores personalizados para botones */
+.btn-purple {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+    color: white;
+}
+
+.btn-purple:hover {
+    background-color: #5a32a3;
+    border-color: #5a32a3;
+    color: white;
+}
+
+.btn-indigo {
+    background-color: #6610f2;
+    border-color: #6610f2;
+    color: white;
+}
+
+.btn-indigo:hover {
+    background-color: #520dc7;
+    border-color: #520dc7;
+    color: white;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .icon-container i {
+        font-size: 2rem;
+    }
+    
+    .card-body.p-4 {
+        padding: 1.5rem !important;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .icon-container i {
+        font-size: 1.75rem;
+    }
+    
+    .card-body.p-4 {
+        padding: 1rem !important;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+}
+</style>
+{% endblock %}
