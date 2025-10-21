@@ -1,0 +1,217 @@
+<!-- templates/ordenanzas.html -->
+<!-- TODO:ESTA PAGINA ESTARA DESACTIVADA PERO SE GUARDA POR LA LOGICA Y POR LA VISTA EN CASO DE EMERGENCIA -->
+{% extends "layout.html" %}
+
+{% block title %}Ordenanzas Municipales - Municipalidad de Freire{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">ORDENANZAS MUNICIPALES</h1>
+    
+    <!-- Filtros y búsqueda -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar ordenanza..." id="buscarOrdenanza">
+                <button class="btn btn-primary" type="button" id="btnBuscar">Buscar</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <select class="form-select" id="filtroCategoria">
+                <option value="todas" selected>Todas las categorías</option>
+                <option value="Medio Ambiente">Medio Ambiente</option>
+                <option value="Tránsito">Tránsito</option>
+                <option value="Urbanismo">Urbanismo</option>
+                <option value="Salud Pública">Salud Pública</option>
+                <option value="Gestión de Riesgos">Gestión de Riesgos</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Lista de ordenanzas -->
+    <div class="row" id="listaOrdenanzas">
+        {% for ordenanza in ordenanzas %}
+        <div class="col-12 mb-3 ordenanza-item" 
+             data-categoria="{{ ordenanza.categoria }}"
+             data-nombre="{{ ordenanza.nombre.lower() }}">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-file-pdf" style="font-size: 3rem; color: red;"></i>
+                        </div>
+                        <div class="col">
+                            <h5 class="card-title">{{ ordenanza.nombre }}</h5>
+                            <p class="card-text text-muted mb-0">
+                                <small>Aprobada: {{ ordenanza.fecha_aprobacion }}</small>
+                            </p>
+                            <p class="card-text text-muted">
+                                <small>Categoría: {{ ordenanza.categoria }}</small>
+                            </p>
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn-group" role="group">
+                                <!-- Botón para abrir el modal -->
+                                <button class="btn btn-primary btn-ver-pdf" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#pdfModal" 
+                                        data-pdf="{{ url_for('static', filename='docs/' + ordenanza.archivo) }}"
+                                        data-nombre="{{ ordenanza.nombre }}">
+                                    <i class="bi bi-eye"></i> Ver
+                                </button>
+                                <a href="{{ url_for('static', filename='docs/' + ordenanza.archivo) }}" 
+                                   class="btn btn-outline-primary" download>
+                                    <i class="bi bi-download"></i> Descargar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Mensaje cuando no hay resultados -->
+    <div class="d-none text-center mt-5" id="sinResultados">
+        <i class="bi bi-search" style="font-size: 4rem; color: #6c757d;"></i>
+        <h3 class="mt-3">No se encontraron ordenanzas</h3>
+        <p class="text-muted">Intenta con otros términos de búsqueda o filtros</p>
+    </div>
+</div>
+
+<!-- Modal para visualizar PDF -->
+<div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between align-items-center">
+        <h5 class="modal-title" id="pdfModalLabel">Vista previa del documento</h5>
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-outline-secondary btn-sm" id="zoomOutBtn" title="Alejar">
+                <i class="bi bi-zoom-out"></i>
+            </button>
+            <button class="btn btn-outline-secondary btn-sm" id="zoomInBtn" title="Acercar">
+                <i class="bi bi-zoom-in"></i>
+            </button>
+            <a href="#" class="btn btn-outline-secondary btn-sm" id="openNewTabBtn" target="_blank" title="Abrir en nueva pestaña">
+                <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+            <a href="#" class="btn btn-outline-primary btn-sm" id="downloadBtn" download title="Descargar PDF">
+                <i class="bi bi-download"></i>
+            </a>
+            <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+      </div>
+      <div class="modal-body p-0" style="height: 80vh;">
+        <iframe id="pdfViewer" src="" width="100%" height="100%" style="border:none; transform: scale(1); transform-origin: top center;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.card {
+    transition: all 0.3s;
+    border: 1px solid #dee2e6;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.bi-file-pdf {
+    transition: transform 0.3s;
+}
+
+.card:hover .bi-file-pdf {
+    transform: scale(1.1);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- FILTRO Y BÚSQUEDA CORREGIDO ---
+    const buscarInput = document.getElementById('buscarOrdenanza');
+    const btnBuscar = document.getElementById('btnBuscar');
+    const filtroCategoria = document.getElementById('filtroCategoria');
+    const listaOrdenanzas = document.getElementById('listaOrdenanzas');
+    const sinResultados = document.getElementById('sinResultados');
+    const ordenanzaItems = document.querySelectorAll('.ordenanza-item');
+    
+    function filtrarOrdenanzas() {
+        const textoBusqueda = buscarInput.value.toLowerCase().trim();
+        const categoriaSeleccionada = filtroCategoria.value;
+        let resultadosEncontrados = 0;
+        
+        ordenanzaItems.forEach(item => {
+            const nombre = item.getAttribute('data-nombre');
+            const categoria = item.getAttribute('data-categoria');
+            
+            const coincideTexto = textoBusqueda === '' || nombre.includes(textoBusqueda);
+            const coincideCategoria = categoriaSeleccionada === 'todas' || categoria === categoriaSeleccionada;
+            
+            if (coincideTexto && coincideCategoria) {
+                item.style.display = 'block';
+                resultadosEncontrados++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        
+        // Mostrar u ocultar mensaje de sin resultados
+        if (resultadosEncontrados === 0) {
+            listaOrdenanzas.classList.add('d-none');
+            sinResultados.classList.remove('d-none');
+        } else {
+            listaOrdenanzas.classList.remove('d-none');
+            sinResultados.classList.add('d-none');
+        }
+    }
+    
+    // Event listeners
+    buscarInput.addEventListener('input', filtrarOrdenanzas);
+    btnBuscar.addEventListener('click', filtrarOrdenanzas);
+    filtroCategoria.addEventListener('change', filtrarOrdenanzas);
+
+    // --- MODAL DE PDF (sin cambios) ---
+    const pdfButtons = document.querySelectorAll('.btn-ver-pdf');
+    const pdfViewer = document.getElementById('pdfViewer');
+    const pdfModal = document.getElementById('pdfModal');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const openNewTabBtn = document.getElementById('openNewTabBtn');
+    let zoomLevel = 1;
+
+    pdfButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const pdfUrl = this.getAttribute('data-pdf');
+            const nombre = this.getAttribute('data-nombre');
+            pdfViewer.src = pdfUrl;
+            downloadBtn.href = pdfUrl;
+            openNewTabBtn.href = pdfUrl;
+            document.getElementById('pdfModalLabel').textContent = nombre;
+            zoomLevel = 1;
+            pdfViewer.style.transform = `scale(${zoomLevel})`;
+        });
+    });
+
+    zoomInBtn.addEventListener('click', function() {
+        zoomLevel += 0.1;
+        pdfViewer.style.transform = `scale(${zoomLevel})`;
+    });
+
+    zoomOutBtn.addEventListener('click', function() {
+        if (zoomLevel > 0.3) {
+            zoomLevel -= 0.1;
+            pdfViewer.style.transform = `scale(${zoomLevel})`;
+        }
+    });
+
+    pdfModal.addEventListener('hidden.bs.modal', function() {
+        pdfViewer.src = '';
+    });
+});
+</script>
+{% endblock %}
