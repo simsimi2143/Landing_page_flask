@@ -1,0 +1,82 @@
+{% extends "admin/base_admin.html" %}
+
+{% block page_title %}Información del Alcalde{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Información del Alcalde</h1>
+</div>
+
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form.nombre.label(class="form-label") }}
+                {{ form.nombre(class="form-control") }}
+                {% if form.nombre.errors %}
+                    <div class="text-danger">
+                        {% for error in form.nombre.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                {{ form.descripcion.label(class="form-label") }}
+                {{ form.descripcion(class="form-control", rows=5) }}
+                {% if form.descripcion.errors %}
+                    <div class="text-danger">
+                        {% for error in form.descripcion.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                {{ form.imagen.label(class="form-label") }}
+                {{ form.imagen(class="form-control") }}
+                {% if form.imagen.errors %}
+                    <div class="text-danger">
+                        {% for error in form.imagen.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% if alcalde and alcalde.imagen %}
+                    <div class="mt-2">
+                        <p>Imagen actual:</p>
+                        <img src="{{ url_for('static', filename=alcalde.imagen) }}" alt="Imagen actual" style="max-height: 200px;" class="img-thumbnail">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form.vision.label(class="form-label") }}
+                {{ form.vision(class="form-control", rows=5) }}
+            </div>
+            <div class="mb-3">
+                {{ form.mision.label(class="form-label") }}
+                {{ form.mision(class="form-control", rows=5) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form.compromisos.label(class="form-label") }}
+                {{ form.compromisos(class="form-control", rows=5) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form.logros.label(class="form-label") }}
+                {{ form.logros(class="form-control", rows=5) }}
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

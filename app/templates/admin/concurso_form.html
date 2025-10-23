@@ -1,0 +1,87 @@
+{% extends "admin/base_admin.html" %}
+
+{% block page_title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">{{ titulo }}</h1>
+</div>
+
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="mb-3">
+                {{ form.titulo.label(class="form-label") }}
+                {{ form.titulo(class="form-control") }}
+                {% if form.titulo.errors %}
+                    <div class="text-danger">
+                        {% for error in form.titulo.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                {{ form.descripcion.label(class="form-label") }}
+                {{ form.descripcion(class="form-control", rows=5) }}
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        {{ form.fecha.label(class="form-label") }}
+                        {{ form.fecha(class="form-control", placeholder="DD/MM/AAAA") }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        {{ form.tipo.label(class="form-label") }}
+                        {{ form.tipo(class="form-select") }}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                {{ form.archivos_pdf.label(class="form-label") }}
+                {{ form.archivos_pdf(class="form-control", multiple=true) }}
+                <small class="form-text text-muted">Puedes seleccionar múltiples archivos PDF</small>
+                {% if form.archivos_pdf.errors %}
+                    <div class="text-danger">
+                        {% for error in form.archivos_pdf.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <!-- Archivos existentes -->
+            {% if archivos %}
+            <div class="mb-3">
+                <label class="form-label">Archivos actuales:</label>
+                <div class="list-group">
+                    {% for archivo in archivos %}
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <i class="bi bi-file-pdf text-danger me-2"></i>
+                            {{ archivo.nombre_archivo }}
+                        </div>
+                        <a href="{{ url_for('eliminar_archivo_concurso', id=archivo.id) }}" 
+                           class="btn btn-sm btn-outline-danger"
+                           onclick="return confirm('¿Estás seguro de eliminar este archivo?')">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
+            <div class="mb-3 form-check">
+                {{ form.activo(class="form-check-input") }}
+                {{ form.activo.label(class="form-check-label") }}
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{{ url_for('admin_concursos') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "admin/base_admin.html" %}
+
+{% block page_title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">{{ titulo }}</h1>
+</div>
+
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form.nombre.label(class="form-label") }}
+                {{ form.nombre(class="form-control") }}
+                {% if form.nombre.errors %}
+                    <div class="text-danger">
+                        {% for error in form.nombre.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                {{ form.cargo.label(class="form-label") }}
+                {{ form.cargo(class="form-control") }}
+            </div>
+            <div class="mb-3">
+                {{ form.partido.label(class="form-label") }}
+                {{ form.partido(class="form-control") }}
+            </div>
+            <div class="mb-3">
+    {{ form.comisiones.label(class="form-label") }}
+    {{ form.comisiones(class="form-control", rows=3, placeholder="Educación, Salud, Obras Públicas, Medio Ambiente") }}
+    <small class="form-text text-muted">Separar por comas</small>
+</div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form.biografia.label(class="form-label") }}
+                {{ form.biografia(class="form-control", rows=8) }}
+            </div>
+            <div class="mb-3">
+                {{ form.imagen.label(class="form-label") }}
+                {{ form.imagen(class="form-control") }}
+                {% if form.imagen.errors %}
+                    <div class="text-danger">
+                        {% for error in form.imagen.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% if concejal and concejal.imagen %}
+                    <div class="mt-2">
+                        <img src="{{ url_for('static', filename=concejal.imagen) }}" alt="Imagen actual" style="max-height: 200px;">
+                    </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        {{ form.orden.label(class="form-label") }}
+                        {{ form.orden(class="form-control", type="number") }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 form-check pt-4">
+                        {{ form.activo(class="form-check-input") }}
+                        {{ form.activo.label(class="form-check-label") }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{{ url_for('admin_concejales') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

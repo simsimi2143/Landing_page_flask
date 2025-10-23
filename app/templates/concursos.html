@@ -126,268 +126,81 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <!-- Resultados de Concursos Públicos -->
-            <div class="resultados-section">
-                <h2 class="mb-3">RESULTADOS CONCURSOS PÚBLICOS CARGOS VACANTES MUNICIPALIDAD DE FREIRE</h2>
-                
-                <div class="notificacion-codigos">
-                    <span class="codigo-notificacion">NOTIFICACIÓN CÓDIGO Nº 01</span>
-                    <span class="codigo-notificacion">NOTIFICACIÓN CÓDIGO Nº 02</span>
-                    <span class="codigo-notificacion">NOTIFICACIÓN CÓDIGO Nº 03</span>
-                    <span class="codigo-notificacion">NOTIFICACIÓN CÓDIGO Nº 04</span>
-                    <span class="codigo-notificacion">NOTIFICACIÓN CÓDIGO Nº 05</span>
-                    <span class="codigo-notificacion">NOTIFICACIÓN CÓDIGO Nº 06</span>
-                    <span class="codigo-notificacion">NOTIFICACIÓN CÓDIGO Nº 07</span>
-                </div>
-                
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="text-muted">29/08/2025</span>
-                    <button type="button" class="btn-ver-mas" data-bs-toggle="modal" data-bs-target="#resultadosModal">
-                        VER MÁS <i class="bi bi-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-
             <!-- Lista de Concursos -->
-            <div class="concurso-card">
-                <div class="concurso-fecha">29/06/2025</div>
-                <div class="concurso-content">
-                    <h3 class="concurso-titulo">CONCURSO PÚBLICO CARGO CODIGO 07 AUXILIAR GRADO 16° E.M.S. PARA DESEMPEÑAR FUNCIONES COMO CONDUCTOR MUNICIPAL</h3>
-                    <p class="mb-3">Concurso público para el cargo de Auxiliar Grado 16° E.M.S. para desempeñar funciones como Conductor Municipal.</p>
-                    <button type="button" class="btn-ver-mas" data-bs-toggle="modal" data-bs-target="#conductorModal">
-                        VER MÁS <i class="bi bi-arrow-right"></i>
-                    </button>
+            {% if concursos %}
+                {% for concurso in concursos %}
+                <div class="concurso-card">
+                    <div class="concurso-fecha">{{ concurso.fecha or "Sin fecha especificada" }}</div>
+                    <div class="concurso-content">
+                        <h3 class="concurso-titulo">{{ concurso.titulo }}</h3>
+                        <p class="mb-3">{{ concurso.descripcion or "Descripción no disponible." }}</p>
+                        <button type="button" class="btn-ver-mas" data-bs-toggle="modal" data-bs-target="#modalConcurso{{ concurso.id }}">
+                            VER DOCUMENTOS <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="concurso-card">
-                <div class="concurso-fecha">29/06/2025</div>
-                <div class="concurso-content">
-                    <h3 class="concurso-titulo">DECRETO EXENTO APRUEBA BASES LLAMADO A CONCURSO PÚBLICO PARA CARGOS VACANTES EN LA PLANTA DE PERSONAL DE LA MUNICIPALIDAD DE FREIRE AÑO 2025</h3>
-                    <p class="mb-3">Decreto exento que aprueba bases para el llamado a concurso público para cargos vacantes en la planta de personal de la Municipalidad de Freire año 2025.</p>
-                    <button type="button" class="btn-ver-mas" data-bs-toggle="modal" data-bs-target="#decretoModal">
-                        VER MÁS <i class="bi bi-arrow-right"></i>
-                    </button>
+                <!-- Modal para cada concurso -->
+                <div class="modal fade" id="modalConcurso{{ concurso.id }}" tabindex="-1" aria-labelledby="modalConcurso{{ concurso.id }}Label" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalConcurso{{ concurso.id }}Label">{{ concurso.titulo }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <strong>Fecha:</strong> {{ concurso.fecha or "No especificada" }}
+                                </div>
+                                
+                                {% if concurso.descripcion %}
+                                <div class="mb-3">
+                                    <strong>Descripción:</strong>
+                                    <p>{{ concurso.descripcion }}</p>
+                                </div>
+                                {% endif %}
+                                
+                                {% if concurso.archivos %}
+                                <div class="mb-3">
+                                    <strong>Documentos disponibles:</strong>
+                                    <div class="mt-2">
+                                        {% for archivo in concurso.archivos %}
+                                        <div class="d-flex justify-content-between align-items-center p-2 border rounded mb-2">
+                                            <div>
+                                                <i class="bi bi-file-pdf text-danger me-2"></i>
+                                                <span>{{ archivo.nombre_archivo }}</span>
+                                            </div>
+                                            <a href="{{ url_for('static', filename=archivo.ruta_archivo) }}" 
+                                               target="_blank" 
+                                               class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-download"></i> Descargar
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="alert alert-info">
+                                    No hay documentos disponibles para este concurso.
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="concurso-card">
-                <div class="concurso-fecha">29/06/2025</div>
-                <div class="concurso-content">
-                    <h3 class="concurso-titulo">CONCURSO PÚBLICO CARGO CODIGO 06 AUXILIAR GRADO 17° E.M.S. PARA DESEMPEÑAR FUNCIONES EN LA SECRETARIA MUNICIPAL</h3>
-                    <p class="mb-3">Bases de llamado a concurso público para el cargo Código 06 Auxiliar Grado 17° E.M.S. para desempeñar funciones en la Secretaría Municipal.</p>
-                    <button type="button" class="btn-ver-mas" data-bs-toggle="modal" data-bs-target="#secretariaModal">
-                        VER MÁS <i class="bi bi-arrow-right"></i>
-                    </button>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-info text-center">
+                    <h4>No hay concursos disponibles en este momento</h4>
+                    <p>Vuelve a consultar más tarde para ver las nuevas convocatorias.</p>
                 </div>
-            </div>
-            
-            <div class="concurso-card">
-                <div class="concurso-fecha">29/06/2025</div>
-                <div class="concurso-content">
-                    <h3 class="concurso-titulo">CONCURSO PUBLICO CARGO CODIGO 05 ADMINISTRATIVO GRADO 16° E.M.S. PARA DESEMPEÑARSE EN LA SECRETARIA DE PLANIFICACIÓN.</h3>
-                    <p class="mb-3">BASES LLAMADO A ONCURSO PUBLICO CARGO CODIGO 05 ADMINISTRATIVO GRADO 16° E.M.S. PARA DESEMPEÑARSE EN LA SECRETARIA DE PLANIFICACIÓN.</p>
-                    <button type="button" class="btn-ver-mas" data-bs-toggle="modal" data-bs-target="#planificacionModal">
-                        VER MÁS <i class="bi bi-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="concurso-card">
-                <div class="concurso-fecha">29/06/2025</div>
-                <div class="concurso-content">
-                    <h3 class="concurso-titulo">CONCURSO PUBLICO CARGO CODIGO 06 AUXILIAR GRADO 17° E.M.S. PARA DESEMPEÑAR FUNCIONES EN LA SECRETARIA MUNICIPA.</h3>
-                    <p class="mb-3">BASES LLAMADO A CONCURSO PUBLICO CARGO CODIGO 06 AUXILIAR GRADO 17° E.M.S. PARA DESEMPEÑAR FUNCIONES EN LA SECRETARIA MUNICIPAL</p>
-                    <button type="button" class="btn-ver-mas" data-bs-toggle="modal" data-bs-target="#seguridadModal">
-                        VER MÁS <i class="bi bi-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
+            {% endif %}
         </div>
     </div>
 </div>
-
-<!-- Modal para Resultados -->
-<div class="modal fade" id="resultadosModal" tabindex="-1" aria-labelledby="resultadosModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="resultadosModalLabel">Resultados Concursos Públicos - Cargos Vacantes</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Documentos disponibles para descarga:</p>
-                <ul class="modal-pdf-list">
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/notificacion_codigo_01.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> NOTIFICACIÓN CÓDIGO Nº 01
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/notificacion_codigo_02.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> NOTIFICACIÓN CÓDIGO Nº 02
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/notificacion_codigo_03.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> NOTIFICACIÓN CÓDIGO Nº 03
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/notificacion_codigo_04.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> NOTIFICACIÓN CÓDIGO Nº 04
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/notificacion_codigo_05.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> NOTIFICACIÓN CÓDIGO Nº 05
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/notificacion_codigo_06.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> NOTIFICACIÓN CÓDIGO Nº 06
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/notificacion_codigo_07.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> NOTIFICACIÓN CÓDIGO Nº 07
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal para Conductor Municipal -->
-<div class="modal fade" id="conductorModal" tabindex="-1" aria-labelledby="conductorModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="conductorModalLabel">Concurso Público - Conductor Municipal</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Documentos disponibles para descarga:</p>
-                <ul class="modal-pdf-list">
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/conductor_bases.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> Bases del Concurso
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal para Decreto -->
-<div class="modal fade" id="decretoModal" tabindex="-1" aria-labelledby="decretoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="decretoModalLabel">Decreto Exento - Bases Concurso Público</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Documentos disponibles para descarga:</p>
-                <ul class="modal-pdf-list">
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/decreto_exento_2025.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> Decreto Exento N° 1234
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal para Secretaría Municipal -->
-<div class="modal fade" id="secretariaModal" tabindex="-1" aria-labelledby="secretariaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="secretariaModalLabel">Concurso Público - Secretaría Municipal</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Documentos disponibles para descarga:</p>
-                <ul class="modal-pdf-list">
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/secretaria_bases.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> Bases del Concurso
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Modal para planificacion-->
-<div class="modal fade" id="planificacionModal" tabindex="-1" aria-labelledby="planificacionModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="planificacionModalLabel">Concurso Público - Secretaría de Planificación</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Documentos disponibles para descarga:</p>
-                <ul class="modal-pdf-list">
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/planificacion_bases.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> Bases del Concurso
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Modal para seguridad-->
-<div class="modal fade" id="seguridadModal" tabindex="-1" aria-labelledby="seguridadModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="seguridadModalLabel">Concurso Público - Secretaría de Planificación</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Documentos disponibles para descarga:</p>
-                <ul class="modal-pdf-list">
-                    <li>
-                        <a href="{{ url_for('static', filename='docs/concursos/seguridad_bases.pdf') }}" target="_blank">
-                            <i class="bi bi-file-pdf pdf-icon"></i> Bases del Concurso
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 {% endblock %}
 
 {% block extra_js %}

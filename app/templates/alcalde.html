@@ -1,109 +1,242 @@
-<!-- templates/alcalde.html -->
-
 {% extends "layout.html" %}
 
 {% block title %}Alcalde - Municipalidad de Freire{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
-    <h1 class="text-center mb-4">Alcalde Municipal</h1>
-    
+    <!-- Header Section -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4 mb-3">Alcalde Municipal</h1>
+            <p class="lead">Conozca la visión, misión y compromisos de nuestro alcalde</p>
+        </div>
+    </div>
+
+    <!-- Main Content Row -->
     <div class="row">
-        <!-- Div 1: Imagen del Alcalde -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <img src="{{ url_for('static', filename='images/alcalde.png') }}" 
-                     class="card-img-top" 
-                     alt="Alcalde de Freire"
-                     style="height: 300px; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">Nombre del Alcalde</h5>
-                    <p class="card-text">
-                        Breve descripción del alcalde, su trayectoria y compromiso 
-                        con la comunidad de Freire. Experiencia en gestión pública 
-                        y visión para el desarrollo comunal.
-                    </p>
+        <!-- Columna 1: Imagen y información personal -->
+        <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card shadow-lg h-100">
+                <div class="card-header bg-primary text-white text-center py-3">
+                    <h4 class="mb-0">
+                        {% if alcalde and alcalde.nombre %}
+                            {{ alcalde.nombre }}
+                        {% else %}
+                            José Colihuíl Bilimelis
+                        {% endif %}
+                    </h4>
+                    <p class="mb-0">ALCALDE</p>
+                </div>
+                <div class="card-body text-center p-0">
+                    {% if alcalde and alcalde.imagen %}
+                    <img src="{{ url_for('static', filename=alcalde.imagen) }}" 
+                         class="card-img-top rounded-0" 
+                         alt="Alcalde de Freire"
+                         style="height: 350px; object-fit: cover; width: 100%;">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='images/alcalde/default.jpg') }}" 
+                         class="card-img-top rounded-0" 
+                         alt="Alcalde de Freire"
+                         style="height: 350px; object-fit: cover; width: 100%;">
+                    {% endif %}
+                    <div class="p-4">
+                        <p class="card-text">
+                            {% if alcalde and alcalde.descripcion %}
+                                {{ alcalde.descripcion }}
+                            {% else %}
+                                Líder comprometido con el desarrollo de Freire, trabajando 
+                                día a día por una comuna más próspera, unida y con mejores 
+                                oportunidades para todos sus habitantes.
+                            {% endif %}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Div 2: Visión -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 vision-card">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="card-title mb-0">Visión Municipal</h5>
+        <!-- Columna 2: Visión y Misión -->
+        <div class="col-lg-8 col-md-12">
+            <!-- Visión -->
+            <div class="card shadow-sm mb-4 vision-card">
+                <div class="card-header bg-gradient-primary text-white py-3">
+                    <h4 class="card-title mb-0">
+                        <i class="bi bi-eye me-2"></i>Visión Municipal
+                    </h4>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">
-                        <strong>Nuestra Visión:</strong><br>
-                        Ser una municipalidad líder en gestión pública, reconocida 
-                        por su transparencia, eficiencia y compromiso con el desarrollo 
-                        sustentable de Freire, promoviendo una comunidad unida, 
-                        próspera y con igualdad de oportunidades para todos sus habitantes.
-                    </p>
-                    <ul class="list-unstyled">
-                        <li>✓ Desarrollo sustentable</li>
-                        <li>✓ Transparencia y participación</li>
-                        <li>✓ Calidad de vida para todos</li>
-                        <li>✓ Innovación en gestión pública</li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="text-primary mb-3">Nuestra Visión</h5>
+                            <p class="card-text fs-6">
+                                {% if alcalde and alcalde.vision %}
+                                    {{ alcalde.vision }}
+                                {% else %}
+                                    Ser una municipalidad líder en gestión pública, reconocida 
+                                    por su transparencia, eficiencia y compromiso con el desarrollo 
+                                    sustentable de Freire, promoviendo una comunidad unida, 
+                                    próspera y con igualdad de oportunidades para todos sus habitantes.
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="vision-features">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Desarrollo sustentable</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Transparencia y participación</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Calidad de vida para todos</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Innovación en gestión pública</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Div 3: Misión -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 mision-card">
-                <div class="card-header bg-success text-white">
-                    <h5 class="card-title mb-0">Misión Municipal</h5>
+            <!-- Misión -->
+            <div class="card shadow-sm mb-4 mision-card">
+                <div class="card-header bg-gradient-success text-white py-3">
+                    <h4 class="card-title mb-0">
+                        <i class="bi bi-bullseye me-2"></i>Misión Municipal
+                    </h4>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">
-                        <strong>Nuestra Misión:</strong><br>
-                        Gestionar los recursos municipales con eficiencia y transparencia, 
-                        fomentando el desarrollo integral de Freire a través de servicios 
-                        públicos de calidad, participación ciudadana activa y promoción 
-                        del bienestar social, económico y cultural de nuestra comunidad.
-                    </p>
-                    <ul class="list-unstyled">
-                        <li>✓ Servicios públicos eficientes</li>
-                        <li>✓ Participación ciudadana</li>
-                        <li>✓ Desarrollo económico local</li>
-                        <li>✓ Protección del medio ambiente</li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="text-success mb-3">Nuestra Misión</h5>
+                            <p class="card-text fs-6">
+                                {% if alcalde and alcalde.mision %}
+                                    {{ alcalde.mision }}
+                                {% else %}
+                                    Gestionar los recursos municipales con eficiencia y transparencia, 
+                                    fomentando el desarrollo integral de Freire a través de servicios 
+                                    públicos de calidad, participación ciudadana activa y promoción 
+                                    del bienestar social, económico y cultural de nuestra comunidad.
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mision-features">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Servicios públicos eficientes</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Participación ciudadana</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Desarrollo económico local</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span>Protección del medio ambiente</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Información adicional -->
-    <div class="row mt-4">
+    <!-- Compromisos y Logros Section -->
+    <div class="row mt-5">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header bg-info text-white">
-                    <h5 class="card-title mb-0">Compromisos y Logros</h5>
+            <div class="card shadow-lg">
+                <div class="card-header bg-info text-white py-3">
+                    <h4 class="card-title mb-0 text-center">
+                        <i class="bi bi-trophy me-2"></i>Compromisos y Logros
+                    </h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h6>Principales Compromisos:</h6>
-                            <ul>
-                                <li>Mejoramiento de la infraestructura vial</li>
-                                <li>Fortalecimiento de la educación municipal</li>
-                                <li>Promoción del turismo local</li>
-                                <li>Modernización de servicios municipales</li>
-                                <li>Protección del medio ambiente</li>
-                            </ul>
+                        <!-- Compromisos -->
+                        <div class="col-lg-6 col-md-12 mb-4">
+                            <div class="card h-100 border-0">
+                                <div class="card-header bg-light">
+                                    <h5 class="card-title mb-0 text-primary">
+                                        <i class="bi bi-handshake me-2"></i>Principales Compromisos
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    {% if alcalde and alcalde.compromisos %}
+                                        <p class="card-text">{{ alcalde.compromisos }}</p>
+                                    {% else %}
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-check-circle text-primary me-2"></i>
+                                                Mejoramiento de la infraestructura vial
+                                            </li>
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-check-circle text-primary me-2"></i>
+                                                Fortalecimiento de la educación municipal
+                                            </li>
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-check-circle text-primary me-2"></i>
+                                                Promoción del turismo local
+                                            </li>
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-check-circle text-primary me-2"></i>
+                                                Modernización de servicios municipales
+                                            </li>
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-check-circle text-primary me-2"></i>
+                                                Protección del medio ambiente
+                                            </li>
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <h6>Logros Destacados:</h6>
-                            <ul>
-                                <li>Reducción del desempleo local</li>
-                                <li>Mejora en indicadores de salud</li>
-                                <li>Incremento en cobertura educativa</li>
-                                <li>Modernización del sistema de recolección de basura</li>
-                                <li>Certificación en transparencia municipal</li>
-                            </ul>
+
+                        <!-- Logros -->
+                        <div class="col-lg-6 col-md-12 mb-4">
+                            <div class="card h-100 border-0">
+                                <div class="card-header bg-light">
+                                    <h5 class="card-title mb-0 text-success">
+                                        <i class="bi bi-award me-2"></i>Logros Destacados
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    {% if alcalde and alcalde.logros %}
+                                        <p class="card-text">{{ alcalde.logros }}</p>
+                                    {% else %}
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-star-fill text-warning me-2"></i>
+                                                Reducción del desempleo local
+                                            </li>
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-star-fill text-warning me-2"></i>
+                                                Mejora en indicadores de salud
+                                            </li>
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-star-fill text-warning me-2"></i>
+                                                Incremento en cobertura educativa
+                                            </li>
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-star-fill text-warning me-2"></i>
+                                                Modernización del sistema de recolección de basura
+                                            </li>
+                                            <li class="list-group-item d-flex align-items-center">
+                                                <i class="bi bi-star-fill text-warning me-2"></i>
+                                                Certificación en transparencia municipal
+                                            </li>
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,10 +249,58 @@
 {% block extra_css %}
 <style>
 .vision-card, .mision-card {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 10px;
 }
+
 .vision-card:hover, .mision-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
+}
+
+.bg-gradient-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+}
+
+.card {
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.list-group-item {
+    border: none;
+    padding: 0.75rem 0;
+    background: transparent;
+}
+
+.vision-features, .mision-features {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+}
+
+.display-4 {
+    color: #1e3c72;
+    font-weight: 700;
+}
+
+.lead {
+    color: #6c757d;
+    font-size: 1.25rem;
+}
+
+/* Efectos de hover para las cards */
+.card:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 </style>

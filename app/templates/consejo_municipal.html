@@ -1,5 +1,3 @@
-<!-- templates/consejo_municipal.html -->
-
 {% extends "layout.html" %}
 
 {% block title %}Concejo Municipal - Municipalidad de Freire{% endblock %}
@@ -57,10 +55,18 @@
         {% for concejal in concejales %}
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card concejal-card h-100" data-bs-toggle="modal" data-bs-target="#modalConcejal{{ loop.index }}">
-                <img src="{{ url_for('static', filename='images/' + concejal.imagen) }}" 
+                <!-- Imagen del concejal - Verificación de existencia -->
+                {% if concejal.imagen %}
+                <img src="{{ url_for('static', filename=concejal.imagen) }}" 
                      class="card-img-top" 
                      alt="{{ concejal.nombre }}"
                      style="height: 250px; object-fit: cover;">
+                {% else %}
+                <img src="{{ url_for('static', filename='images/concejales/default.jpg') }}" 
+                     class="card-img-top" 
+                     alt="{{ concejal.nombre }}"
+                     style="height: 250px; object-fit: cover;">
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ concejal.nombre }}</h5>
                     <p class="card-text">
@@ -70,8 +76,8 @@
                     <div class="comisiones">
                         <strong>Comisiones:</strong>
                         <br>
-                        {% for comision in concejal.comisiones %}
-                        <span class="badge bg-primary me-1">{{ comision }}</span>
+                        {% for comision in concejal.comisiones_lista %}
+                        <span class="badge bg-primary me-1 mb-1">{{ comision }}</span>
                         {% endfor %}
                     </div>
                 </div>
@@ -82,30 +88,37 @@
         </div>
 
         <!-- Modal para cada concejal -->
-        <div class="modal fade " id="modalConcejal{{ loop.index }}" tabindex="-1" aria-labelledby="modalConcejal{{ loop.index }}Label" aria-hidden="true">
+        <div class="modal fade" id="modalConcejal{{ loop.index }}" tabindex="-1" aria-labelledby="modalConcejal{{ loop.index }}Label" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalConcejal{{ loop.index }}Label">{{ concejal.nombre }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body ">
+                    <div class="modal-body">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="{{ url_for('static', filename='images/' + concejal.imagen) }}" 
+                                <!-- Imagen en modal - Verificación de existencia -->
+                                {% if concejal.imagen %}
+                                <img src="{{ url_for('static', filename=concejal.imagen) }}" 
                                      class="img-fluid rounded" 
                                      alt="{{ concejal.nombre }}">
+                                {% else %}
+                                <img src="{{ url_for('static', filename='images/concejales/default.jpg') }}" 
+                                     class="img-fluid rounded" 
+                                     alt="{{ concejal.nombre }}">
+                                {% endif %}
                             </div>
                             <div class="col-md-8">
                                 <h6>{{ concejal.cargo }} - {{ concejal.partido }}</h6>
                                 <p><strong>Comisiones:</strong></p>
                                 <ul>
-                                    {% for comision in concejal.comisiones %}
+                                    {% for comision in concejal.comisiones_lista %}
                                     <li>{{ comision }}</li>
                                     {% endfor %}
                                 </ul>
                                 <p><strong>Biografía:</strong></p>
-                                <p>{{ concejal.biografia }}</p>
+                                <p>{{ concejal.biografia or "Biografía no disponible." }}</p>
                             </div>
                         </div>
                     </div>
@@ -167,6 +180,8 @@
 }
 .badge {
     font-size: 0.7em;
+    display: inline-block;
+    margin-bottom: 0.25rem;
 }
 </style>
 {% endblock %}

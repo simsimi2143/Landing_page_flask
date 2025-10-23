@@ -1,0 +1,85 @@
+{% extends "admin/base_admin.html" %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ stats.noticias }}</h4>
+                        <p class="card-text">Noticias</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-newspaper" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a href="{{ url_for('admin_noticias') }}" class="text-white">Ver todo</a>
+                <a href="{{ url_for('nueva_noticia') }}" class="text-white"><i class="bi bi-plus-circle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ stats.concejales }}</h4>
+                        <p class="card-text">Concejales</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-people" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a href="{{ url_for('admin_concejales') }}" class="text-white">Ver todo</a>
+                <a href="{{ url_for('nuevo_concejal') }}" class="text-white"><i class="bi bi-plus-circle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ stats.concursos }}</h4>
+                        <p class="card-text">Concursos</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-file-earmark-text" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a href="{{ url_for('admin_concursos') }}" class="text-white">Ver todo</a>
+                <a href="{{ url_for('nuevo_concurso') }}" class="text-white"><i class="bi bi-plus-circle"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Bienvenido al Panel de Administración</h5>
+            </div>
+            <div class="card-body">
+                <p>Desde aquí puedes gestionar el contenido del sitio web de la Municipalidad de Freire.</p>
+                <ul>
+                    <li><strong>Noticias:</strong> Gestiona las noticias que aparecen en el carrusel de la página de inicio.</li>
+                    <li><strong>Alcalde:</strong> Actualiza la información y foto del alcalde.</li>
+                    <li><strong>Concejales:</strong> Administra la lista de concejales, sus fotos y biografías.</li>
+                    <li><strong>Concursos:</strong> Publica y gestiona los concursos públicos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

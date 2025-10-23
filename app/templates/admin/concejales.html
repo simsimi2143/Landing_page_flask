@@ -1,0 +1,54 @@
+{% extends "admin/base_admin.html" %}
+
+{% block page_title %}Gestión de Concejales{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Concejales</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a href="{{ url_for('nuevo_concejal') }}" class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-plus-circle"></i> Nuevo Concejal
+        </a>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Partido</th>
+                <th>Estado</th>
+                <th>Orden</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for concejal in concejales %}
+            <tr>
+                <td>{{ concejal.id }}</td>
+                <td>{{ concejal.nombre }}</td>
+                <td>{{ concejal.partido }}</td>
+                <td>
+                    {% if concejal.activo %}
+                    <span class="badge bg-success">Activo</span>
+                    {% else %}
+                    <span class="badge bg-secondary">Inactivo</span>
+                    {% endif %}
+                </td>
+                <td>{{ concejal.orden }}</td>
+                <td>
+                    <a href="{{ url_for('editar_concejal', id=concejal.id) }}" class="btn btn-sm btn-outline-primary">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <a href="{{ url_for('eliminar_concejal', id=concejal.id) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Estás seguro de eliminar este concejal?')">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
