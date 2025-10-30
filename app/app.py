@@ -460,4 +460,4 @@ def eliminar_archivo_concurso(id):
     return redirect(url_for('editar_concurso', id=concurso_id))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
