@@ -119,6 +119,14 @@ def org_comunitarias():
 def noticias():
     return render_template('noticias.html')
 
+@app.route('/direccion_de_administracion_y_finanzas')
+def direccion_de_administracion_y_finanzas():
+    return render_template('direccion_de_administracion_y_finanzas.html')
+
+@app.route('/direccion_de_obras')
+def direccion_de_obras():
+    return render_template('direccion_de_obras.html')
+
 @app.route('/telefonos')
 def telefonos():
     telefonos_principales = [
@@ -151,6 +159,32 @@ def telefonos():
     return render_template('telefonos.html', 
                          telefonos_principales=telefonos_principales,
                          directorio_telefonico=directorio_telefonico)
+
+@app.route('/alcaldia')
+def alcaldia():
+    return render_template('alcaldia.html')
+
+@app.route('/secretaria_municipal')
+def secretaria_municipal():
+    return render_template('secretaria_municipal.html')
+
+@app.route('/direccion_de_control')
+def direccion_de_control():
+    return render_template('direccion_de_control.html')
+
+@app.route('/direccion_de_desarrollo_comunitario')
+def direccion_de_desarrollo_comunitario():
+    return render_template('direccion_de_desarrollo_comunitario.html')
+
+@app.route('/direccion_de_asistencia_social')
+def direccion_de_asistencia_social():
+    return render_template('direccion_de_asistencia_social.html')
+
+@app.route('/direccion_de_secretaria_de_planificacion')
+def direccion_de_secretaria_de_planificacion():
+    return render_template('direccion_de_secretaria_de_planificacion.html')
+
+
 
 # ===== RUTAS DE ADMINISTRACIÓN =====
 @app.route('/admin/login', methods=['GET', 'POST'])

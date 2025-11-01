@@ -18,6 +18,7 @@
     <!-- Tus estilos personalizados -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" />
 
+    
     {% block extra_css %}{% endblock %}
 </head>
 
@@ -90,11 +91,13 @@
                                     AUTORIDADES
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownAutoridades">
-                                    <li><a class="dropdown-item" href="{{ url_for('alcalde') }}">Alcalde</a></li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ url_for('consejo_municipal') }}">Concejo
-                                            Municipal</a>
+                                        <a class="dropdown-item" href="{{ url_for('alcalde') }}">Alcalde</a>
                                     </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url_for('consejo_municipal') }}">Concejo Municipal</a>
+                                    </li>
+                                    
                                 </ul>
                             </li>
 
@@ -102,16 +105,28 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDirecciones"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    DEPARTAMENTOS
+                                    DIRECCIONES
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownDirecciones">
-                                    <li><a class="dropdown-item" href="{{url_for('transito') }}">Tránsito</a></li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ url_for('rentas_patentes') }}">Rentas y Patentes</a>
+                                    <li><a class="dropdown-item" href="{{url_for('alcaldia') }}">Alcaldia</a></li>
+                                    <li><a class="dropdown-item" href="{{url_for('secretaria_municipal') }}">Secretaria Municipal</a></li>
+                                    <li><a class="dropdown-item" href="{{url_for('direccion_de_administracion_y_finanzas')}}">Dirección de adminitración y finanzas</a>
+                                        <ul>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ url_for('rentas_patentes') }}">Rentas y Patentes</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{url_for('policia') }}">Juzgado Policia Local</a>
+                                    <li><a class="dropdown-item" href="{{url_for('direccion_de_obras')}}">Dirección de Obras</a>
+                                        <ul>
+                                        <li><a class="dropdown-item" href="{{url_for('transito') }}">Tránsito</a></li>
+                                        </ul>
                                     </li>
+                                    <li><a class="dropdown-item" href="{{url_for('direccion_de_control') }}">Dirección de control</a></li>
+                                    <li><a class="dropdown-item" href="{{url_for('direccion_de_desarrollo_comunitario') }}">Dirección de desarrollo comunitario</a></li>
+                                    <li><a class="dropdown-item" href="{{url_for('direccion_de_asistencia_social') }}">Dirección de asistencia social</a></li>
+                                    <li><a class="dropdown-item" href="{{url_for('direccion_de_secretaria_de_planificacion') }}">Direccion de secretaria de planificación</a></li>
+                                    <li><a class="dropdown-item" href="{{url_for('policia') }}">Juzgado Policia Local</a></li>
                                     <li><a class="dropdown-item" href="{{ url_for('organigrama') }}">Organigrama</a></li>
                                 </ul>
                             </li>
