@@ -110,16 +110,22 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownDirecciones">
                                     <li><a class="dropdown-item" href="{{url_for('alcaldia') }}">Alcaldia</a></li>
                                     <li><a class="dropdown-item" href="{{url_for('secretaria_municipal') }}">Secretaria Municipal</a></li>
-                                    <li><a class="dropdown-item" href="{{url_for('direccion_de_administracion_y_finanzas')}}">Dirección de adminitración y finanzas</a>
-                                        <ul>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="{{url_for('direccion_de_administracion_y_finanzas')}}">
+                                            Dirección de administración y finanzas
+                                        </a>
+                                        <ul class="dropdown-menu">
                                             <li>
                                                 <a class="dropdown-item" href="{{ url_for('rentas_patentes') }}">Rentas y Patentes</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a class="dropdown-item" href="{{url_for('direccion_de_obras')}}">Dirección de Obras</a>
-                                        <ul>
-                                        <li><a class="dropdown-item" href="{{url_for('transito') }}">Tránsito</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item dropdown-toggle" href="{{url_for('direccion_de_obras')}}">
+                                            Dirección de Obras
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{{url_for('transito') }}">Tránsito</a></li>
                                         </ul>
                                     </li>
                                     <li><a class="dropdown-item" href="{{url_for('direccion_de_control') }}">Dirección de control</a></li>
@@ -174,6 +180,33 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <!-- Estilos adicionales para submenús desplegables -->
+    <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+        
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+        
+        /* Para mostrar el submenú al pasar el ratón */
+        .dropdown-submenu:hover .dropdown-menu {
+            display: block;
+        }
+        
+        /* Para pantallas pequeñas */
+        @media (max-width: 991.98px) {
+            .dropdown-submenu .dropdown-menu {
+                position: static;
+                margin-left: 15px;
+            }
+        }
+    </style>
+    
     {% block extra_js %}{% endblock %}
 </body>
 
