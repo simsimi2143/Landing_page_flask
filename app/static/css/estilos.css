@@ -197,8 +197,8 @@ body {
 }
 
 .weather-icon img {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     margin: 5px 0;
 }
 
@@ -428,8 +428,8 @@ body {
     }
     
     .weather-icon img {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
     }
     
     .carousel-caption h5 {
@@ -472,8 +472,8 @@ body {
     }
     
     .weather-icon img {
-        width: 35px;
-        height: 35px;
+        width: 60px;
+        height: 60px;
     }
 }
 

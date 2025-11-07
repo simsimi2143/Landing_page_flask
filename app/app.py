@@ -184,7 +184,9 @@ def direccion_de_asistencia_social():
 def direccion_de_secretaria_de_planificacion():
     return render_template('direccion_de_secretaria_de_planificacion.html')
 
-
+@app.route('/ordenanzas')
+def ordenanzas():
+    return render_template('ordenanzas.html')
 
 # ===== RUTAS DE ADMINISTRACIÓN =====
 @app.route('/admin/login', methods=['GET', 'POST'])
