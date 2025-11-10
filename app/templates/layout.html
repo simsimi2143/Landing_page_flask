@@ -61,8 +61,12 @@
                                 <button id="increase-font" class="btn btn-sm btn-outline-secondary me-1" title="Aumentar tamaño de letra">
                                     <i class="bi bi-zoom-in"></i> A+
                                 </button>
-                                <button id="toggle-contrast" class="btn btn-sm btn-outline-secondary" title="Cambiar contraste">
+                                <button id="toggle-contrast" class="btn btn-sm btn-outline-secondary me-1" title="Cambiar contraste">
                                     <i class="bi bi-circle-half"></i> Contraste
+                                </button>
+                                <!-- NUEVO BOTÓN DE LECTURA POR VOZ -->
+                                <button id="toggle-tts" class="btn btn-sm btn-outline-secondary" title="Leer página en voz alta">
+                                    <i class="bi bi-volume-up-fill"></i> Leer
                                 </button>
                             </div>
                         </div>
@@ -393,6 +397,15 @@
             const header = document.querySelector('.main-header');
             const mainContent = document.querySelector('.main-content');
 
+            // --- Variables para Text-to-Speech (TTS) ---
+            const toggleTtsBtn = document.getElementById('toggle-tts');
+            let isReading = false;
+
+            // --- Comprobación de compatibilidad con TTS ---
+            if (!('speechSynthesis' in window)) {
+                toggleTtsBtn.style.display = 'none'; // Ocultar el botón si no es compatible
+            }
+
             // --- Funciones para accesibilidad ---
             function updateFontSize() {
                 body.classList.remove('font-size-small', 'font-size-normal', 'font-size-large', 'font-size-xlarge');
@@ -419,7 +432,7 @@
                 localStorage.setItem('highContrast', highContrastMode);
             }
             
-            // --- NUEVA: Función para ajustar el padding del contenido principal (solo en escritorio) ---
+            // --- Función para ajustar el padding del contenido principal (solo en escritorio) ---
             function adjustMainContentPadding() {
                 if (header && mainContent) {
                     // Solo ajustamos el padding si la pantalla es grande (992px o más)
@@ -453,7 +466,42 @@
                 updateContrast();
             });
 
-            // --- NUEVO: Event Listeners para la cabecera fija ---
+            // --- Event Listener para Text-to-Speech (TTS) ---
+            toggleTtsBtn.addEventListener('click', function() {
+                if (!isReading) {
+                    // Iniciar lectura
+                    const textToRead = mainContent.innerText;
+                    const utterance = new SpeechSynthesisUtterance(textToRead);
+                    
+                    utterance.lang = 'es-ES'; // Configurar idioma
+                    utterance.rate = 0.9;     // Configurar velocidad (0.1 a 10)
+
+                    // Evento cuando la lectura termina
+                    utterance.onend = function() {
+                        isReading = false;
+                        toggleTtsBtn.innerHTML = '<i class="bi bi-volume-up-fill"></i> Leer';
+                        toggleTtsBtn.classList.remove('btn-danger');
+                        toggleTtsBtn.classList.add('btn-outline-secondary');
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                    
+                    isReading = true;
+                    toggleTtsBtn.innerHTML = '<i class="bi bi-stop-circle-fill"></i> Detener';
+                    toggleTtsBtn.classList.remove('btn-outline-secondary');
+                    toggleTtsBtn.classList.add('btn-danger');
+
+                } else {
+                    // Detener lectura
+                    window.speechSynthesis.cancel();
+                    isReading = false;
+                    toggleTtsBtn.innerHTML = '<i class="bi bi-volume-up-fill"></i> Leer';
+                    toggleTtsBtn.classList.remove('btn-danger');
+                    toggleTtsBtn.classList.add('btn-outline-secondary');
+                }
+            });
+
+            // --- Event Listeners para la cabecera fija ---
             window.addEventListener('load', adjustMainContentPadding);
             window.addEventListener('resize', adjustMainContentPadding);
 
