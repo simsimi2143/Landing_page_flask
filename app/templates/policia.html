@@ -4,6 +4,7 @@
 
 {% block extra_css %}
 <style>
+    /* --- ESTILOS ORIGINALES --- */
     .juzgado-header {
         background-color: #f8f9fa;
         padding: 2rem 0;
@@ -64,6 +65,82 @@
         border-radius: 0.375rem;
         margin-top: 2rem;
     }
+
+    /* =========================================================== */
+    /* == CORRECCIONES ESPECÍFICAS PARA ALTO CONTRASTE == */
+    /* =========================================================== */
+    .high-contrast .juzgado-header {
+        background-color: #000 !important;
+        border-bottom-color: #fff !important;
+    }
+
+    .high-contrast .competencia-card {
+        border-left-color: #fff !important;
+        background-color: #111 !important;
+        color: #fff !important;
+    }
+
+    .high-contrast .table-infracciones {
+        color: #fff !important;
+    }
+
+    .high-contrast .table-infracciones th {
+        background-color: #333 !important;
+        color: #fff !important;
+        border-color: #fff !important;
+    }
+
+    .high-contrast .table-infracciones td {
+        border-bottom-color: #fff !important;
+        color: #fff !important;
+    }
+
+    .high-contrast .table-infracciones tr:nth-child(even) {
+        background-color: #222 !important;
+    }
+    
+    .high-contrast .staff-section {
+        background-color: #000 !important;
+    }
+
+    .high-contrast .staff-card {
+        background-color: #111 !important;
+        color: #fff !important;
+        border: 1px solid #fff !important;
+    }
+
+    .high-contrast .contact-info {
+        background-color: #111 !important;
+        color: #fff !important;
+        border: 1px solid #fff !important;
+    }
+
+    /* Correcciones para clases de Bootstrap que podrían no estar cubiertas */
+    .high-contrast .alert-warning {
+        background-color: #333 !important;
+        border-color: #fff !important;
+        color: #fff !important;
+    }
+    
+    .high-contrast .table-bordered {
+        border-color: #fff !important;
+    }
+
+    .high-contrast .table-bordered th,
+    .high-contrast .table-bordered td {
+        border-color: #fff !important;
+    }
+
+    .high-contrast .table-primary {
+        --bs-table-bg: #333 !important;
+        --bs-table-border-color: #fff !important;
+        color: #fff !important;
+    }
+
+    .high-contrast .table-hover tbody tr:hover {
+        background-color: #444 !important;
+    }
+
 </style>
 {% endblock %}
 
@@ -85,7 +162,7 @@
             <div class="col-lg-8">
                 <h2 class="mb-4">Sobre el Juzgado de Policía Local</h2>
                 <p>Los Juzgados de Policía Local son Tribunales especiales que tienen por objeto administrar justicia
-                    dentro del territorio de su jurisdicción en forma expedita. Si bien no forman parte del Poder
+                    en forma expedita. Si bien no forman parte del Poder
                     Judicial, están bajo la supervigilancia directiva, correccional y económica de la Corte de
                     Apelaciones respectiva, teniendo solamente una dependencia administrativa de la Municipalidad.</p>
 
@@ -148,7 +225,7 @@
                         <li>Conocimiento y fallo de las infracciones a la Ley de Alcoholes</li>
                         <li>Infracciones a la Ley de Rentas Municipales</li>
                         <li>Infracciones a normas de higiene y salubridad pública</li>
-                        <li>Otras materias que le encomiendan las leyes especiales</li>
+                        <li>Otras materias que le encomienden las leyes especiales</li>
                     </ul>
                 </div>
 
@@ -257,7 +334,8 @@
                         </li>
                         <li class="mb-2"><a href="https://www.bcn.cl/leychile/navegar?idNorma=28104"
                                 class="text-decoration-none" target="_blank" rel="noopener noreferrer">↳ Ley 15.231 -
-                                OrganizaciónJuzgados</a></li>
+                                OrganizaciónJuzgados</a>
+                        </li>
 
                         <li class="mb-2"><a href="https://www.bcn.cl/leychile/navegar?idNorma=29705"
                                 class="text-decoration-none" target="_blank" rel="noopener noreferrer">↳ Ley 18.287 -
@@ -344,13 +422,13 @@
                             Este formulario puede ser utilizado cuando las partes en un juicio requieren probar sus dichos por medio de testigos, y es necesario que acompañe al Tribunal los antecedentes que allí se señalan respecto de las personas que declararán en la audiencia de comparendo. Se debe considerar que dependiendo de la materia hay plazos para presentar esta lista de testigos.
                         </p>
                         <p class="mb-3">
-                            Este formulario puede ser utilizado únicamente tratándose de personas denunciadas con residencia en la comuna de Pitrufquén por infracciones o contravenciones cometidas por conductores de vehículos, en lugares o caminos alejados a la Comuna de Pitrufquén, y que no se trate de aquellas que den origen a accidentes de los cuales resulten lesiones o daños materiales a terceros. Por medio de este formulario la persona interesada puede formular sus descargos por escrito y solicitar que, por medio de exhorto, se recabe la resolución del caso y, si corresponde, el envío de su licencia retenida. En este último caso podrán también solicitar se les otorgué un permiso provisorio para conducir por 30 días.
+                            Este formulario puede ser utilizado únicamente tratándose de personas denunciadas con residencia en la comuna de Pitrufquén por infracciones o contravenciones cometidas por conductores de vehículos, en lugares o caminos alejados a la Comuna de Pitrufquén, y que no se trate de aquellas que den origen a accidentes de los cuales resulten lesiones o daños materiales a terceros. Por medio de este formulario la persona interesada puede formular sus descargos por escrito y solicitar que, por medio de exhorto, se recaba la resolución del caso y, si corresponde, el envío de su licencia retenida. En este último caso podrán también solicitar se les otorgué un permiso provisorio para conducir por 30 días.
                         </p>
                         <a href=""
                             class="btn btn-primary btn-sm" target="_blank">
                             <i class="bi bi-download me-1"></i> DESCARGAR FORMULARIO DE SOLICITUD DE EXHORTO
                         </a>
-                        <BR></BR>
+                        <br><br>
                         <a href=""
                             class="btn btn-primary btn-sm" target="_blank">
                             <i class="bi bi-download me-1"></i> DESCARGAR FORMULARIO DE SOLICITUD DE EXHORTO Y PERMISO PROVISORIO PARA CONDUCIR

@@ -10,6 +10,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
 
     <!-- Leaflet CSS para el mapa -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -17,7 +19,6 @@
 
     <!-- Tus estilos personalizados -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" />
-
     
     {% block extra_css %}{% endblock %}
 </head>
@@ -26,49 +27,76 @@
     <div class="site-wrapper">
         <header class="main-header">
             <!-- BARRA SUPERIOR -->
-            <div class="top-bar " >
-                <div class="logo-section">
-                    <a href="{{ url_for('inicio') }}">
-                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Municipalidad"
-                            height="90" />
-                    </a>
-                    <!-- Reemplaza con el nombre real de tu logo -->
-                    <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="Logo Certificación"
-                        height="90" />
-                </div>
-
-                <div class="social-links">
-                    <a href="https://www.facebook.com/munifreire" target="_blank" rel="noopener noreferrer"><i
-                            class="bi bi-facebook"></i></a>
-                    <a href="https://www.instagram.com/munifreire/" target="_blank" rel="noopener noreferrer"><i
-                            class="bi bi-instagram"></i></a>
-                    <a href="https://www.youtube.com/channel/UCa0AbQJmyXF9sqY1YpdgbeQ" target="_blank"
-                        rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
-                </div>
-
-                <div class="external-links">
-                    <a href="https://www.leylobby.gob.cl/instituciones/MU091" class="btn btn-sm btn-orange"
-                        target="_blank" rel="noopener noreferrer">
-                        <img src="{{ url_for('static', filename='images/lobby.png') }}" alt="Icono Lobby" class="me-1"
-                            height="35" />
-                        Plataforma Ley de Lobby
-                    </a>
-                    <a href="https://www.portaltransparencia.cl/PortalPdT/web/guest/directorio-de-organismos-regulados?p_p_id=pdtorganismos_WAR_pdtorganismosportlet&orgcode=6c12f0f8d1b026051d19828a3d5a7068"
-                        class="btn btn-sm btn-orange" target="_blank" rel="noopener noreferrer">
-                        <img src="{{ url_for('static', filename='images/transparencia.png') }}"
-                            alt="Icono Transparencia" class="me-1" height="35" />
-                        Solicitar información Ley de Transparencia
-                    </a>
-                    <a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU091"
-                        class="btn btn-sm btn-orange" target="_blank" rel="noopener noreferrer">
-                        <img src="{{ url_for('static', filename='images/transparencia-activa.png') }}"
-                            alt="Icono Transparencia Activa" class="me-1" height="35" />
-                        Transparencia Activa Ley de Transparencia
-                    </a>
+            <div class="top-bar">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo en la izquierda -->
+                        <div class="col-md-3 col-6">
+                            <div class="logo-section">
+                                <a href="{{ url_for('inicio') }}">
+                                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Municipalidad"
+                                        height="90" />
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Iconos sociales en el centro -->
+                        <div class="col-md-6 col-6 text-center">
+                            <div class="social-links justify-content-center">
+                                <a href="https://www.facebook.com/munifreire" target="_blank" rel="noopener noreferrer"><i
+                                        class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/munifreire/" target="_blank" rel="noopener noreferrer"><i
+                                        class="bi bi-instagram"></i></a>
+                                <a href="https://www.youtube.com/channel/UCa0AbQJmyXF9sqY1YpdgbeQ" target="_blank"
+                                    rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                        
+                        <!-- Opciones de accesibilidad en la derecha -->
+                        <div class="col-md-3 d-none d-md-block">
+                            <div class="accessibility-options justify-content-end">
+                                <button id="decrease-font" class="btn btn-sm btn-outline-secondary me-1" title="Disminuir tamaño de letra">
+                                    <i class="bi bi-zoom-out"></i> A-
+                                </button>
+                                <button id="increase-font" class="btn btn-sm btn-outline-secondary me-1" title="Aumentar tamaño de letra">
+                                    <i class="bi bi-zoom-in"></i> A+
+                                </button>
+                                <button id="toggle-contrast" class="btn btn-sm btn-outline-secondary" title="Cambiar contraste">
+                                    <i class="bi bi-circle-half"></i> Contraste
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Botones naranjas centrados debajo -->
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="external-links justify-content-center d-flex flex-wrap">
+                                <a href="https://www.leylobby.gob.cl/instituciones/MU091" class="btn btn-sm btn-orange me-2 mb-2"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url_for('static', filename='images/lobby.png') }}" alt="Icono Lobby" class="me-1"
+                                        height="35" />
+                                    Plataforma Ley de Lobby
+                                </a>
+                                <a href="https://www.portaltransparencia.cl/PortalPdT/web/guest/directorio-de-organismos-regulados?p_p_id=pdtorganismos_WAR_pdtorganismosportlet&orgcode=6c12f0f8d1b026051d19828a3d5a7068"
+                                    class="btn btn-sm btn-orange me-2 mb-2" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url_for('static', filename='images/transparencia.png') }}"
+                                        alt="Icono Transparencia" class="me-1" height="35" />
+                                    Solicitar información Ley de Transparencia
+                                </a>
+                                <a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU091"
+                                    class="btn btn-sm btn-orange mb-2" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ url_for('static', filename='images/transparencia-activa.png') }}"
+                                        alt="Icono Transparencia Activa" class="me-1" height="35" />
+                                    Transparencia Activa Ley de Transparencia
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- MENÚ DE NAVEGACIÓN CORREGIDO -->
+            <!-- MENÚ DE NAVEGACIÓN -->
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -79,29 +107,18 @@
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <!--el href contiene el nombre de la funcion en app.py la cual renderiza el html de la vista-->
                                 <a class="nav-link" href="{{ url_for('inicio') }}">INICIO</a>
                             </li>
-
-                            <!-- Dropdown AUTORIDADES corregido -->
-                            <!-- En el dropdown de AUTORIDADES, reemplazar: -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutoridades"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     AUTORIDADES
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownAutoridades">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ url_for('alcalde') }}">Alcalde</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ url_for('consejo_municipal') }}">Concejo Municipal</a>
-                                    </li>
-                                    
+                                    <li><a class="dropdown-item" href="{{ url_for('alcalde') }}">Alcalde</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('consejo_municipal') }}">Concejo Municipal</a></li>
                                 </ul>
                             </li>
-
-                            <!-- Dropdown DIRECCIONES corregido -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDirecciones"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -111,19 +128,13 @@
                                     <li><a class="dropdown-item" href="{{url_for('alcaldia') }}">Alcaldia</a></li>
                                     <li><a class="dropdown-item" href="{{url_for('secretaria_municipal') }}">Secretaria Municipal</a></li>
                                     <li class="dropdown-submenu">
-                                        <a class="dropdown-item dropdown-toggle" href="{{url_for('direccion_de_administracion_y_finanzas')}}">
-                                            Dirección de administración y finanzas
-                                        </a>
+                                        <a class="dropdown-item dropdown-toggle" href="{{url_for('direccion_de_administracion_y_finanzas')}}">Dirección de administración y finanzas</a>
                                         <ul class="dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="{{ url_for('rentas_patentes') }}">Rentas y Patentes</a>
-                                            </li>
+                                            <li><a class="dropdown-item" href="{{ url_for('rentas_patentes') }}">Rentas y Patentes</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown-submenu">
-                                        <a class="dropdown-item dropdown-toggle" href="{{url_for('direccion_de_obras')}}">
-                                            Dirección de Obras
-                                        </a>
+                                        <a class="dropdown-item dropdown-toggle" href="{{url_for('direccion_de_obras')}}">Dirección de Obras</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="{{url_for('transito') }}">Tránsito</a></li>
                                         </ul>
@@ -136,8 +147,6 @@
                                     <li><a class="dropdown-item" href="{{ url_for('organigrama') }}">Organigrama</a></li>
                                 </ul>
                             </li>
-
-                            <!-- Dropdown COMUNA corregido -->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownComuna" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -148,7 +157,6 @@
                                     <li><a class="dropdown-item" href="{{ url_for('himno') }}">Himno</a></li>
                                 </ul>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('org_comunitarias') }}">ORG. COMUNITARIAS</a>
                             </li>
@@ -176,12 +184,11 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     
-    <!-- Estilos adicionales para submenús desplegables -->
+    <!-- Estilos adicionales para submenús desplegables y accesibilidad -->
     <style>
         .dropdown-submenu {
             position: relative;
@@ -193,19 +200,267 @@
             margin-top: -1px;
         }
         
-        /* Para mostrar el submenú al pasar el ratón */
         .dropdown-submenu:hover .dropdown-menu {
             display: block;
         }
         
-        /* Para pantallas pequeñas */
         @media (max-width: 991.98px) {
             .dropdown-submenu .dropdown-menu {
                 position: static;
                 margin-left: 15px;
             }
         }
+
+        /* Estilos para la barra superior */
+        .top-bar {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            font-size: 1.5rem;
+            color: #6c757d;
+        }
+        
+        .social-links a:hover {
+            color: #0d6efd;
+        }
+        
+        .accessibility-options {
+            display: flex;
+        }
+        
+        .btn-orange {
+            background-color: #ff7b00;
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-orange:hover {
+            background-color: #e56a00;
+            color: white;
+        }
+
+        /* =========================================================== */
+        /* == NUEVO: ESTILOS PARA LA CABECERA FIJA (STICKY) == */
+        /* =========================================================== */
+        .main-header {
+            position: fixed; /* <-- ¡CLAVE! Fija la cabecera */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1030; /* Asegura que esté por encima del contenido */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil para separación */
+            background-color: #fff; /* Fondo sólido para evitar transparencias */
+        }
+        
+        /* El contenido principal necesita un espacio para no quedar tapado */
+        .main-content {
+            padding-top: 20px; /* Un pequeño espacio base */
+        }
+
+        /* Estilos para accesibilidad */
+        .font-size-small { font-size: 14px !important; }
+        .font-size-normal { font-size: 16px !important; }
+        .font-size-large { font-size: 18px !important; }
+        .font-size-xlarge { font-size: 20px !important; }
+
+        /* =========================================================== */
+        /* == MODO DE ALTO CONTRASTE - VERSIÓN ULTRA-COMPLETA == */
+        /* =========================================================== */
+        .high-contrast {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        /* Elementos Generales */
+        .high-contrast .card {
+            background-color: #000 !important;
+            border: 1px solid #fff !important;
+            color: #fff !important;
+        }
+        .high-contrast .card-header { background-color: #333 !important; color: #fff !important; border-bottom: 1px solid #fff !important; }
+        .high-contrast .card-body { background-color: #000 !important; color: #fff !important; }
+        .high-contrast .card-footer { background-color: #000 !important; border-top: 1px solid #fff !important; color: #fff !important; }
+        .high-contrast .navbar { background-color: #333 !important; }
+        .high-contrast .navbar-nav .nav-link { color: #fff !important; }
+        .high-contrast .dropdown-menu { background-color: #333 !important; color: #fff !important; border: 1px solid #fff !important; }
+        .high-contrast .dropdown-item { color: #fff !important; }
+        .high-contrast .dropdown-item:hover { background-color: #555 !important; }
+        .high-contrast .btn { background-color: #333 !important; border-color: #fff !important; color: #fff !important; }
+        .high-contrast .btn:hover { background-color: #555 !important; }
+        .high-contrast .footer, .high-contrast .main-footer { background-color: #000 !important; color: #fff !important; }
+        .high-contrast .list-group-item { background-color: #000 !important; border-color: #fff !important; color: #fff !important; }
+        .high-contrast .btn-link { color: #fff !important; }
+        .high-contrast .btn-link:hover { color: #ccc !important; }
+        .high-contrast img:not(.no-invert) { filter: brightness(0.8) invert(1); }
+        .high-contrast .no-invert { filter: none !important; }
+        .high-contrast .top-bar { background-color: #000 !important; border-bottom-color: #fff !important; }
+        
+        /* Texto */
+        .high-contrast .display-4, .high-contrast .lead, .high-contrast .text-primary, .high-contrast .text-secondary, .high-contrast .text-success, .high-contrast .text-danger, .high-contrast .text-warning, .high-contrast .text-info, .high-contrast .text-light, .high-contrast .text-dark, .high-contrast .text-muted, .high-contrast .text-white, .high-contrast .card-title, .high-contrast .card-text, .high-contrast h1, .high-contrast h2, .high-contrast h3, .high-contrast h4, .high-contrast h5, .high-contrast h6, .high-contrast p, .high-contrast span, .high-contrast div, .high-contrast li { color: #fff !important; }
+        
+        /* Fondos de color */
+        .high-contrast .bg-gradient-primary, .high-contrast .bg-gradient-success, .high-contrast .bg-info { background: #333 !important; }
+        .high-contrast .bg-light { background-color: #333 !important; }
+        .high-contrast .vision-features, .high-contrast .mision-features { background-color: #333 !important; border-left-color: #fff !important; }
+        
+        /* Iconos */
+        .high-contrast .bi-facebook::before, .high-contrast .bi-instagram::before, .high-contrast .bi-youtube::before, .high-contrast .bi::before { color: #fff !important; }
+
+        /* Elementos Desplegables (Collapse) */
+        .high-contrast .collapse { background-color: #000 !important; }
+        .high-contrast .collapse.show { background-color: #111 !important; }
+        .high-contrast .border-top { border-color: #fff !important; }
+        .high-contrast .list-group-item { border-bottom-color: #fff !important; }
+
+        /* Modales */
+        .high-contrast .modal-content { background-color: #000 !important; border: 1px solid #fff !important; color: #fff !important; }
+        .high-contrast .modal-header { background-color: #333 !important; border-bottom: 1px solid #fff !important; color: #fff !important; }
+        .high-contrast .modal-body { background-color: #000 !important; color: #fff !important; }
+        .high-contrast .modal-footer { background-color: #000 !important; border-top: 1px solid #fff !important; }
+        .high-contrast .btn-close { filter: invert(1) grayscale(100%) brightness(200%); }
+        .high-contrast .modal-title, .high-contrast .modal-body h1, .high-contrast .modal-body h2, .high-contrast .modal-body h3, .high-contrast .modal-body h4, .high-contrast .modal-body h5, .high-contrast .modal-body h6, .high-contrast .modal-body p, .high-contrast .modal-body span, .high-contrast .modal-body div, .high-contrast .modal-body li, .high-contrast .modal-body ul { color: #fff !important; }
+        .high-contrast .modal-backdrop { background-color: rgba(0, 0, 0, 0.9) !important; }
+        
+        /* Badges */
+        .high-contrast .badge { background-color: #fff !important; color: #000 !important; }
+
+        /* =========================================================== */
+        /* == NUEVAS REGLAS PARA FORMULARIOS, TABLAS Y NAVEGACIÓN == */
+        /* =========================================================== */
+
+        /* --- Formularios --- */
+        .high-contrast .form-control { background-color: #333 !important; border: 1px solid #fff !important; color: #fff !important; }
+        .high-contrast .form-control::placeholder { color: #ccc !important; }
+        .high-contrast .form-control:focus { background-color: #444 !important; border-color: #fff !important; color: #fff; box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important; }
+        .high-contrast .form-select { background-color: #333 !important; border: 1px solid #fff !important; color: #fff !important; }
+        .high-contrast .form-select:focus { border-color: #fff !important; box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important; }
+        .high-contrast .form-label { color: #fff !important; }
+        .high-contrast .form-check-input { background-color: #333 !important; border: 1px solid #fff !important; }
+        .high-contrast .form-check-input:checked { background-color: #fff !important; border-color: #fff !important; }
+        .high-contrast .form-check-input:focus { border-color: #fff !important; box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important; }
+        .high-contrast .form-check-label { color: #fff !important; }
+        
+        /* --- Navegación por Pestañas (Tabs) --- */
+        .high-contrast .nav-tabs .nav-link { color: #fff !important; border: 1px solid transparent; border-bottom: none !important; }
+        .high-contrast .nav-tabs .nav-link:hover { color: #ccc !important; border-color: #fff #fff #333 #fff !important; background-color: #333 !important; }
+        .high-contrast .nav-tabs .nav-link.active { color: #fff !important; background-color: #333 !important; border-color: #fff #fff #333 #fff !important; }
+
+        /* --- Tablas --- */
+        .high-contrast .table { --bs-table-bg: #000; --bs-table-striped-bg: #111; --bs-table-hover-bg: #222; color: #fff !important; }
+        .high-contrast .table > :not(caption) > * > * { color: #fff !important; }
+        .high-contrast .table-striped > tbody > tr:nth-of-type(odd) > * { color: #fff !important; }
+        
+        /* Para pantallas pequeñas */
+        @media (max-width: 767.98px) {
+            .external-links { justify-content: center !important; }
+            .btn-orange { font-size: 0.8rem; padding: 6px 10px; }
+            .btn-orange img { height: 25px !important; }
+        }
     </style>
+    
+    <!-- Script para accesibilidad y cabecera fija -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Variables para accesibilidad ---
+            let currentFontSize = 'normal';
+            let highContrastMode = false;
+
+            const decreaseFontBtn = document.getElementById('decrease-font');
+            const increaseFontBtn = document.getElementById('increase-font');
+            const toggleContrastBtn = document.getElementById('toggle-contrast');
+            const body = document.body;
+
+            // --- Variables para cabecera fija ---
+            const header = document.querySelector('.main-header');
+            const mainContent = document.querySelector('.main-content');
+
+            // --- Funciones para accesibilidad ---
+            function updateFontSize() {
+                body.classList.remove('font-size-small', 'font-size-normal', 'font-size-large', 'font-size-xlarge');
+                body.classList.add(`font-size-${currentFontSize}`);
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+
+            function updateContrast() {
+                if (highContrastMode) {
+                    body.classList.add('high-contrast');
+                    document.querySelectorAll('img').forEach(img => {
+                        if (img.classList.contains('no-invert')) return;
+                        if (img.classList.contains('alcalde-photo') || 
+                            img.classList.contains('concejal-photo') ||
+                            img.alt.toLowerCase().includes('alcalde') || 
+                            img.alt.toLowerCase().includes('concejal') ||
+                            img.alt.toLowerCase().includes('persona')) {
+                            img.classList.add('no-invert');
+                        }
+                    });
+                } else {
+                    body.classList.remove('high-contrast');
+                }
+                localStorage.setItem('highContrast', highContrastMode);
+            }
+            
+            // --- NUEVA: Función para ajustar el padding del contenido principal ---
+            function adjustMainContentPadding() {
+                if (header && mainContent) {
+                    const headerHeight = header.offsetHeight;
+                    mainContent.style.paddingTop = `${headerHeight + 20}px`; // 20px de espacio extra
+                }
+            }
+
+            // --- Event Listeners para accesibilidad ---
+            decreaseFontBtn.addEventListener('click', function() {
+                if (currentFontSize === 'xlarge') currentFontSize = 'large';
+                else if (currentFontSize === 'large') currentFontSize = 'normal';
+                else if (currentFontSize === 'normal') currentFontSize = 'small';
+                updateFontSize();
+            });
+
+            increaseFontBtn.addEventListener('click', function() {
+                if (currentFontSize === 'small') currentFontSize = 'normal';
+                else if (currentFontSize === 'normal') currentFontSize = 'large';
+                else if (currentFontSize === 'large') currentFontSize = 'xlarge';
+                updateFontSize();
+            });
+
+            toggleContrastBtn.addEventListener('click', function() {
+                highContrastMode = !highContrastMode;
+                updateContrast();
+            });
+
+            // --- NUEVO: Event Listeners para la cabecera fija ---
+            window.addEventListener('load', adjustMainContentPadding);
+            window.addEventListener('resize', adjustMainContentPadding);
+
+            // --- Cargar preferencias guardadas ---
+            function loadPreferences() {
+                const savedFontSize = localStorage.getItem('fontSize');
+                if (savedFontSize) currentFontSize = savedFontSize;
+                
+                const savedContrast = localStorage.getItem('highContrast');
+                if (savedContrast !== null) highContrastMode = savedContrast === 'true';
+                
+                updateFontSize();
+                updateContrast();
+                // Ajustar el padding después de cargar las preferencias
+                setTimeout(adjustMainContentPadding, 100); 
+            }
+
+            loadPreferences();
+        });
+    </script>
     
     {% block extra_js %}{% endblock %}
 </body>

@@ -7,7 +7,7 @@
     <!-- Header Section -->
     <div class="row mb-5">
         <div class="col-12 text-center">
-            <h1 class="display-4 mb-3">Alcalde Municipal</h1>
+            <h1 class="display-4 mb-4">Alcalde Municipal</h1>
             <p class="lead">Conozca la visión, misión y compromisos de nuestro alcalde</p>
         </div>
     </div>
@@ -30,13 +30,13 @@
                 <div class="card-body text-center p-0">
                     {% if alcalde and alcalde.imagen %}
                     <img src="{{ url_for('static', filename=alcalde.imagen) }}" 
-                         class="card-img-top rounded-0" 
-                         alt="Alcalde de Freire"
+                         class="card-img-top rounded-0 alcalde-photo" 
+                         alt="Foto del Alcalde de Freire"
                          style="height: 350px; object-fit: cover; width: 100%;">
                     {% else %}
                     <img src="{{ url_for('static', filename='images/alcalde/default.jpg') }}" 
-                         class="card-img-top rounded-0" 
-                         alt="Alcalde de Freire"
+                         class="card-img-top rounded-0 alcalde-photo" 
+                         alt="Foto del Alcalde de Freire"
                          style="height: 350px; object-fit: cover; width: 100%;">
                     {% endif %}
                     <div class="p-4">
@@ -299,9 +299,28 @@
     font-size: 1.25rem;
 }
 
-/* Efectos de hover para las cards */
 .card:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Estilos específicos para el modo de alto contraste en la página del alcalde */
+.high-contrast .alcalde-photo {
+    filter: brightness(1.2) contrast(1.2);
+}
+
+.high-contrast .bi-check-circle-fill::before,
+.high-contrast .bi-check-circle::before,
+.high-contrast .bi-star-fill::before,
+.high-contrast .bi-eye::before,
+.high-contrast .bi-bullseye::before,
+.high-contrast .bi-trophy::before,
+.high-contrast .bi-handshake::before,
+.high-contrast .bi-award::before {
+    color: #fff !important;
+}
+
+.high-contrast .text-warning {
+    color: #ffeb3b !important; /* Amarillo brillante para alto contraste */
 }
 </style>
 {% endblock %}

@@ -28,8 +28,8 @@
             <div class="card">
                 <div class="card-body text-center p-0">
                     <img src="{{ url_for('static', filename='images/consejo_municipal.png') }}" 
-                         class="img-fluid rounded" 
-                         alt="Concejo Municipal de Freire 2024-2028"
+                         class="img-fluid rounded concejal-photo" 
+                         alt="Foto completa del Concejo Municipal de Freire 2024-2028"
                          style="max-height: 600px; width: 100%; object-fit: contain;">
                     <div class="p-3 bg-light">
                         <h5 class="mb-2">Concejo Municipal de Freire 2024-2028</h5>
@@ -58,13 +58,13 @@
                 <!-- Imagen del concejal - Verificación de existencia -->
                 {% if concejal.imagen %}
                 <img src="{{ url_for('static', filename=concejal.imagen) }}" 
-                     class="card-img-top" 
-                     alt="{{ concejal.nombre }}"
+                     class="card-img-top concejal-photo" 
+                     alt="Foto del concejal {{ concejal.nombre }}"
                      style="height: 250px; object-fit: cover;">
                 {% else %}
                 <img src="{{ url_for('static', filename='images/concejales/default.jpg') }}" 
-                     class="card-img-top" 
-                     alt="{{ concejal.nombre }}"
+                     class="card-img-top concejal-photo" 
+                     alt="Foto del concejal {{ concejal.nombre }}"
                      style="height: 250px; object-fit: cover;">
                 {% endif %}
                 <div class="card-body">
@@ -101,12 +101,12 @@
                                 <!-- Imagen en modal - Verificación de existencia -->
                                 {% if concejal.imagen %}
                                 <img src="{{ url_for('static', filename=concejal.imagen) }}" 
-                                     class="img-fluid rounded" 
-                                     alt="{{ concejal.nombre }}">
+                                     class="img-fluid rounded concejal-photo" 
+                                     alt="Foto del concejal {{ concejal.nombre }}">
                                 {% else %}
                                 <img src="{{ url_for('static', filename='images/concejales/default.jpg') }}" 
-                                     class="img-fluid rounded" 
-                                     alt="{{ concejal.nombre }}">
+                                     class="img-fluid rounded concejal-photo" 
+                                     alt="Foto del concejal {{ concejal.nombre }}">
                                 {% endif %}
                             </div>
                             <div class="col-md-8">
@@ -182,6 +182,11 @@
     font-size: 0.7em;
     display: inline-block;
     margin-bottom: 0.25rem;
+}
+
+/* Estilos específicos para el modo de alto contraste en la página del concejo */
+.high-contrast .concejal-photo {
+    filter: brightness(1.2) contrast(1.2);
 }
 </style>
 {% endblock %}

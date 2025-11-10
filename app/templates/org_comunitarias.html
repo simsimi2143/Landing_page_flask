@@ -4,6 +4,7 @@
 
 {% block extra_css %}
 <style>
+    /* --- ESTILOS ORIGINALES --- */
     .org-header {
         background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         color: white;
@@ -93,6 +94,49 @@
     .stats-label {
         color: #6c757d;
         font-size: 0.875rem;
+    }
+
+    /* =========================================================== */
+    /* == CORRECCIONES ESPECÍFICAS PARA ALTO CONTRASTE == */
+    /* =========================================================== */
+    .high-contrast .org-header {
+        background: #000 !important; /* Reemplaza el gradiente */
+        color: #fff !important;
+    }
+
+    .high-contrast .info-card,
+    .high-contrast .excel-container,
+    .high-contrast .stats-card {
+        background-color: #111 !important; /* Fondo oscuro en lugar de blanco */
+        border: 1px solid #fff !important; /* Borde blanco */
+        color: #fff !important;
+    }
+
+    .high-contrast .info-card {
+        border-left-color: #fff !important; /* Borde izquierdo blanco */
+    }
+
+    .high-contrast .iframe-wrapper {
+        background-color: #111 !important;
+        border-color: #fff !important;
+    }
+
+    .high-contrast .contact-section {
+        background-color: #111 !important;
+        color: #fff !important;
+    }
+
+    .high-contrast .feature-list li:before {
+        color: #fff !important; /* La marca de verificación blanca */
+    }
+
+    .high-contrast .stats-number {
+        color: #fff !important; /* El número de estadística blanco */
+    }
+    
+    /* Aseguramos que todos los iconos sean blancos */
+    .high-contrast .bi::before {
+        color: #fff !important;
     }
 </style>
 {% endblock %}
