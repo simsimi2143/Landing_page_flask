@@ -252,21 +252,28 @@
         }
 
         /* =========================================================== */
-        /* == NUEVO: ESTILOS PARA LA CABECERA FIJA (STICKY) == */
+        /* == ESTILOS PARA LA CABECERA FIJA (STICKY) SOLO EN ESCRITORIO == */
         /* =========================================================== */
         .main-header {
-            position: fixed; /* <-- ¡CLAVE! Fija la cabecera */
+            position: relative; /* Por defecto, no es fija para móviles */
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1030; /* Asegura que esté por encima del contenido */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil para separación */
-            background-color: #fff; /* Fondo sólido para evitar transparencias */
+            z-index: 1030;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #fff;
         }
         
-        /* El contenido principal necesita un espacio para no quedar tapado */
-        .main-content {
-            padding-top: 20px; /* Un pequeño espacio base */
+        /* Solo en pantallas grandes (escritorio) hacemos la cabecera fija */
+        @media (min-width: 992px) {
+            .main-header {
+                position: fixed; /* <-- ¡CLAVE! Fija la cabecera solo en escritorio */
+            }
+            
+            /* El contenido principal necesita un espacio para no quedar tapado solo en escritorio */
+            .main-content {
+                padding-top: 20px; /* Este padding será ajustado por JS */
+            }
         }
 
         /* Estilos para accesibilidad */
@@ -412,11 +419,17 @@
                 localStorage.setItem('highContrast', highContrastMode);
             }
             
-            // --- NUEVA: Función para ajustar el padding del contenido principal ---
+            // --- NUEVA: Función para ajustar el padding del contenido principal (solo en escritorio) ---
             function adjustMainContentPadding() {
                 if (header && mainContent) {
-                    const headerHeight = header.offsetHeight;
-                    mainContent.style.paddingTop = `${headerHeight + 20}px`; // 20px de espacio extra
+                    // Solo ajustamos el padding si la pantalla es grande (992px o más)
+                    if (window.innerWidth >= 992) {
+                        const headerHeight = header.offsetHeight;
+                        mainContent.style.paddingTop = `${headerHeight + 20}px`;
+                    } else {
+                        // En móviles, reseteamos el padding para que no haya espacio extra
+                        mainContent.style.paddingTop = '20px';
+                    }
                 }
             }
 
