@@ -145,7 +145,7 @@ def telefonos():
         {
             "titulo": "SAPU - EMERGENCIAS LAS: CESFAM FREIRE",
             "numero": "45 288 9257",
-            "icono": "bi-ambulance",
+            "icono": "bi-hospital",
             "color": "danger"
         }
     ]

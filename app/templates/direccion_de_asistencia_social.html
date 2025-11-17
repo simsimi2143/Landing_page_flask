@@ -1,17 +1,45 @@
 <!-- templates/direccion_de_asistencia_social.html -->
-
 {% extends "layout.html" %}
 
 {% block content %}
 <div class="container mt-4">
-    <h1 class="text-center mb-4">Dirección de Asistencia Social - Municipalidad de Freire</h1>
+    <h1 class="text-center mb-4">Dirección de Asistencia Social</h1>
 
-    <!-- Sección 1: Programas Sociales -->
+    <!-- Fila principal con el layout de 5 secciones -->
     <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Foto del funcionario - Columna izquierda superior -->
+        <div class="col-lg-3 col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white text-center">
+                    <h5 class="mb-0">Funcionaria</h5>
+                </div>
+                <div class="card-body d-flex flex-column align-items-center">
+                    <!-- Placeholder para la foto del director -->
+                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mb-3" 
+                         style="width: 150px; height: 150px; overflow: hidden;">
+                        <img src="https://picsum.photos/seed/director-social/150/150.jpg" 
+                             alt="Foto del Director" class="img-fluid">
+                    </div>
+                    
+                    <!-- Información del funcionario -->
+                    <div class="text-center w-100">
+                        <h5 class="mb-1">Trabajadora Social<br>Silvia Bravo</h5>
+                        <p class="text-muted mb-2">Directora de Asistencia Social</p>
+                        
+                        <div class="mt-3">
+                            <p class="mb-1"><strong>Teléfono:</strong><br>+56452889227</p>
+                            <p class="mb-0"><strong>Email:</strong><br>social@munifreire.cl</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 1 - Columna central superior -->
+        <div class="col-lg-4 col-md-4 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">1. Programas Sociales</h2>
+                    <h5 class="h6 mb-0">1. Programas Sociales</h5>
                     <span class="badge bg-light text-primary">Asistencia</span>
                 </div>
                 <div class="card-body p-0">
@@ -126,14 +154,12 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Sección 2: Beneficios y Subsidios -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Sección 2 - Columna derecha superior -->
+        <div class="col-lg-5 col-md-4 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">2. Beneficios y Subsidios</h2>
+                    <h5 class="h6 mb-0">2. Beneficios y Subsidios</h5>
                     <span class="badge bg-light text-success">Apoyos</span>
                 </div>
                 <div class="card-body p-0">
@@ -224,12 +250,13 @@
         </div>
     </div>
 
-    <!-- Sección 3: Organizaciones Comunitarias -->
+    <!-- Fila intermedia con las secciones 3-4 -->
     <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Sección 3 -->
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">3. Organizaciones Comunitarias</h2>
+                    <h5 class="h6 mb-0">3. Organizaciones Comunitarias</h5>
                     <span class="badge bg-light text-danger">Participación</span>
                 </div>
                 <div class="card-body p-0">
@@ -318,14 +345,12 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Sección 4: Emergencias Sociales -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Sección 4 -->
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">4. Emergencias Sociales</h2>
+                    <h5 class="h6 mb-0">4. Emergencias Sociales</h5>
                     <span class="badge bg-light text-info">Urgencias</span>
                 </div>
                 <div class="card-body p-0">
@@ -390,12 +415,13 @@
         </div>
     </div>
 
-    <!-- Sección 5: Documentación y Formularios -->
+    <!-- Fila inferior con la sección 5 -->
     <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Sección 5 -->
+        <div class="col-12 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">📖 5. Documentación y Formularios</h2>
+                    <h5 class="h6 mb-0">📖 5. Documentación y Formularios</h5>
                     <span class="badge bg-light text-secondary">Trámites</span>
                 </div>
                 <div class="card-body p-0">
@@ -477,7 +503,8 @@
 
     <!-- Información de contacto y horarios -->
     <div class="row">
-        <div class="col-md-6 mb-3">
+        <!-- Información de contacto - Columna izquierda inferior -->
+        <div class="col-lg-6 col-md-6 mb-3">
             <div class="card h-100">
                 <div class="card-header bg-success text-white">
                     <h5 class="mb-0">Información de Contacto</h5>
@@ -498,7 +525,8 @@
             </div>
         </div>
         
-        <div class="col-md-6 mb-3">
+        <!-- Horarios de atención - Columna derecha inferior -->
+        <div class="col-lg-6 col-md-6 mb-3">
             <div class="card h-100">
                 <div class="card-header bg-success text-white">
                     <h5 class="mb-0">Horarios de Atención</h5>
@@ -570,7 +598,7 @@
     margin-bottom: 1rem;
 }
 
-/* Asegurar que todas las cards tengan la misma altura en la sección de contacto */
+/* Asegurar que todas las cards tengan la misma altura */
 .h-100 {
     height: 100% !important;
 }
@@ -584,6 +612,18 @@ a {
 a:hover {
     color: #0a58ca;
     text-decoration: underline;
+}
+
+/* Estilos para la foto del funcionario */
+.rounded-circle {
+    border-radius: 50%;
+}
+
+/* Ajustes para responsive */
+@media (max-width: 768px) {
+    .col-md-4 {
+        margin-bottom: 1rem;
+    }
 }
 </style>
 {% endblock %}

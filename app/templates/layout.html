@@ -64,10 +64,10 @@
                                 <button id="toggle-contrast" class="btn btn-sm btn-outline-secondary me-1" title="Cambiar contraste">
                                     <i class="bi bi-circle-half"></i> Contraste
                                 </button>
-                                <!-- NUEVO BOTÓN DE LECTURA POR VOZ -->
+                                <!-- NUEVO BOTÓN DE LECTURA POR VOZ 
                                 <button id="toggle-tts" class="btn btn-sm btn-outline-secondary" title="Leer página en voz alta">
                                     <i class="bi bi-volume-up-fill"></i> Leer
-                                </button>
+                                </button>-->
                             </div>
                         </div>
                     </div>
@@ -80,19 +80,22 @@
                                     target="_blank" rel="noopener noreferrer">
                                     <img src="{{ url_for('static', filename='images/lobby.png') }}" alt="Icono Lobby" class="me-1"
                                         height="35" />
-                                    Plataforma Ley de Lobby
+                                    Plataforma<br> 
+                                    Ley de Lobby
                                 </a>
                                 <a href="https://www.portaltransparencia.cl/PortalPdT/web/guest/directorio-de-organismos-regulados?p_p_id=pdtorganismos_WAR_pdtorganismosportlet&orgcode=6c12f0f8d1b026051d19828a3d5a7068"
                                     class="btn btn-sm btn-orange me-2 mb-2" target="_blank" rel="noopener noreferrer">
                                     <img src="{{ url_for('static', filename='images/transparencia.png') }}"
                                         alt="Icono Transparencia" class="me-1" height="35" />
-                                    Solicitar información Ley de Transparencia
+                                    Solicitar información<br>
+                                    Ley de Transparencia
                                 </a>
                                 <a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados/?org=MU091"
                                     class="btn btn-sm btn-orange mb-2" target="_blank" rel="noopener noreferrer">
                                     <img src="{{ url_for('static', filename='images/transparencia-activa.png') }}"
                                         alt="Icono Transparencia Activa" class="me-1" height="35" />
-                                    Transparencia Activa Ley de Transparencia
+                                    Transparencia Activa<br>
+                                    Ley de Transparencia
                                 </a>
                             </div>
                         </div>
@@ -134,13 +137,13 @@
                                     <li class="dropdown-submenu">
                                         <a class="dropdown-item dropdown-toggle" href="{{url_for('direccion_de_administracion_y_finanzas')}}">Dirección de administración y finanzas</a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="{{ url_for('rentas_patentes') }}">Rentas y Patentes</a></li>
+                                            <li><a class="dropdown-item" href="{{ url_for('rentas_patentes') }}">Unidad Rentas y Patentes</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown-submenu">
                                         <a class="dropdown-item dropdown-toggle" href="{{url_for('direccion_de_obras')}}">Dirección de Obras</a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="{{url_for('transito') }}">Tránsito</a></li>
+                                            <li><a class="dropdown-item" href="{{url_for('transito') }}">Unidad Tránsito</a></li>
                                         </ul>
                                     </li>
                                     <li><a class="dropdown-item" href="{{url_for('direccion_de_control') }}">Dirección de control</a></li>
@@ -180,7 +183,7 @@
 
         <footer class="main-footer">
             <p>
-                &copy; {{ now.year }} Municipalidad de Freire. contruido por infiweb SPA Todos los derechos
+                &copy; {{ now.year }} Municipalidad de Freire. construido por infiweb SPA (J. Pacheco & J. Rivas) Todos los derechos
                 reservados.
             </p>
         </footer>
@@ -255,11 +258,9 @@
             color: white;
         }
 
-        /* =========================================================== */
-        /* == ESTILOS PARA LA CABECERA FIJA (STICKY) SOLO EN ESCRITORIO == */
-        /* =========================================================== */
+        /* Estilos para el header - ya no es fijo */
         .main-header {
-            position: relative; /* Por defecto, no es fija para móviles */
+            position: relative; /* Cambiado de fixed a relative */
             top: 0;
             left: 0;
             width: 100%;
@@ -268,16 +269,9 @@
             background-color: #fff;
         }
         
-        /* Solo en pantallas grandes (escritorio) hacemos la cabecera fija */
-        @media (min-width: 992px) {
-            .main-header {
-                position: fixed; /* <-- ¡CLAVE! Fija la cabecera solo en escritorio */
-            }
-            
-            /* El contenido principal necesita un espacio para no quedar tapado solo en escritorio */
-            .main-content {
-                padding-top: 20px; /* Este padding será ajustado por JS */
-            }
+        /* El contenido principal ya no necesita padding para compensar el header fijo */
+        .main-content {
+            padding-top: 20px;
         }
 
         /* Estilos para accesibilidad */
@@ -381,7 +375,7 @@
         }
     </style>
     
-    <!-- Script para accesibilidad y cabecera fija -->
+    <!-- Script para accesibilidad -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- Variables para accesibilidad ---
@@ -392,10 +386,6 @@
             const increaseFontBtn = document.getElementById('increase-font');
             const toggleContrastBtn = document.getElementById('toggle-contrast');
             const body = document.body;
-
-            // --- Variables para cabecera fija ---
-            const header = document.querySelector('.main-header');
-            const mainContent = document.querySelector('.main-content');
 
             // --- Variables para Text-to-Speech (TTS) ---
             const toggleTtsBtn = document.getElementById('toggle-tts');
@@ -432,20 +422,6 @@
                 localStorage.setItem('highContrast', highContrastMode);
             }
             
-            // --- Función para ajustar el padding del contenido principal (solo en escritorio) ---
-            function adjustMainContentPadding() {
-                if (header && mainContent) {
-                    // Solo ajustamos el padding si la pantalla es grande (992px o más)
-                    if (window.innerWidth >= 992) {
-                        const headerHeight = header.offsetHeight;
-                        mainContent.style.paddingTop = `${headerHeight + 20}px`;
-                    } else {
-                        // En móviles, reseteamos el padding para que no haya espacio extra
-                        mainContent.style.paddingTop = '20px';
-                    }
-                }
-            }
-
             // --- Event Listeners para accesibilidad ---
             decreaseFontBtn.addEventListener('click', function() {
                 if (currentFontSize === 'xlarge') currentFontSize = 'large';
@@ -470,7 +446,7 @@
             toggleTtsBtn.addEventListener('click', function() {
                 if (!isReading) {
                     // Iniciar lectura
-                    const textToRead = mainContent.innerText;
+                    const textToRead = document.querySelector('.main-content').innerText;
                     const utterance = new SpeechSynthesisUtterance(textToRead);
                     
                     utterance.lang = 'es-ES'; // Configurar idioma
@@ -501,10 +477,6 @@
                 }
             });
 
-            // --- Event Listeners para la cabecera fija ---
-            window.addEventListener('load', adjustMainContentPadding);
-            window.addEventListener('resize', adjustMainContentPadding);
-
             // --- Cargar preferencias guardadas ---
             function loadPreferences() {
                 const savedFontSize = localStorage.getItem('fontSize');
@@ -515,8 +487,6 @@
                 
                 updateFontSize();
                 updateContrast();
-                // Ajustar el padding después de cargar las preferencias
-                setTimeout(adjustMainContentPadding, 100); 
             }
 
             loadPreferences();

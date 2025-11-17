@@ -6,12 +6,41 @@
 <div class="container mt-4">
     <h1 class="text-center mb-4">Alcaldía</h1>
 
-    <!-- Sección 1: [Nombre de la Primera Categoría] -->
+    <!-- Fila principal con el layout de 5 secciones -->
     <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">Sección 1: Atribuciones Legales del Alcalde</h2>
+        <!-- Foto del funcionario - Columna izquierda superior -->
+        <div class="col-lg-3 col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white text-center">
+                    <h5 class="mb-0">Funcionario</h5>
+                </div>
+                <div class="card-body d-flex flex-column align-items-center">
+                    <!-- Placeholder para la foto del alcalde -->
+                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mb-3" 
+                         style="width: 150px; height: 150px; overflow: hidden;">
+                        <img src="{{ url_for('static', filename='images/alcalde1.png') }}" 
+                             alt="Foto del Alcalde" class="img-fluid">
+                    </div>
+                    
+                    <!-- Información del funcionario -->
+                    <div class="text-center w-100">
+                        <h5 class="mb-1">Nombre del Alcalde</h5>
+                        <p class="text-muted mb-2">José Colihuil</p>
+                        
+                        <div class="mt-3">
+                            <p class="mb-1"><strong>Teléfono:</strong><br>+56452889001</p>
+                            <p class="mb-0"><strong>Email:</strong><br>alcaldia@munifreire.cl</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 1 - Columna central superior -->
+        <div class="col-lg-4 col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Sección 1: Atribuciones Legales del Alcalde</h5>
                 </div>
                 <div class="card-body p-0">
                     <!-- Elementos del menú desplegable -->
@@ -94,14 +123,12 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Sección 2: [Nombre de la Segunda Categoría] -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">Sección 2: Materias que Requieren Acuerdo del Concejo</h2>
+        <!-- Sección 2 - Columna derecha superior -->
+        <div class="col-lg-5 col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Sección 2: Materias que Requieren Acuerdo del Concejo</h5>
                 </div>
                 <div class="card-body p-0">
                     <!-- Elementos del menú desplegable -->
@@ -170,9 +197,10 @@
         </div>
     </div>
 
-    <!-- Información de contacto y horarios -->
+    <!-- Fila inferior con información de contacto y horarios -->
     <div class="row">
-        <div class="col-md-6 mb-3">
+        <!-- Información de contacto - Columna izquierda inferior -->
+        <div class="col-lg-6 col-md-6 mb-3">
             <div class="card h-100">
                 <div class="card-header bg-success text-white">
                     <h5 class="mb-0">Información de Contacto</h5>
@@ -190,7 +218,8 @@
             </div>
         </div>
         
-        <div class="col-md-6 mb-3">
+        <!-- Horarios de atención - Columna derecha inferior -->
+        <div class="col-lg-6 col-md-6 mb-3">
             <div class="card h-100">
                 <div class="card-header bg-success text-white">
                     <h5 class="mb-0">Horarios de Atención</h5>
@@ -262,7 +291,7 @@
     margin-bottom: 1rem;
 }
 
-/* Asegurar que todas las cards tengan la misma altura en la sección de contacto */
+/* Asegurar que todas las cards tengan la misma altura */
 .h-100 {
     height: 100% !important;
 }
@@ -287,6 +316,18 @@
 
 .high-contrast .list-group-item {
     border-bottom-color: #fff !important;
+}
+
+/* Estilos para la foto del funcionario */
+.rounded-circle {
+    border-radius: 50%;
+}
+
+/* Ajustes para responsive */
+@media (max-width: 768px) {
+    .col-md-4 {
+        margin-bottom: 1rem;
+    }
 }
 </style>
 {% endblock %}

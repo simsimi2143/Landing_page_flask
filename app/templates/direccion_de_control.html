@@ -1,17 +1,45 @@
 <!-- templates/direccion_de_control.html -->
-
 {% extends "layout.html" %}
 
 {% block content %}
 <div class="container mt-4">
-    <h1 class="text-center mb-4">Dirección de Control - Municipalidad de Freire</h1>
+    <h1 class="text-center mb-4">Dirección de Control</h1>
 
-    <!-- Sección 1: Control Financiero y Presupuestario -->
+    <!-- Fila principal con el layout de 5 secciones -->
     <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Foto del funcionario - Columna izquierda superior -->
+        <div class="col-lg-3 col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white text-center">
+                    <h5 class="mb-0">Funcionaria</h5>
+                </div>
+                <div class="card-body d-flex flex-column align-items-center">
+                    <!-- Placeholder para la foto del director -->
+                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mb-3" 
+                         style="width: 150px; height: 150px; overflow: hidden;">
+                        <img src="https://picsum.photos/seed/director-control/150/150.jpg" 
+                             alt="Foto del Director" class="img-fluid">
+                    </div>
+                    
+                    <!-- Información del funcionario -->
+                    <div class="text-center w-100">
+                        <h5 class="mb-1">Abogada / asistente social<br>Alejanda Muñoz Apara</h5>
+                        <p class="text-muted mb-2">Directora de Control</p>
+                        
+                        <div class="mt-3">
+                            <p class="mb-1"><strong>Teléfono:</strong><br>+56452889009</p>
+                            <p class="mb-0"><strong>Email:</strong><br>control@munifreire.cl</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 1 - Columna central superior -->
+        <div class="col-lg-4 col-md-4 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">1. Control Financiero y Presupuestario</h2>
+                    <h5 class="h6 mb-0">1. Control Financiero y Presupuestario</h5>
                     <span class="badge bg-light text-primary">Finanzas</span>
                 </div>
                 <div class="card-body p-0">
@@ -74,14 +102,12 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Sección 2: Control de Personal y Recursos Humanos -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Sección 2 - Columna derecha superior -->
+        <div class="col-lg-5 col-md-4 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">2. Control de Personal y Recursos Humanos</h2>
+                    <h5 class="h6 mb-0">2. Control de Personal y Recursos Humanos</h5>
                     <span class="badge bg-light text-success">Personal</span>
                 </div>
                 <div class="card-body p-0">
@@ -146,12 +172,13 @@
         </div>
     </div>
 
-    <!-- Sección 3: Control de Obras y Urbanismo -->
+    <!-- Fila intermedia con las secciones 3-4 -->
     <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Sección 3 -->
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">3. Control de Obras y Urbanismo</h2>
+                    <h5 class="h6 mb-0">3. Control de Obras y Urbanismo</h5>
                     <span class="badge bg-light text-danger">Urbanismo</span>
                 </div>
                 <div class="card-body p-0">
@@ -214,14 +241,12 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Sección 4: Control de Cumplimiento Normativo -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Sección 4 -->
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">4. Control de Cumplimiento Normativo</h2>
+                    <h5 class="h6 mb-0">4. Control de Cumplimiento Normativo</h5>
                     <span class="badge bg-light text-info">Legal</span>
                 </div>
                 <div class="card-body p-0">
@@ -286,12 +311,13 @@
         </div>
     </div>
 
-    <!-- Sección 5: Auditorías y Transparencia -->
+    <!-- Fila inferior con la sección 5 -->
     <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
+        <!-- Sección 5 -->
+        <div class="col-12 mb-4">
+            <div class="card h-100">
                 <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">📖 5. Auditorías y Transparencia</h2>
+                    <h5 class="h6 mb-0">📖 5. Auditorías y Transparencia</h5>
                     <span class="badge bg-light text-secondary">Rendición de Cuentas</span>
                 </div>
                 <div class="card-body p-0">
@@ -383,7 +409,8 @@
 
     <!-- Información de contacto y horarios -->
     <div class="row">
-        <div class="col-md-6 mb-3">
+        <!-- Información de contacto - Columna izquierda inferior -->
+        <div class="col-lg-6 col-md-6 mb-3">
             <div class="card h-100">
                 <div class="card-header bg-success text-white">
                     <h5 class="mb-0">Información de Contacto</h5>
@@ -405,7 +432,8 @@
             </div>
         </div>
         
-        <div class="col-md-6 mb-3">
+        <!-- Horarios de atención - Columna derecha inferior -->
+        <div class="col-lg-6 col-md-6 mb-3">
             <div class="card h-100">
                 <div class="card-header bg-success text-white">
                     <h5 class="mb-0">Horarios de Atención</h5>
@@ -477,7 +505,7 @@
     margin-bottom: 1rem;
 }
 
-/* Asegurar que todas las cards tengan la misma altura en la sección de contacto */
+/* Asegurar que todas las cards tengan la misma altura */
 .h-100 {
     height: 100% !important;
 }
@@ -491,6 +519,18 @@ a {
 a:hover {
     color: #0a58ca;
     text-decoration: underline;
+}
+
+/* Estilos para la foto del funcionario */
+.rounded-circle {
+    border-radius: 50%;
+}
+
+/* Ajustes para responsive */
+@media (max-width: 768px) {
+    .col-md-4 {
+        margin-bottom: 1rem;
+    }
 }
 </style>
 {% endblock %}
